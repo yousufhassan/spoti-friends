@@ -17,13 +17,13 @@ struct UnauthenticatedHomeView: View {
                         }
                         .font(.system(size: 22, weight: .regular))
                     }
-                    Spacer()
+                    Spacer()  // This is here to push the title and subtitle to the left
                 }
                 .padding()
                 .padding(.top, 30)
                 
-                Spacer()
-                    .frame(height: 320)
+                // For the empty space in the middle of the view
+                Spacer().frame(height: 320)
                 
                 // Sign in button
                 Button (action: {}) {
@@ -35,7 +35,7 @@ struct UnauthenticatedHomeView: View {
                         .cornerRadius(30)
                 }
                 
-                Spacer()
+                Spacer()  // To have some empty space at the bottom
             }
             .padding()
             .background(backgroundGradient)
