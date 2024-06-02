@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FriendActivity: View {
+struct FriendActivityView: View {
     var body: some View {
         Text("Friend Activity Placeholder")
     }
@@ -15,6 +15,6 @@ struct FriendActivity: View {
 
 struct FriendActivity_Previews: PreviewProvider {
     static var previews: some View {
-        FriendActivity()
+        FriendActivityView()
     }
 }
