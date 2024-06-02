@@ -1,6 +1,8 @@
 import Foundation
 import SwiftUI
 
+let backgroundGradient: LinearGradient = LinearGradient(gradient: Color.PresetGradient.mainDarkGradient, startPoint: .top, endPoint: .bottom)
+
 extension Color {
     struct PresetColour {
         static var spotifyGreen: Color { return Color(red: 0.11, green: 0.72, blue: 0.33)}
@@ -13,3 +15,5 @@ extension Color {
         static var mainDarkGradient: Gradient {return  Gradient(colors: [Color(red: 0.12, green: 0.12, blue: 0.12), Color(red: 0.06, green: 0.06, blue: 0.06)])}
     }
 }
+
+

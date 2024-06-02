@@ -38,11 +38,7 @@ struct UnauthenticatedHomeView: View {
                 Spacer()
             }
             .padding()
-            .background(
-                LinearGradient(gradient: Color.PresetGradient.mainDarkGradient,
-                               startPoint: .top,
-                               endPoint: .bottom)
-            )
+            .background(backgroundGradient)
         }
     }
 }

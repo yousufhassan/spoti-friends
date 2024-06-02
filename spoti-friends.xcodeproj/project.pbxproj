@@ -12,6 +12,7 @@
 		CB9A9AAF2C0BB13F0073817C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB9A9AAE2C0BB13F0073817C /* Assets.xcassets */; };
 		CB9A9AB22C0BB13F0073817C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB9A9AB12C0BB13F0073817C /* Preview Assets.xcassets */; };
 		CB9A9ADA2C0BE2EE0073817C /* ColourExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A9AD92C0BE2EE0073817C /* ColourExtension.swift */; };
+		CB9A9ADC2C0BEC080073817C /* FriendActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A9ADB2C0BEC080073817C /* FriendActivity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		CB9A9ABC2C0BB13F0073817C /* spoti-friendsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "spoti-friendsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB9A9AC62C0BB13F0073817C /* spoti-friendsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "spoti-friendsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB9A9AD92C0BE2EE0073817C /* ColourExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourExtension.swift; sourceTree = "<group>"; };
+		CB9A9ADB2C0BEC080073817C /* FriendActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendActivity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,9 +90,7 @@
 		CB9A9AA92C0BB13E0073817C /* spoti-friends */ = {
 			isa = PBXGroup;
 			children = (
-				CB9A9AAA2C0BB13E0073817C /* spotifriendsApp.swift */,
-				CB9A9AAC2C0BB13E0073817C /* UnauthenticatedHomeView.swift */,
-				CB9A9AD92C0BE2EE0073817C /* ColourExtension.swift */,
+				CB9A9ADD2C0BEC170073817C /* src */,
 				CB9A9AAE2C0BB13F0073817C /* Assets.xcassets */,
 				CB9A9AB02C0BB13F0073817C /* Preview Content */,
 			);
@@ -103,6 +103,17 @@
 				CB9A9AB12C0BB13F0073817C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CB9A9ADD2C0BEC170073817C /* src */ = {
+			isa = PBXGroup;
+			children = (
+				CB9A9AAA2C0BB13E0073817C /* spotifriendsApp.swift */,
+				CB9A9AAC2C0BB13E0073817C /* UnauthenticatedHomeView.swift */,
+				CB9A9AD92C0BE2EE0073817C /* ColourExtension.swift */,
+				CB9A9ADB2C0BEC080073817C /* FriendActivity.swift */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB9A9ADC2C0BEC080073817C /* FriendActivity.swift in Sources */,
 				CB9A9AAD2C0BB13E0073817C /* UnauthenticatedHomeView.swift in Sources */,
 				CB9A9AAB2C0BB13E0073817C /* spotifriendsApp.swift in Sources */,
 				CB9A9ADA2C0BE2EE0073817C /* ColourExtension.swift in Sources */,
