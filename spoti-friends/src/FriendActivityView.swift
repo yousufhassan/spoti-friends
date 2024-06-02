@@ -1,10 +1,3 @@
-//
-//  FriendActivity.swift
-//  spoti-friends
-//
-//  Created by Yousuf Hassan on 2024-06-01.
-//
-
 import SwiftUI
 
 struct FriendActivityView: View {
