@@ -7,59 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB8D3C2E2C0D28C000C493E8 /* CodeChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8D3C2D2C0D28C000C493E8 /* CodeChallenge.swift */; };
 		CB9A9AAB2C0BB13E0073817C /* spotifriendsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A9AAA2C0BB13E0073817C /* spotifriendsApp.swift */; };
 		CB9A9AAD2C0BB13E0073817C /* UnauthenticatedHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A9AAC2C0BB13E0073817C /* UnauthenticatedHomeView.swift */; };
 		CB9A9AAF2C0BB13F0073817C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB9A9AAE2C0BB13F0073817C /* Assets.xcassets */; };
 		CB9A9AB22C0BB13F0073817C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB9A9AB12C0BB13F0073817C /* Preview Assets.xcassets */; };
 		CB9A9ADA2C0BE2EE0073817C /* ColourExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A9AD92C0BE2EE0073817C /* ColourExtension.swift */; };
 		CB9A9ADC2C0BEC080073817C /* FriendActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A9ADB2C0BEC080073817C /* FriendActivityView.swift */; };
+		CB9A9AE02C0C22D70073817C /* SpotifyAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A9ADF2C0C22D70073817C /* SpotifyAuth.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		CB9A9ABD2C0BB13F0073817C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CB9A9A9F2C0BB13E0073817C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CB9A9AA62C0BB13E0073817C;
-			remoteInfo = "spoti-friends";
-		};
-		CB9A9AC72C0BB13F0073817C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CB9A9A9F2C0BB13E0073817C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CB9A9AA62C0BB13E0073817C;
-			remoteInfo = "spoti-friends";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		CB8D3C2C2C0D1E5000C493E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		CB8D3C2D2C0D28C000C493E8 /* CodeChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeChallenge.swift; sourceTree = "<group>"; };
 		CB9A9AA72C0BB13E0073817C /* spoti-friends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "spoti-friends.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB9A9AAA2C0BB13E0073817C /* spotifriendsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spotifriendsApp.swift; sourceTree = "<group>"; };
 		CB9A9AAC2C0BB13E0073817C /* UnauthenticatedHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnauthenticatedHomeView.swift; sourceTree = "<group>"; };
 		CB9A9AAE2C0BB13F0073817C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB9A9AB12C0BB13F0073817C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		CB9A9ABC2C0BB13F0073817C /* spoti-friendsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "spoti-friendsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB9A9AC62C0BB13F0073817C /* spoti-friendsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "spoti-friendsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB9A9AD92C0BE2EE0073817C /* ColourExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourExtension.swift; sourceTree = "<group>"; };
 		CB9A9ADB2C0BEC080073817C /* FriendActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendActivityView.swift; sourceTree = "<group>"; };
+		CB9A9ADF2C0C22D70073817C /* SpotifyAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAuth.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		CB9A9AA42C0BB13E0073817C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CB9A9AB92C0BB13F0073817C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CB9A9AC32C0BB13F0073817C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -81,8 +53,6 @@
 			isa = PBXGroup;
 			children = (
 				CB9A9AA72C0BB13E0073817C /* spoti-friends.app */,
-				CB9A9ABC2C0BB13F0073817C /* spoti-friendsTests.xctest */,
-				CB9A9AC62C0BB13F0073817C /* spoti-friendsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,6 +60,7 @@
 		CB9A9AA92C0BB13E0073817C /* spoti-friends */ = {
 			isa = PBXGroup;
 			children = (
+				CB8D3C2C2C0D1E5000C493E8 /* Info.plist */,
 				CB9A9ADD2C0BEC170073817C /* src */,
 				CB9A9AAE2C0BB13F0073817C /* Assets.xcassets */,
 				CB9A9AB02C0BB13F0073817C /* Preview Content */,
@@ -108,12 +79,22 @@
 		CB9A9ADD2C0BEC170073817C /* src */ = {
 			isa = PBXGroup;
 			children = (
+				CB9A9ADE2C0C22620073817C /* auth */,
 				CB9A9AAA2C0BB13E0073817C /* spotifriendsApp.swift */,
-				CB9A9AAC2C0BB13E0073817C /* UnauthenticatedHomeView.swift */,
 				CB9A9AD92C0BE2EE0073817C /* ColourExtension.swift */,
 				CB9A9ADB2C0BEC080073817C /* FriendActivityView.swift */,
 			);
 			path = src;
+			sourceTree = "<group>";
+		};
+		CB9A9ADE2C0C22620073817C /* auth */ = {
+			isa = PBXGroup;
+			children = (
+				CB9A9AAC2C0BB13E0073817C /* UnauthenticatedHomeView.swift */,
+				CB9A9ADF2C0C22D70073817C /* SpotifyAuth.swift */,
+				CB8D3C2D2C0D28C000C493E8 /* CodeChallenge.swift */,
+			);
+			path = auth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,42 +117,6 @@
 			productReference = CB9A9AA72C0BB13E0073817C /* spoti-friends.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CB9A9ABB2C0BB13F0073817C /* spoti-friendsTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CB9A9AD32C0BB13F0073817C /* Build configuration list for PBXNativeTarget "spoti-friendsTests" */;
-			buildPhases = (
-				CB9A9AB82C0BB13F0073817C /* Sources */,
-				CB9A9AB92C0BB13F0073817C /* Frameworks */,
-				CB9A9ABA2C0BB13F0073817C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CB9A9ABE2C0BB13F0073817C /* PBXTargetDependency */,
-			);
-			name = "spoti-friendsTests";
-			productName = "spoti-friendsTests";
-			productReference = CB9A9ABC2C0BB13F0073817C /* spoti-friendsTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		CB9A9AC52C0BB13F0073817C /* spoti-friendsUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CB9A9AD62C0BB13F0073817C /* Build configuration list for PBXNativeTarget "spoti-friendsUITests" */;
-			buildPhases = (
-				CB9A9AC22C0BB13F0073817C /* Sources */,
-				CB9A9AC32C0BB13F0073817C /* Frameworks */,
-				CB9A9AC42C0BB13F0073817C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CB9A9AC82C0BB13F0073817C /* PBXTargetDependency */,
-			);
-			name = "spoti-friendsUITests";
-			productName = "spoti-friendsUITests";
-			productReference = CB9A9AC62C0BB13F0073817C /* spoti-friendsUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -184,14 +129,6 @@
 				TargetAttributes = {
 					CB9A9AA62C0BB13E0073817C = {
 						CreatedOnToolsVersion = 14.3.1;
-					};
-					CB9A9ABB2C0BB13F0073817C = {
-						CreatedOnToolsVersion = 14.3.1;
-						TestTargetID = CB9A9AA62C0BB13E0073817C;
-					};
-					CB9A9AC52C0BB13F0073817C = {
-						CreatedOnToolsVersion = 14.3.1;
-						TestTargetID = CB9A9AA62C0BB13E0073817C;
 					};
 				};
 			};
@@ -209,8 +146,6 @@
 			projectRoot = "";
 			targets = (
 				CB9A9AA62C0BB13E0073817C /* spoti-friends */,
-				CB9A9ABB2C0BB13F0073817C /* spoti-friendsTests */,
-				CB9A9AC52C0BB13F0073817C /* spoti-friendsUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -225,20 +160,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CB9A9ABA2C0BB13F0073817C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CB9A9AC42C0BB13F0073817C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -247,40 +168,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB9A9ADC2C0BEC080073817C /* FriendActivityView.swift in Sources */,
+				CB9A9AE02C0C22D70073817C /* SpotifyAuth.swift in Sources */,
+				CB8D3C2E2C0D28C000C493E8 /* CodeChallenge.swift in Sources */,
 				CB9A9AAD2C0BB13E0073817C /* UnauthenticatedHomeView.swift in Sources */,
 				CB9A9AAB2C0BB13E0073817C /* spotifriendsApp.swift in Sources */,
 				CB9A9ADA2C0BE2EE0073817C /* ColourExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CB9A9AB82C0BB13F0073817C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CB9A9AC22C0BB13F0073817C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		CB9A9ABE2C0BB13F0073817C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CB9A9AA62C0BB13E0073817C /* spoti-friends */;
-			targetProxy = CB9A9ABD2C0BB13F0073817C /* PBXContainerItemProxy */;
-		};
-		CB9A9AC82C0BB13F0073817C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CB9A9AA62C0BB13E0073817C /* spoti-friends */;
-			targetProxy = CB9A9AC72C0BB13F0073817C /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		CB9A9ACE2C0BB13F0073817C /* Debug */ = {
@@ -405,8 +301,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"spoti-friends/Preview Content\"";
+				DEVELOPMENT_TEAM = FD57SWWZ5D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "spoti-friends/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -433,8 +331,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"spoti-friends/Preview Content\"";
+				DEVELOPMENT_TEAM = FD57SWWZ5D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "spoti-friends/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -450,78 +350,6 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		CB9A9AD42C0BB13F0073817C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yousufhassan.spoti-friendsTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/spoti-friends.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/spoti-friends";
-			};
-			name = Debug;
-		};
-		CB9A9AD52C0BB13F0073817C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yousufhassan.spoti-friendsTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/spoti-friends.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/spoti-friends";
-			};
-			name = Release;
-		};
-		CB9A9AD72C0BB13F0073817C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yousufhassan.spoti-friendsUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "spoti-friends";
-			};
-			name = Debug;
-		};
-		CB9A9AD82C0BB13F0073817C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yousufhassan.spoti-friendsUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "spoti-friends";
 			};
 			name = Release;
 		};
@@ -542,24 +370,6 @@
 			buildConfigurations = (
 				CB9A9AD12C0BB13F0073817C /* Debug */,
 				CB9A9AD22C0BB13F0073817C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CB9A9AD32C0BB13F0073817C /* Build configuration list for PBXNativeTarget "spoti-friendsTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CB9A9AD42C0BB13F0073817C /* Debug */,
-				CB9A9AD52C0BB13F0073817C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CB9A9AD62C0BB13F0073817C /* Build configuration list for PBXNativeTarget "spoti-friendsUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CB9A9AD72C0BB13F0073817C /* Debug */,
-				CB9A9AD82C0BB13F0073817C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

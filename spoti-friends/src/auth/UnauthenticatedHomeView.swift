@@ -26,7 +26,10 @@ struct UnauthenticatedHomeView: View {
                 Spacer().frame(height: 320)
                 
                 // Sign in button
-                Button (action: {}) {
+                Button (action: {
+                    let authorizeUrl = SpotifyAuth.shared.getAuthorizationURL()
+                    
+                }) {
                     Text("Sign in with Spotify")
                         .padding()
                         .frame(width: 234)
