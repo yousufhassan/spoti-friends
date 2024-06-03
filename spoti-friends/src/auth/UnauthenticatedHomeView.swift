@@ -26,10 +26,21 @@ struct UnauthenticatedHomeView: View {
                 Spacer().frame(height: 320)
                 
                 // Sign in button
-                Button (action: {
-                    let authorizeUrl = SpotifyAuth.shared.getAuthorizationURL()
+                Button {
+                    Task {
+                        let authorizationUrl = SpotifyAuth.shared.getAuthorizationURL()
+                        if let url = URL(string: (authorizationUrl?.url!.absoluteString)!) {
+                            await UIApplication.shared.open(url)
+                            let components = URLComponents(url: url, resolvingAgainstBaseURL: false)
+                            let queryItems = components?.queryItems
+                            let code = queryItems?.first(where: { $0.name == "code" })?.value
+                            print("Code: \(code ?? "No code found")")
+                            print(url)
+                            
+                        }
+                    }
                     
-                }) {
+                } label: {
                     Text("Sign in with Spotify")
                         .padding()
                         .frame(width: 234)

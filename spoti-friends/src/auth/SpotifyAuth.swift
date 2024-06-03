@@ -4,6 +4,11 @@ import Foundation
 class SpotifyAuth {
     static let shared = SpotifyAuth()
     
+//    func requestUserAuthorization() {
+//        let url = getAuthorizationURL()
+//
+//    }
+    
     func getAuthorizationURL() -> URLRequest? {
         var components = URLComponents()
         components.scheme = "https"
