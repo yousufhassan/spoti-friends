@@ -27,19 +27,12 @@ struct UnauthenticatedHomeView: View {
                 
                 // Sign in button
                 Button {
-                    Task {
-                        let authorizationUrl = SpotifyAuth.shared.getAuthorizationURL()
-                        if let url = URL(string: (authorizationUrl?.url!.absoluteString)!) {
-                            await UIApplication.shared.open(url)
-                            let components = URLComponents(url: url, resolvingAgainstBaseURL: false)
-                            let queryItems = components?.queryItems
-                            let code = queryItems?.first(where: { $0.name == "code" })?.value
-                            print("Code: \(code ?? "No code found")")
-                            print(url)
-                            
-                        }
+                    // Construct and redirect the user to the authorization URL
+                    // The response is handled in spotifriendsApp in the .onOpenURL() handler
+                    let authorizationUrl = SpotifyAuth.shared.constructAuthorizationURL()
+                    if let url = URL(string: (authorizationUrl?.url!.absoluteString)!) {
+                        UIApplication.shared.open(url)
                     }
-                    
                 } label: {
                     Text("Sign in with Spotify")
                         .padding()
@@ -63,3 +56,4 @@ struct ContentView_Previews: PreviewProvider {
         UnauthenticatedHomeView()
     }
 }
+

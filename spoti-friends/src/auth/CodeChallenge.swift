@@ -6,8 +6,8 @@ import CryptoKit
 class CodeChallenge {
     static let shared = CodeChallenge()
     
-    /// This is the function that generates the code challenge for Spotify Authorization.
-    /// It can only be used with the `auth` module
+    /// Generates and returns the code challenge for Spotify Authorization.
+    /// It can only be used with the `auth` module.
     internal func generateCodeChallenge() -> String {
         let codeVerifier = generateRandomStringOfLength(64)
         let hashed = Data(sha256(codeVerifier))
@@ -15,7 +15,7 @@ class CodeChallenge {
         return codeChallenge
     }
     
-    /// Function to generate a random string of a given length
+    /// Generates and returns a random string of a given length.
     private func generateRandomStringOfLength(_ length: Int) -> String {
         let possibleCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
         let possibleCharactersArray = Array(possibleCharacters)
@@ -30,14 +30,14 @@ class CodeChallenge {
         return randomString
     }
     
-    /// Function to perform SHA-256 hashing
+    /// Returns a SHA-256 hashing of the input string.
     private func sha256(_ input: String) -> SHA256Digest {
         let inputData = Data(input.utf8)  // Convert the input string to Data
         let hashed = SHA256.hash(data: inputData)  // Perform SHA-256 hash
         return hashed
     }
     
-    /// Function to Base64 encode data and make it URL-safe
+    /// Returns the input in a Base64 encoded  and URL-safe form.
     private func base64encode(_ input: Data) -> String {
         // Convert the input data to a Base64 encoded string
         let base64Encoded: String = input.base64EncodedString()
