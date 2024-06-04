@@ -12,6 +12,8 @@ class CodeChallenge {
         let codeVerifier = generateRandomStringOfLength(64)
         let hashed = Data(sha256(codeVerifier))
         let codeChallenge = base64encode(hashed)
+        
+        storeInUserDefaults(key: "code_verifier", value: codeVerifier)
         return codeChallenge
     }
     

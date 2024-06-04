@@ -1,5 +1,6 @@
 import Foundation
 
+/// Class representing a User of the application.
 class User {
     var _id: UUID
 //    var spotifyProfile: SpotifyProfile
