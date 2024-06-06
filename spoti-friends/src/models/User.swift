@@ -6,15 +6,16 @@ class User {
 //    var spotifyProfile: SpotifyProfile
 //    var friends: List<SpotifyProfile>
 //    var spDcCookie: String
-//    var webAccessToken: SpotifyWebAccessToken
-    var authorizationCode: String
+    var spotifyWebAccessToken: SpotifyWebAccessToken?
+    var authorizationCode: String?
     
     init() {
         self._id = UUID()
 //        self.spotifyProfile = SpotifyProfile(...)  // dummy function for example
 //        self.friends = self.getFriendList(...)  // dummy function for example
 //        self.spDcCookie = ""
-        self.authorizationCode = ""
+        self.spotifyWebAccessToken = nil
+        self.authorizationCode = nil
     }
     
     // List of methods to implement when the time comes
@@ -27,9 +28,3 @@ class User {
     //    setSpDcAsValid()
     //    setSpDcAsExpired()
 }
-
-
-//struct SpotifyWebAccessToken {
-//    var token: String
-//    var expiresAt: TimeInterval
-//}

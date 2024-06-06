@@ -7,8 +7,10 @@ struct spoti_friendsApp: App {
     var body: some Scene {
         WindowGroup {
             UnauthenticatedHomeView()
-                .onOpenURL { responseUrl in
-                    SpotifyAuth.shared.handleResponseUrl(user: signedInUser, url: responseUrl)
+                .onOpenURL { (responseUrl) -> Void in
+                    Task {
+                        await SpotifyAuth.shared.handleResponseUrl(user: signedInUser, url: responseUrl)
+                    }
                 }
         }
     }

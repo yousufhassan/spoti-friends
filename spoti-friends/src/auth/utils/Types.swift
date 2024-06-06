@@ -2,7 +2,7 @@ import Foundation
 
 
 /// Spotify Access Token Response Object
-struct AccessTokenResponse: Codable {
+struct SpotifyWebAccessToken: Codable {
     /// An access token that can be provided in subsequent calls, for example to Spotify Web API services.
     let access_token: String
     

@@ -24,24 +24,21 @@ class SpotifyAuth {
         return URLRequest(url: url)
     }
     
-    /// TODO
-    func handleResponseUrl(user: User, url: URL) -> Void {
+    /// Handles the response from the Spotify authorization flow depending on whether the user granted authorization or denied authorization.
+    func handleResponseUrl(user: User, url: URL) async -> Void {
         do {
             guard let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false),
                   let queryItems = urlComponents.queryItems
             else { throw URLError(.badURL) }
             
             if (userGrantedAuthorization(queryItems)) {
-                // Handle authorization granted flow
-                
                 // Get authorization code
                 let authorizationCode = try getAuthorizationCodeFromQueryItems(queryItems)
                 user.authorizationCode = authorizationCode
                 
                 // Get access token
-                let _ = requestAccessToken(authorizationCode: authorizationCode)
-                
-                
+                let spotifyWebAccessToken = await requestAccessTokenObject(authorizationCode: authorizationCode)
+                user.spotifyWebAccessToken = spotifyWebAccessToken
             }
             else {
                 // Handle authorization denied flow
@@ -87,43 +84,16 @@ class SpotifyAuth {
         
     }
     
-    /// Requests and returns a Spotify API access token.
-    private func requestAccessToken(authorizationCode: String) -> String? {
+    /// Requests and returns a Spotify Web Access Ttoken object.
+    private func requestAccessTokenObject(authorizationCode: String) async -> SpotifyWebAccessToken? {
         do {
-            // Make request
             let request = try constructAccessTokenUrlRequest(authorizationCode: authorizationCode)
-            let task = URLSession.shared.dataTask(with: request) { data, response, error in
-                // Handle response
-                if let error = error {
-                    printError("\(error)")
-                    return
-                }
-                guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
-                    printError("Invalid HTTP Response from requestAccessToken request")
-                    return
-                }
-                
-                guard let data = data else {
-                    printError("No data received from requestAccessToken request")
-                    return
-                }
-                
-                do {
-                    let jsonResponse = try JSONDecoder().decode(AccessTokenResponse.self, from: data)
-                    
-                    print("Response: \(jsonResponse.access_token)")
-                    return
-                } catch {
-                    print("Error decoding JSON: \(error)")
-                }
-            }
-            
-            task.resume()
-            return ""
-            
+            let (data, _) = try await URLSession.shared.data(for: request)
+            let response = try JSONDecoder().decode(SpotifyWebAccessToken.self, from: data)
+            return response
         } catch {
             printError("\(error)")
-            return ""
+            return nil
         }
         
     }
