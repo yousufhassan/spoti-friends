@@ -1,6 +1,5 @@
 import Foundation
 
-// TODO: Refactor this enum; getting too large.
 /// Constants related to Spotify Authorization
 internal enum AuthorizationConstants {
     static let host = "accounts.spotify.com"
