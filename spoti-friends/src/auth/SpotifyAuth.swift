@@ -10,10 +10,10 @@ class SpotifyAuth {
     func constructAuthorizationUrl() -> URLRequest? {
         var components = URLComponents()
         components.scheme = "https"
-        components.host = AuthConstants.host
-        components.path = AuthConstants.authorizePath
+        components.host = AuthorizationConstants.host
+        components.path = AuthorizationConstants.AuthorizationRequest.authorizePath
         
-        var params = AuthConstants.authorizationRequestParams
+        var params = AuthorizationConstants.authorizationRequestParams
         let codeChallenge = CodeChallenge.shared.generateCodeChallenge()
         params["code_challenge"] = codeChallenge
         components.queryItems = params.map({URLQueryItem(name: $0.key, value: $0.value)})
@@ -75,10 +75,10 @@ class SpotifyAuth {
         // Construct URL Components
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
-        urlComponents.host = AuthConstants.host
-        urlComponents.path = AuthConstants.apiTokenPath
+        urlComponents.host = AuthorizationConstants.host
+        urlComponents.path = AuthorizationConstants.AccessToken.apiTokenPath
         
-        var params = AuthConstants.accessTokenRequestParams
+        var params = AuthorizationConstants.accessTokenRequestParams
         params["code"] = authorizationCode
         urlComponents.queryItems = params.map { URLQueryItem(name: $0.key, value: $0.value) }
         
