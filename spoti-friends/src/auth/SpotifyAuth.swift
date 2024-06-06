@@ -33,10 +33,12 @@ class SpotifyAuth {
             
             if (userGrantedAuthorization(queryItems)) {
                 await handleGrantedAuthorization(user: user, queryItems: queryItems)
+                user.authorizationStatus = .granted
             }
             else {
                 // Handle authorization denied flow
                 print("denied")
+                user.authorizationStatus = .denied
             }
         } catch {
             printError("\(error)")
@@ -65,7 +67,6 @@ class SpotifyAuth {
     /// Parses the `queryItems` and returns the authorization code.
     private func getAuthorizationCodeFromQueryItems(_ queryItems: [URLQueryItem]) throws -> String {
         guard let code = queryItems.first(where: { $0.name == "code" })?.value else { throw AuthorizationError.cannotExtractCode }
-        print(code)
         return code
     }
     
