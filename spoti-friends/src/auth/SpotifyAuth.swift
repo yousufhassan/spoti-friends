@@ -27,18 +27,12 @@ class SpotifyAuth {
     /// Handles the response from the Spotify authorization flow depending on whether the user granted authorization or denied authorization.
     func handleResponseUrl(user: User, url: URL) async -> Void {
         do {
-            guard let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false),
-                  let queryItems = urlComponents.queryItems
+            guard let responseUrlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false),
+                  let queryItems = responseUrlComponents.queryItems
             else { throw URLError(.badURL) }
             
             if (userGrantedAuthorization(queryItems)) {
-                // Get authorization code
-                let authorizationCode = try getAuthorizationCodeFromQueryItems(queryItems)
-                user.authorizationCode = authorizationCode
-                
-                // Get access token
-                let spotifyWebAccessToken = await requestAccessTokenObject(authorizationCode: authorizationCode)
-                user.spotifyWebAccessToken = spotifyWebAccessToken
+                await handleGrantedAuthorization(user: user, queryItems: queryItems)
             }
             else {
                 // Handle authorization denied flow
@@ -52,6 +46,20 @@ class SpotifyAuth {
     /// Returns `true` if user granted authorization to the application and response included the "code" value; `false`, otherwise.
     private func userGrantedAuthorization(_ queryItems: [URLQueryItem]) -> Bool {
         return queryItems.contains(where: {$0.name == "code"})
+    }
+    
+    private func handleGrantedAuthorization(user: User, queryItems: [URLQueryItem]) async -> Void {
+        do {
+            // Get authorization code
+            let authorizationCode = try getAuthorizationCodeFromQueryItems(queryItems)
+            user.authorizationCode = authorizationCode
+            
+            // Get access token
+            let spotifyWebAccessToken = await requestAccessTokenObject(authorizationCode: authorizationCode)
+            user.spotifyWebAccessToken = spotifyWebAccessToken
+        } catch {
+            printError("\(error)")
+        }
     }
     
     /// Parses the `queryItems` and returns the authorization code.
