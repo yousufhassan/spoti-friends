@@ -28,9 +28,8 @@ struct SignInView: View {
             Button {
                 // Construct and redirect the user to the authorization URL
                 // The response is handled in spotifriendsApp in the .onOpenURL() handler
-                let authorizationUrl = SpotifyAuth.shared.constructAuthorizationUrl()
-                if let url = URL(string: (authorizationUrl?.url!.absoluteString)!) {
-                    UIApplication.shared.open(url)
+                if let authorizationUrl = SpotifyAuth.shared.constructAuthorizationUrl() {
+                    UIApplication.shared.open(authorizationUrl)
                 }
             } label: {
                 Text("Sign in with Spotify")

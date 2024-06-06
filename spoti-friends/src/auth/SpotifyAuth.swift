@@ -7,7 +7,7 @@ class SpotifyAuth {
     static let shared = SpotifyAuth()
     
     /// Constructs the authorization URL that is used to get user authorization.
-    func constructAuthorizationUrl() -> URLRequest? {
+    func constructAuthorizationUrl() -> URL? {
         var components = URLComponents()
         components.scheme = "https"
         components.host = AuthorizationConstants.host
@@ -19,9 +19,7 @@ class SpotifyAuth {
         components.queryItems = params.map({URLQueryItem(name: $0.key, value: $0.value)})
         
         guard let url = components.url else { return nil }
-        
-        // TODO: Investigate if I need to cast to a `URLRequest` since it seems to be casted back into URL when it is called in the view.
-        return URLRequest(url: url)
+        return url
     }
     
     /// Handles the response from the Spotify authorization flow depending on whether the user granted authorization or denied authorization.
