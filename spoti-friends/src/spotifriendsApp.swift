@@ -6,7 +6,7 @@ struct spoti_friendsApp: App {
     
     var body: some Scene {
         WindowGroup {
-            UnauthenticatedHomeView()
+            RootView()
                 .environment(signedInUser)
                 .onOpenURL { (responseUrl) -> Void in
                     Task {

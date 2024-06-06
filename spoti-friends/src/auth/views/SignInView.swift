@@ -1,24 +1,6 @@
 import SwiftUI
 
-struct SuccessView: View {
-    var body: some View {
-        Text("Authorization Successful")
-            .font(.largeTitle)
-            .foregroundColor(.green)
-            .padding()
-    }
-}
-
-struct DeniedView: View {
-    var body: some View {
-        Text("Authorization Denied")
-            .font(.largeTitle)
-            .foregroundColor(.red)
-            .padding()
-    }
-}
-
-struct Temp: View {
+struct SignInView: View {
     var body: some View {
         VStack() {
             // Title and subtitle
@@ -66,27 +48,6 @@ struct Temp: View {
     }
 }
 
-
-struct UnauthenticatedHomeView: View {
-    @Environment(User.self) private var user
-    
-    var body: some View {
-        NavigationStack {
-            switch user.authorizationStatus {
-            case .unauthenticated:
-                Temp()
-            case .granted:
-                FriendActivityView()
-            case .denied:
-                DeniedView()
-            }
-        }
-    }
-}
-
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        UnauthenticatedHomeView()
-    }
+#Preview {
+    SignInView()
 }

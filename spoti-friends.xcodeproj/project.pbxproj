@@ -12,9 +12,11 @@
 		CB7C05A92C0EBB25001A0062 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05A82C0EBB25001A0062 /* User.swift */; };
 		CB7C05AD2C0EEEA2001A0062 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05AC2C0EEEA2001A0062 /* Constants.swift */; };
 		CB7C05B02C0EEF7F001A0062 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05AF2C0EEF7E001A0062 /* Types.swift */; };
+		CB7C05B32C1191BA001A0062 /* DeniedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05B22C1191BA001A0062 /* DeniedView.swift */; };
+		CB7C05B52C1191EC001A0062 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05B42C1191EC001A0062 /* SignInView.swift */; };
 		CB8D3C2E2C0D28C000C493E8 /* CodeChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8D3C2D2C0D28C000C493E8 /* CodeChallenge.swift */; };
 		CB9A9AAB2C0BB13E0073817C /* spotifriendsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A9AAA2C0BB13E0073817C /* spotifriendsApp.swift */; };
-		CB9A9AAD2C0BB13E0073817C /* UnauthenticatedHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A9AAC2C0BB13E0073817C /* UnauthenticatedHomeView.swift */; };
+		CB9A9AAD2C0BB13E0073817C /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A9AAC2C0BB13E0073817C /* RootView.swift */; };
 		CB9A9AAF2C0BB13F0073817C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB9A9AAE2C0BB13F0073817C /* Assets.xcassets */; };
 		CB9A9AB22C0BB13F0073817C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB9A9AB12C0BB13F0073817C /* Preview Assets.xcassets */; };
 		CB9A9ADA2C0BE2EE0073817C /* ColourExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A9AD92C0BE2EE0073817C /* ColourExtension.swift */; };
@@ -28,11 +30,13 @@
 		CB7C05A82C0EBB25001A0062 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CB7C05AC2C0EEEA2001A0062 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CB7C05AF2C0EEF7E001A0062 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		CB7C05B22C1191BA001A0062 /* DeniedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeniedView.swift; sourceTree = "<group>"; };
+		CB7C05B42C1191EC001A0062 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		CB8D3C2C2C0D1E5000C493E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CB8D3C2D2C0D28C000C493E8 /* CodeChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeChallenge.swift; sourceTree = "<group>"; };
 		CB9A9AA72C0BB13E0073817C /* spoti-friends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "spoti-friends.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB9A9AAA2C0BB13E0073817C /* spotifriendsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spotifriendsApp.swift; sourceTree = "<group>"; };
-		CB9A9AAC2C0BB13E0073817C /* UnauthenticatedHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnauthenticatedHomeView.swift; sourceTree = "<group>"; };
+		CB9A9AAC2C0BB13E0073817C /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		CB9A9AAE2C0BB13F0073817C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB9A9AB12C0BB13F0073817C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CB9A9AD92C0BE2EE0073817C /* ColourExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourExtension.swift; sourceTree = "<group>"; };
@@ -86,6 +90,15 @@
 			path = utils;
 			sourceTree = "<group>";
 		};
+		CB7C05B12C1191A7001A0062 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				CB7C05B22C1191BA001A0062 /* DeniedView.swift */,
+				CB7C05B42C1191EC001A0062 /* SignInView.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
 		CB9A9A9E2C0BB13E0073817C = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +137,7 @@
 		CB9A9ADD2C0BEC170073817C /* src */ = {
 			isa = PBXGroup;
 			children = (
+				CB9A9AAC2C0BB13E0073817C /* RootView.swift */,
 				CB7C05A72C0EBB18001A0062 /* models */,
 				CB7C05A62C0EB8F0001A0062 /* friendActivity */,
 				CB7C05A52C0EB8A2001A0062 /* utils */,
@@ -136,8 +150,8 @@
 		CB9A9ADE2C0C22620073817C /* auth */ = {
 			isa = PBXGroup;
 			children = (
+				CB7C05B12C1191A7001A0062 /* views */,
 				CB7C05AE2C0EEF2D001A0062 /* utils */,
-				CB9A9AAC2C0BB13E0073817C /* UnauthenticatedHomeView.swift */,
 				CB9A9ADF2C0C22D70073817C /* SpotifyAuth.swift */,
 				CB8D3C2D2C0D28C000C493E8 /* CodeChallenge.swift */,
 			);
@@ -217,8 +231,10 @@
 				CB9A9ADC2C0BEC080073817C /* FriendActivityView.swift in Sources */,
 				CB9A9AE02C0C22D70073817C /* SpotifyAuth.swift in Sources */,
 				CB8D3C2E2C0D28C000C493E8 /* CodeChallenge.swift in Sources */,
+				CB7C05B52C1191EC001A0062 /* SignInView.swift in Sources */,
+				CB7C05B32C1191BA001A0062 /* DeniedView.swift in Sources */,
 				CB7C05AD2C0EEEA2001A0062 /* Constants.swift in Sources */,
-				CB9A9AAD2C0BB13E0073817C /* UnauthenticatedHomeView.swift in Sources */,
+				CB9A9AAD2C0BB13E0073817C /* RootView.swift in Sources */,
 				CB9A9AAB2C0BB13E0073817C /* spotifriendsApp.swift in Sources */,
 				CB7C05A92C0EBB25001A0062 /* User.swift in Sources */,
 				CB7C05A22C0EAB3B001A0062 /* AuthErrors.swift in Sources */,
