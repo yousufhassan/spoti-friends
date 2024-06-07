@@ -1,20 +1,21 @@
 import Foundation
+import RealmSwift
 
 
 /// Spotify Access Token Response Object
-struct SpotifyWebAccessToken: Codable {
+class SpotifyWebAccessToken: Object, Codable {
     /// An access token that can be provided in subsequent calls, for example to Spotify Web API services.
-    let access_token: String
+    @Persisted var access_token: String
     
     /// How the access token may be used: always "Bearer".
-    let token_type: String
+    @Persisted var token_type: String
     
     /// A space-separated list of scopes which have been granted for this access_token
-    let scope: String
+    @Persisted var scope: String
     
     /// The time period (in seconds) for which the access token is valid.
-    let expires_in: Int
+    @Persisted var expires_in: Int
     
     /// The refresh token to be used to obtain new access tokens.
-    let refresh_token: String
+    @Persisted var refresh_token: String
 }

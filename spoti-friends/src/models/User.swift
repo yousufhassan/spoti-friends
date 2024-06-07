@@ -1,17 +1,21 @@
 import Foundation
+import RealmSwift
 
 /// Class representing a User of the application.
-@Observable
-class User {
-    var _id: UUID
+
+// Commenting out because it turns properties into computed properties which cannot be marked with @Persisted
+//@Observable
+class User: Object {
+    @Persisted(primaryKey: true) var _id: UUID
 //    var spotifyProfile: SpotifyProfile
 //    var friends: List<SpotifyProfile>
 //    var spDcCookie: String
-    var spotifyWebAccessToken: SpotifyWebAccessToken?
-    var authorizationCode: String?
-    var authorizationStatus: AuthorizationStatus
+    @Persisted var spotifyWebAccessToken: SpotifyWebAccessToken?
+    @Persisted var authorizationCode: String?
+    @Persisted var authorizationStatus: AuthorizationStatus
     
-    init() {
+    override init() {
+        super.init()
         self._id = UUID()
 //        self.spotifyProfile = SpotifyProfile(...)  // dummy function for example
 //        self.friends = self.getFriendList(...)  // dummy function for example
@@ -40,7 +44,7 @@ class User {
 /// `granted` when the user has granted authorization and can use the application normally.
 ///
 /// `denied` when the user has denied authorization and will not be able to use the application.
-enum AuthorizationStatus {
+enum AuthorizationStatus: String, PersistableEnum {
     /// The user has not granted nor denied authorization and will need to make a choice.
     case unauthenticated
     /// The user has granted authorization and can use the application normally.
