@@ -29,9 +29,7 @@ struct SignInButton: View {
         }
         .onChange(of: responseUrl) {
             if let url = responseUrl {
-                Task {
-                    await SpotifyAuth.shared.handleResponseUrl(user: userViewModel.user, url: url)
-                }
+                userViewModel.handleRedirectBackToApp(url)
             }
         }
     }
