@@ -32,13 +32,7 @@ class UserViewModel: ObservableObject {
         //        }
     }
     
-    /// Redirects user to Spotify for authorization.
-    public func requestUserAuthorization() -> Void {
-        if let authorizationUrl = SpotifyAuth.shared.constructAuthorizationUrl() {
-            UIApplication.shared.open(authorizationUrl)
-        }
-    }
-    
+    /// Returns the Spotify user authorization URL
     public func getUserAuthorizationUrl() -> URL {
         return SpotifyAuth.shared.constructAuthorizationUrl()!
     }

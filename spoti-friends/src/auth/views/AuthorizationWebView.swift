@@ -1,27 +1,32 @@
 import SwiftUI
 import WebKit
 
+/// A SwiftUI view that wraps a WKWebView to handle Spotify authorization.
 struct AuthorizationWebView: UIViewRepresentable {
     let url: URL
     @Binding var showWebView: Bool
     @Binding var responseUrl: URL?
     @State private var cookies = [HTTPCookie]()
     
+    /// Creates a coordinator to act as the navigation delegate.
     func makeCoordinator() -> Coordinator {
         return Coordinator(self)
     }
     
+    /// Creates the WKWebView instance.
     func makeUIView(context: Context) -> WKWebView {
         let webView = WKWebView()
         webView.navigationDelegate = context.coordinator
         return webView
     }
     
+    /// Updates the WKWebView with the provided URL.
     func updateUIView(_ webView: WKWebView, context: Context) {
         let request = URLRequest(url: url)
         webView.load(request)
     }
     
+    /// Coordinator class to handle navigation actions and fetch cookies.
     class Coordinator: NSObject, WKNavigationDelegate {
         var parent: AuthorizationWebView
         
@@ -29,13 +34,15 @@ struct AuthorizationWebView: UIViewRepresentable {
             self.parent = parent
         }
         
+        /// Decides how to handle navigation actions.
         func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-            if let url = navigationAction.request.url, url.scheme == "spoti-friends" {
+            let appUrlScheme: String = "spoti-friends"
+            if let url = navigationAction.request.url, url.scheme == appUrlScheme {
                 // Handle the redirect URL
                 parent.responseUrl = url
                 parent.showWebView = false
                 
-                // Fetch cookies
+                // Fetch cookies from the web view
                 webView.configuration.websiteDataStore.httpCookieStore.fetchAllCookies { cookies in
                     self.parent.cookies = cookies
                     print(cookies)
@@ -50,6 +57,7 @@ struct AuthorizationWebView: UIViewRepresentable {
 }
 
 extension WKHTTPCookieStore {
+    /// Fetches all cookies from the cookie store.
     func fetchAllCookies(completion: @escaping ([HTTPCookie]) -> Void) {
         var cookies = [HTTPCookie]()
         self.getAllCookies { fetchedCookies in
@@ -60,36 +68,6 @@ extension WKHTTPCookieStore {
 }
 
 
-
-
-//struct AuthorizationWebView: UIViewRepresentable {
-//    let url: URL
-//
-//    func makeUIView(context: Context) -> WKWebView {
-//        return WKWebView()
-//    }
-//
-//    func updateUIView(_ webView: WKWebView, context: Context) {
-//        let request = URLRequest(url: url)
-//        webView.load(request)
-//    }
-//
-//    public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Swift.Void) {
-//            print("into new method")
-//            if(navigationAction.navigationType == .other) {
-//                if let redirectedUrl = navigationAction.request.url {
-//                    print("Into IF statement")
-//                    print(redirectedUrl)
-//                    //do what you need with url
-//                    //self.delegate?.openURL(url: redirectedUrl)
-//                }
-//                decisionHandler(.cancel)
-//                return
-//            }
-//            decisionHandler(.allow)
-//        }
-//}
-
 //#Preview {
-//    AuthorizationWebView()
+//    AuthorizationWebView(url: spotifyAuthUrl, showWebView: true, responseUrl: "")
 //}

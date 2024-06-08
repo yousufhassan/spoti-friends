@@ -2,9 +2,6 @@ import Foundation
 import RealmSwift
 
 /// Class representing a User of the application.
-
-// Commenting out because it turns properties into computed properties which cannot be marked with @Persisted
-//@Observable
 class User: Object {
     @Persisted(primaryKey: true) var _id: UUID
 //    var spotifyProfile: SpotifyProfile
