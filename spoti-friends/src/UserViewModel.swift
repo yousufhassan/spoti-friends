@@ -7,7 +7,13 @@ class UserViewModel: ObservableObject {
     
     init() {
         self.user = User()
-        print("Created user in VM!")
+        DispatchQueue.main.async {
+            let realm = try! Realm()
+            try! realm.write {
+                realm.add(self.user)
+            }
+            print("Created user in VM!")
+        }
         //        let realm = try! Realm()
         //        if let existingUser = realm.objects(User.self).first {
         //            self.user = existingUser

@@ -1,5 +1,6 @@
 import Foundation
 import CryptoKit
+import RealmSwift
 
 /// Class that handles the Spotify Authorization Singleton.
 class SpotifyAuth {
@@ -31,12 +32,23 @@ class SpotifyAuth {
             
             if (userGrantedAuthorization(queryItems)) {
                 await handleGrantedAuthorization(user: user, queryItems: queryItems)
-                user.authorizationStatus = .granted
+                DispatchQueue.main.async {
+                    let realm = try! Realm()
+                    try! realm.write {
+                        user.authorizationStatus = .granted
+                    }
+                }
+                print("Granted")
             }
             else {
                 // Handle authorization denied flow
+                DispatchQueue.main.async {
+                    let realm = try! Realm()
+                    try! realm.write {
+                        user.authorizationStatus = .denied
+                    }
+                }
                 print("denied")
-                user.authorizationStatus = .denied
             }
         } catch {
             printError("\(error)")
@@ -52,11 +64,19 @@ class SpotifyAuth {
         do {
             // Get authorization code
             let authorizationCode = try getAuthorizationCodeFromQueryItems(queryItems)
-            user.authorizationCode = authorizationCode
             
             // Get access token
             let spotifyWebAccessToken = await requestAccessTokenObject(authorizationCode: authorizationCode)
-            user.spotifyWebAccessToken = spotifyWebAccessToken
+            
+            // Update user object in realm
+            DispatchQueue.main.async {
+                let realm = try! Realm()
+                try! realm.write {
+                    print("Got here")
+                    user.authorizationCode = authorizationCode
+                    user.spotifyWebAccessToken = spotifyWebAccessToken
+                }
+            }
         } catch {
             printError("\(error)")
         }
