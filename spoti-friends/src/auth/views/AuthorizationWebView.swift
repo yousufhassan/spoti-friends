@@ -4,9 +4,10 @@ import WebKit
 /// A SwiftUI view that wraps a WKWebView to handle Spotify authorization.
 struct AuthorizationWebView: UIViewRepresentable {
     let url: URL
+    @EnvironmentObject var userViewModel: UserViewModel
     @Binding var showWebView: Bool
     @Binding var responseUrl: URL?
-    @State private var cookies = [HTTPCookie]()
+    @State private var spDcCookie: HTTPCookie?
     
     /// Creates a coordinator to act as the navigation delegate.
     func makeCoordinator() -> Coordinator {
@@ -42,10 +43,15 @@ struct AuthorizationWebView: UIViewRepresentable {
                 parent.responseUrl = url
                 parent.showWebView = false
                 
-                // Fetch cookies from the web view
-                webView.configuration.websiteDataStore.httpCookieStore.fetchAllCookies { cookies in
-                    self.parent.cookies = cookies
-                    print(cookies)
+                // Fetch sp_dc cookie from the web view
+                let cookieName: String = "sp_dc"
+                webView.configuration.websiteDataStore.httpCookieStore.fetchCookie(named: cookieName) { cookie in
+                    self.parent.spDcCookie = cookie
+                    if let cookie = cookie {
+                        self.parent.userViewModel.storeSpDcCookie(cookie)
+                    } else {
+                        printError("'sp_dc' cookie not found")
+                    }
                 }
                 
                 decisionHandler(.cancel)
@@ -57,12 +63,11 @@ struct AuthorizationWebView: UIViewRepresentable {
 }
 
 extension WKHTTPCookieStore {
-    /// Fetches all cookies from the cookie store.
-    func fetchAllCookies(completion: @escaping ([HTTPCookie]) -> Void) {
-        var cookies = [HTTPCookie]()
-        self.getAllCookies { fetchedCookies in
-            cookies.append(contentsOf: fetchedCookies)
-            completion(cookies)
+    /// Fetches cookie with the following `name`.
+    func fetchCookie(named name: String, completion: @escaping (HTTPCookie?) -> Void) {
+        self.getAllCookies { cookies in
+            let specificCookie = cookies.first { $0.name == name }
+            completion(specificCookie)
         }
     }
 }

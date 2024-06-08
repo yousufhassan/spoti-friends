@@ -38,7 +38,6 @@ class SpotifyAuth {
                         user.authorizationStatus = .granted
                     }
                 }
-                print("Granted")
             }
             else {
                 // Handle authorization denied flow
@@ -48,7 +47,6 @@ class SpotifyAuth {
                         user.authorizationStatus = .denied
                     }
                 }
-                print("denied")
             }
         } catch {
             printError("\(error)")
@@ -72,7 +70,6 @@ class SpotifyAuth {
             DispatchQueue.main.async {
                 let realm = try! Realm()
                 try! realm.write {
-                    print("Got here")
                     user.authorizationCode = authorizationCode
                     user.spotifyWebAccessToken = spotifyWebAccessToken
                 }

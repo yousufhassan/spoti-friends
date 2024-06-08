@@ -6,7 +6,7 @@ class User: Object {
     @Persisted(primaryKey: true) var _id: UUID
 //    var spotifyProfile: SpotifyProfile
 //    var friends: List<SpotifyProfile>
-//    var spDcCookie: String
+    @Persisted var spDcCookie: SpDcCookie?
     @Persisted var spotifyWebAccessToken: SpotifyWebAccessToken?
     @Persisted var authorizationCode: String?
     @Persisted var authorizationStatus: AuthorizationStatus
@@ -16,10 +16,18 @@ class User: Object {
         self._id = UUID()
 //        self.spotifyProfile = SpotifyProfile(...)  // dummy function for example
 //        self.friends = self.getFriendList(...)  // dummy function for example
-//        self.spDcCookie = ""
+        self.spDcCookie = nil
         self.spotifyWebAccessToken = nil
         self.authorizationCode = nil
         self.authorizationStatus = .unauthenticated
+    }
+    
+    /// Sets the spDcCookie.
+    public func setSpDcCookie(_ cookie: SpDcCookie) {
+        let realm = try! Realm()
+        try! realm.write {
+            self.spDcCookie = cookie
+        }
     }
     
     // List of methods to implement when the time comes
