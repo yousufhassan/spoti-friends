@@ -2,12 +2,11 @@ import SwiftUI
 
 
 struct RootView: View {
-    /// The signed in user.
-    @Environment(User.self) private var user
+    @EnvironmentObject private var userViewModel: UserViewModel
     
     var body: some View {
         NavigationStack {
-            switch user.authorizationStatus {
+            switch userViewModel.user.authorizationStatus {
             case .unauthenticated:
                 SignInView()
             case .granted:

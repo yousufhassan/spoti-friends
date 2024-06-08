@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct SignInView: View {
+    @EnvironmentObject private var userViewModel: UserViewModel
+    
     var body: some View {
         VStack() {
             // Title and subtitle
@@ -26,11 +28,8 @@ struct SignInView: View {
             
             // Sign in button
             Button {
-                // Construct and redirect the user to the authorization URL
                 // The response is handled in spotifriendsApp in the .onOpenURL() handler
-                if let authorizationUrl = SpotifyAuth.shared.constructAuthorizationUrl() {
-                    UIApplication.shared.open(authorizationUrl)
-                }
+                userViewModel.requestUserAuthorization()
             } label: {
                 Text("Sign in with Spotify")
                     .padding()
