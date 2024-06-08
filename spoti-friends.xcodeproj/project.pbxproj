@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CB0854B82C1404710088E87D /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0854B72C1404710088E87D /* UserViewModel.swift */; };
 		CB0854BA2C140EBE0088E87D /* RealmDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0854B92C140EBE0088E87D /* RealmDatabase.swift */; };
+		CB0854BC2C14D58E0088E87D /* AuthorizationWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0854BB2C14D58E0088E87D /* AuthorizationWebView.swift */; };
 		CB7C05A22C0EAB3B001A0062 /* AuthErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05A12C0EAB3B001A0062 /* AuthErrors.swift */; };
 		CB7C05A42C0EB4DB001A0062 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05A32C0EB4DB001A0062 /* Utils.swift */; };
 		CB7C05A92C0EBB25001A0062 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05A82C0EBB25001A0062 /* User.swift */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		CB0854B72C1404710088E87D /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		CB0854B92C140EBE0088E87D /* RealmDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDatabase.swift; sourceTree = "<group>"; };
+		CB0854BB2C14D58E0088E87D /* AuthorizationWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationWebView.swift; sourceTree = "<group>"; };
 		CB7C05A12C0EAB3B001A0062 /* AuthErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthErrors.swift; sourceTree = "<group>"; };
 		CB7C05A32C0EB4DB001A0062 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		CB7C05A82C0EBB25001A0062 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			children = (
 				CB7C05B22C1191BA001A0062 /* DeniedView.swift */,
 				CB7C05B42C1191EC001A0062 /* SignInView.swift */,
+				CB0854BB2C14D58E0088E87D /* AuthorizationWebView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				CB9A9ADA2C0BE2EE0073817C /* ColourExtension.swift in Sources */,
 				CB7C05B02C0EEF7F001A0062 /* Types.swift in Sources */,
 				CB7C05A42C0EB4DB001A0062 /* Utils.swift in Sources */,
+				CB0854BC2C14D58E0088E87D /* AuthorizationWebView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -38,4 +38,8 @@ class UserViewModel: ObservableObject {
             UIApplication.shared.open(authorizationUrl)
         }
     }
+    
+    public func getUserAuthorizationUrl() -> URL {
+        return SpotifyAuth.shared.constructAuthorizationUrl()!
+    }
 }

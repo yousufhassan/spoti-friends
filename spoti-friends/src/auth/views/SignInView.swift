@@ -2,6 +2,8 @@ import SwiftUI
 
 struct SignInView: View {
     @EnvironmentObject private var userViewModel: UserViewModel
+    @State private var showWebView = false
+    @State private var responseUrl: URL?
     
     var body: some View {
         VStack() {
@@ -27,17 +29,44 @@ struct SignInView: View {
             Spacer().frame(height: 320)
             
             // Sign in button
-            Button {
-                // The response is handled in spotifriendsApp in the .onOpenURL() handler
-                userViewModel.requestUserAuthorization()
-            } label: {
-                Text("Sign in with Spotify")
-                    .padding()
-                    .frame(width: 234)
-                    .background(Color.PresetColour.spotifyGreen)
-                    .foregroundColor(Color.PresetColour.white)
-                    .cornerRadius(30)
+            Button("Sign in with Spotify") {
+                showWebView = true
+                
             }
+            .padding()
+            .frame(width: 234)
+            .background(Color.PresetColour.spotifyGreen)
+            .foregroundColor(Color.PresetColour.white)
+            .cornerRadius(30)
+            .sheet(isPresented: $showWebView) {
+                NavigationStack {
+                    // 3
+                    let userAuthorizationUrl = userViewModel.getUserAuthorizationUrl()
+                    AuthorizationWebView(url: userAuthorizationUrl, showWebView: $showWebView, responseUrl: $responseUrl)
+                        .ignoresSafeArea()
+                        .navigationTitle("Authorization")
+                        .foregroundColor(Color.PresetColour.white)
+                        .navigationBarTitleDisplayMode(.inline)
+                }
+            }
+            .onChange(of: responseUrl) { newValue in
+                        if let url = newValue {
+                            Task {
+                                await SpotifyAuth.shared.handleResponseUrl(user: userViewModel.user, url: url)
+                            }
+                        }
+                    }
+            //            Button {
+            //                // The response is handled in spotifriendsApp in the .onOpenURL() handler
+            //                userViewModel.requestUserAuthorization()
+            //            } label: {
+            //                Text("Sign in with Spotify")
+            //                    .padding()
+            //                    .frame(width: 234)
+            //                    .background(Color.PresetColour.spotifyGreen)
+            //                    .foregroundColor(Color.PresetColour.white)
+            //                    .cornerRadius(30)
+            //            }
             
             Spacer()  // To have some empty space at the bottom
         }
