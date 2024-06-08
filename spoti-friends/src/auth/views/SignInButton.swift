@@ -27,8 +27,8 @@ struct SignInButton: View {
                 .ignoresSafeArea()
             }
         }
-        .onChange(of: responseUrl) { newValue in
-            if let url = newValue {
+        .onChange(of: responseUrl) {
+            if let url = responseUrl {
                 Task {
                     await SpotifyAuth.shared.handleResponseUrl(user: userViewModel.user, url: url)
                 }
