@@ -56,6 +56,8 @@ class SpotifyAuth {
             user.setAuthorizationCode(authorizationCode)
             user.setSpotifyWebAccessToken(spotifyWebAccessToken!)
             user.setAuthorizationStatusAs(.granted)
+            let response = try! await SpotifyAPI.shared.getCurrentUsersProfile(accessToken: user.spotifyWebAccessToken!.access_token)
+            print(response)
             RealmDatabase.shared.addToRealm(object: user);
         } catch {
             printError("\(error)")
