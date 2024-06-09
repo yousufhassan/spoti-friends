@@ -91,7 +91,7 @@
 		CB0854C02C14F5250088E87D /* common */ = {
 			isa = PBXGroup;
 			children = (
-				CB0854BF2C14F5030088E87D /* viewModels */,
+				CB0854C42C155C510088E87D /* views */,
 				CB7C05A72C0EBB18001A0062 /* models */,
 				CB7C05A52C0EB8A2001A0062 /* utils */,
 			);
@@ -104,6 +104,14 @@
 				CB0854C22C15583A0088E87D /* RealmDatabase.swift */,
 			);
 			path = realm;
+			sourceTree = "<group>";
+		};
+		CB0854C42C155C510088E87D /* views */ = {
+			isa = PBXGroup;
+			children = (
+				CB9A9AAC2C0BB13E0073817C /* RootView.swift */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 		CB7C05A52C0EB8A2001A0062 /* utils */ = {
@@ -192,7 +200,6 @@
 			children = (
 				CB0854C12C1558260088E87D /* realm */,
 				CB0854C02C14F5250088E87D /* common */,
-				CB9A9AAC2C0BB13E0073817C /* RootView.swift */,
 				CB7C05A62C0EB8F0001A0062 /* friendActivity */,
 				CB9A9ADE2C0C22620073817C /* auth */,
 				CB9A9AAA2C0BB13E0073817C /* spotifriendsApp.swift */,
@@ -203,6 +210,7 @@
 		CB9A9ADE2C0C22620073817C /* auth */ = {
 			isa = PBXGroup;
 			children = (
+				CB0854BF2C14F5030088E87D /* viewModels */,
 				CB7C05B12C1191A7001A0062 /* views */,
 				CB7C05AE2C0EEF2D001A0062 /* utils */,
 				CB9A9ADF2C0C22D70073817C /* SpotifyAuth.swift */,

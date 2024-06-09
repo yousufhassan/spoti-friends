@@ -31,25 +31,7 @@ class SpotifyAuth {
             else { throw URLError(.badURL) }
             
             if (userGrantedAuthorization(queryItems)) {
-                DispatchQueue.main.async {
-                    let config = Realm.Configuration(
-                        schemaVersion: 4)
-                    // Use this configuration when opening realms
-                    Realm.Configuration.defaultConfiguration = config
-                    
-                    let realm = try! Realm()
-                    print(realm.configuration.fileURL!.path())
-                    try! realm.write {
-                        realm.add(user)
-                    }
-                }
                 await handleGrantedAuthorization(user: user, queryItems: queryItems)
-                DispatchQueue.main.async {
-                    let realm = try! Realm()
-                    try! realm.write {
-                        user.authorizationStatus = .granted
-                    }
-                }
             }
             else {
                 // Handle authorization denied flow
@@ -66,22 +48,15 @@ class SpotifyAuth {
         return queryItems.contains(where: {$0.name == "code"})
     }
     
+    /// Creates user object and adds it to the Realm.
     private func handleGrantedAuthorization(user: User, queryItems: [URLQueryItem]) async -> Void {
         do {
-            // Get authorization code
             let authorizationCode = try getAuthorizationCodeFromQueryItems(queryItems)
-            
-            // Get access token
             let spotifyWebAccessToken = await requestAccessTokenObject(authorizationCode: authorizationCode)
-            
-            // Update user object in realm
-            DispatchQueue.main.async {
-                let realm = try! Realm()
-                try! realm.write {
-                    user.authorizationCode = authorizationCode
-                    user.spotifyWebAccessToken = spotifyWebAccessToken
-                }
-            }
+            user.setAuthorizationCode(authorizationCode)
+            user.setSpotifyWebAccessToken(spotifyWebAccessToken!)
+            user.setAuthorizationStatusAs(.granted)
+            RealmDatabase.shared.addToRealm(object: user);
         } catch {
             printError("\(error)")
         }

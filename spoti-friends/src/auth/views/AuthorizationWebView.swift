@@ -7,7 +7,6 @@ struct AuthorizationWebView: UIViewRepresentable {
     @EnvironmentObject var userViewModel: AuthorizationViewModel
     @Binding var showWebView: Bool
     @Binding var responseUrl: URL?
-    @State private var spDcCookie: HTTPCookie?
     
     /// Creates a coordinator to act as the navigation delegate.
     func makeCoordinator() -> Coordinator {
@@ -46,7 +45,6 @@ struct AuthorizationWebView: UIViewRepresentable {
                 // Fetch sp_dc cookie from the web view
                 let cookieName: String = "sp_dc"
                 webView.configuration.websiteDataStore.httpCookieStore.fetchCookie(named: cookieName) { cookie in
-                    self.parent.spDcCookie = cookie
                     self.parent.userViewModel.handleFetchedSpDcCookie(cookie)
                 }
                 

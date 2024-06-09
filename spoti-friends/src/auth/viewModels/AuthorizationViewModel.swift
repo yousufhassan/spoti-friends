@@ -25,7 +25,7 @@ class AuthorizationViewModel: ObservableObject {
         }
     }
     
-    /// Returns the Spotify user authorization URL
+    /// Returns the Spotify user authorization URL.
     public func getUserAuthorizationUrl() -> URL {
         return SpotifyAuth.shared.constructAuthorizationUrl()!
     }
@@ -37,21 +37,13 @@ class AuthorizationViewModel: ObservableObject {
         }
     }
     
-    /// Handler for when the `sp_dc` cookie is fetched.
+    /// Handler for when the `sp_dc` cookie is fetched. It stores the cookie value in the user object, but does not save to database.
     public func handleFetchedSpDcCookie(_ cookie: HTTPCookie?) -> Void {
         let spDcCookie = convertToSpDcCookie(cookie)
         self.user.spDcCookie = spDcCookie
     }
     
-    /// Stores the `sp_dc` cookie in the `user` object.
-    public func storeSpDcCookie(_ cookie: HTTPCookie) -> Void {
-        let spDcCookie = convertToSpDcCookie(cookie)
-        self.user.setSpDcCookie(spDcCookie)
-    }
-    
-    /// Converts the cookie from Spotify from type `HTTPCookie` to `SpDcCookie`.
-    ///
-    /// We only store the relevant data fields: the cookie value and the cookie expiry date.
+    /// Converts the cookie from Spotify from type `HTTPCookie` to `SpDcCookie`.'
     private func convertToSpDcCookie(_ cookie: HTTPCookie?) -> SpDcCookie {
         let spDcCookie = SpDcCookie()
         spDcCookie.value = cookie?.value ?? ""

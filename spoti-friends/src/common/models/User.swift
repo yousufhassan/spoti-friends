@@ -6,20 +6,35 @@ class User: Object {
     @Persisted(primaryKey: true) var _id: UUID
 //    var spotifyProfile: SpotifyProfile
 //    var friends: List<SpotifyProfile>
-    @Persisted var spDcCookie: SpDcCookie?
-    @Persisted var spotifyWebAccessToken: SpotifyWebAccessToken?
     @Persisted var authorizationCode: String?
+    @Persisted var spotifyWebAccessToken: SpotifyWebAccessToken?
     @Persisted var authorizationStatus: AuthorizationStatus
+    @Persisted var spDcCookie: SpDcCookie?
     
     override init() {
         super.init()
         self._id = UUID()
 //        self.spotifyProfile = SpotifyProfile(...)  // dummy function for example
 //        self.friends = self.getFriendList(...)  // dummy function for example
-        self.spDcCookie = nil
-        self.spotifyWebAccessToken = nil
         self.authorizationCode = nil
+        self.spotifyWebAccessToken = nil
         self.authorizationStatus = .unauthenticated
+        self.spDcCookie = nil
+    }
+    
+    /// Sets the user's `authorizationCode`.
+    public func setAuthorizationCode(_ code: String) -> Void {
+        self.authorizationCode = code
+    }
+    
+    /// Sets the user's `spotifyWebAccessToken`.
+    public func setSpotifyWebAccessToken(_ spotifyWebAccessToken: SpotifyWebAccessToken) -> Void {
+        self.spotifyWebAccessToken = spotifyWebAccessToken
+    }
+    
+    /// Sets the user's `authorizationStatus` as `status`.
+    public func setAuthorizationStatusAs(_ status: AuthorizationStatus) -> Void {
+        self.authorizationStatus = status
     }
     
     /// Sets the spDcCookie.
