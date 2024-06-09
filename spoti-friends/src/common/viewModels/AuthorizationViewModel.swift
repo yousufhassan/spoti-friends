@@ -2,19 +2,14 @@ import Foundation
 import SwiftUI
 import RealmSwift
 
-class UserViewModel: ObservableObject {
+class AuthorizationViewModel: ObservableObject {
     @Published var user: User
     private var notificationToken: NotificationToken?
     
     init() {
         self.user = User()
         DispatchQueue.main.async {
-            let config = Realm.Configuration(
-                schemaVersion: 4)
-            // Use this configuration when opening realms
-            Realm.Configuration.defaultConfiguration = config
-            
-            let realm = try! Realm()
+            let realm = RealmDatabase.shared.getRealmInstance()
             
             // If we find a matching user in the database, set that as current user.
             // Otherwise, this is a new user.

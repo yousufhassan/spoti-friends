@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SignInButton: View {
-    @EnvironmentObject var userViewModel: UserViewModel
+    @EnvironmentObject var userViewModel: AuthorizationViewModel
     @Binding var showWebView: Bool
     @Binding var responseUrl: URL?
     let buttonLabel: String = "Sign in with Spotify"

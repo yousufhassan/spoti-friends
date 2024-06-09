@@ -3,7 +3,7 @@ import RealmSwift
 
 
 struct RootView: View {
-    @EnvironmentObject private var userViewModel: UserViewModel
+    @EnvironmentObject private var userViewModel: AuthorizationViewModel
     
     var body: some View {
         // Navigate to the appropriate view depending on the user's authorization status
@@ -23,6 +23,6 @@ struct RootView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        RootView().environmentObject(UserViewModel())
+        RootView().environmentObject(AuthorizationViewModel())
     }
 }

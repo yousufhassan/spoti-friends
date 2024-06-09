@@ -4,7 +4,7 @@ import WebKit
 /// A SwiftUI view that wraps a WKWebView to handle Spotify authorization.
 struct AuthorizationWebView: UIViewRepresentable {
     let url: URL
-    @EnvironmentObject var userViewModel: UserViewModel
+    @EnvironmentObject var userViewModel: AuthorizationViewModel
     @Binding var showWebView: Bool
     @Binding var responseUrl: URL?
     @State private var spDcCookie: HTTPCookie?

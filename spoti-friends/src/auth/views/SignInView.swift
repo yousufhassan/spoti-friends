@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SignInView: View {
-    @EnvironmentObject private var userViewModel: UserViewModel
+    @EnvironmentObject private var userViewModel: AuthorizationViewModel
     @State private var showWebView = false
     @State private var responseUrl: URL?
     
