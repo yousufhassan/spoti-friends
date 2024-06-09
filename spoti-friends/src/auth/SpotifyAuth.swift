@@ -31,6 +31,18 @@ class SpotifyAuth {
             else { throw URLError(.badURL) }
             
             if (userGrantedAuthorization(queryItems)) {
+                DispatchQueue.main.async {
+                    let config = Realm.Configuration(
+                        schemaVersion: 4)
+                    // Use this configuration when opening realms
+                    Realm.Configuration.defaultConfiguration = config
+                    
+                    let realm = try! Realm()
+                    print(realm.configuration.fileURL!.path())
+                    try! realm.write {
+                        realm.add(user)
+                    }
+                }
                 await handleGrantedAuthorization(user: user, queryItems: queryItems)
                 DispatchQueue.main.async {
                     let realm = try! Realm()
@@ -41,12 +53,8 @@ class SpotifyAuth {
             }
             else {
                 // Handle authorization denied flow
-                DispatchQueue.main.async {
-                    let realm = try! Realm()
-                    try! realm.write {
-                        user.authorizationStatus = .denied
-                    }
-                }
+                print("Denied. User not created.")
+                
             }
         } catch {
             printError("\(error)")

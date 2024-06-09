@@ -47,11 +47,7 @@ struct AuthorizationWebView: UIViewRepresentable {
                 let cookieName: String = "sp_dc"
                 webView.configuration.websiteDataStore.httpCookieStore.fetchCookie(named: cookieName) { cookie in
                     self.parent.spDcCookie = cookie
-                    if let cookie = cookie {
-                        self.parent.userViewModel.storeSpDcCookie(cookie)
-                    } else {
-                        printError("'sp_dc' cookie not found")
-                    }
+                    self.parent.userViewModel.handleFetchedSpDcCookie(cookie)
                 }
                 
                 decisionHandler(.cancel)

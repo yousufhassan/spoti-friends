@@ -10,30 +10,24 @@ class UserViewModel: ObservableObject {
         self.user = User()
         DispatchQueue.main.async {
             let config = Realm.Configuration(
-                schemaVersion: 2)
+                schemaVersion: 4)
             // Use this configuration when opening realms
             Realm.Configuration.defaultConfiguration = config
             
             let realm = try! Realm()
-            try! realm.write {
-                realm.add(self.user)
+            
+            // If we find a matching user in the database, set that as current user.
+            // Otherwise, this is a new user.
+            if let existingUser = realm.objects(User.self).first {
+                self.user = existingUser
+            } else {
+                self.user = User()
             }
             
             self.notificationToken = realm.observe { [weak self] _, _ in
                 self?.objectWillChange.send()
             }
         }
-        //        let realm = try! Realm()
-        //        if let existingUser = realm.objects(User.self).first {
-        //            self.user = existingUser
-        //            print("LOG: Found existing user")
-        //        } else {
-        //            self.user = User()
-        //            try! realm.write {
-        //                realm.add(self.user)
-        //            }
-        //            print("LOG: Created new user")
-        //        }
     }
     
     /// Returns the Spotify user authorization URL
@@ -48,6 +42,12 @@ class UserViewModel: ObservableObject {
         }
     }
     
+    /// Handler for when the `sp_dc` cookie is fetched.
+    public func handleFetchedSpDcCookie(_ cookie: HTTPCookie?) -> Void {
+        let spDcCookie = convertToSpDcCookie(cookie)
+        self.user.spDcCookie = spDcCookie
+    }
+    
     /// Stores the `sp_dc` cookie in the `user` object.
     public func storeSpDcCookie(_ cookie: HTTPCookie) -> Void {
         let spDcCookie = convertToSpDcCookie(cookie)
@@ -57,10 +57,10 @@ class UserViewModel: ObservableObject {
     /// Converts the cookie from Spotify from type `HTTPCookie` to `SpDcCookie`.
     ///
     /// We only store the relevant data fields: the cookie value and the cookie expiry date.
-    private func convertToSpDcCookie(_ cookie: HTTPCookie) -> SpDcCookie {
+    private func convertToSpDcCookie(_ cookie: HTTPCookie?) -> SpDcCookie {
         let spDcCookie = SpDcCookie()
-        spDcCookie.value = cookie.value
-        spDcCookie.expiresDate = cookie.expiresDate
+        spDcCookie.value = cookie?.value ?? ""
+        spDcCookie.expiresDate = cookie?.expiresDate
         return spDcCookie
     }
 }
