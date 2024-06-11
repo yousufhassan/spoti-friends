@@ -4,7 +4,7 @@ import RealmSwift
 /// Class representing a User of the application.
 class User: Object {
     @Persisted(primaryKey: true) var _id: UUID
-//    var spotifyProfile: SpotifyProfile
+    @Persisted var spotifyProfile: SpotifyProfile?
 //    var friends: List<SpotifyProfile>
     @Persisted var authorizationCode: String?
     @Persisted var spotifyWebAccessToken: SpotifyWebAccessToken?
@@ -14,12 +14,17 @@ class User: Object {
     override init() {
         super.init()
         self._id = UUID()
-//        self.spotifyProfile = SpotifyProfile(...)  // dummy function for example
+        self.spotifyProfile = nil
 //        self.friends = self.getFriendList(...)  // dummy function for example
         self.authorizationCode = nil
         self.spotifyWebAccessToken = nil
         self.authorizationStatus = .unauthenticated
         self.spDcCookie = nil
+    }
+    
+    /// Sets the user's `spotifyProfile`.
+    public func setSpotifyProfile(_ spotifyProfile: SpotifyProfile) -> Void {
+        self.spotifyProfile = spotifyProfile
     }
     
     /// Sets the user's `authorizationCode`.

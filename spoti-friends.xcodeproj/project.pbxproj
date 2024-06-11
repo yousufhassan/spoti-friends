@@ -14,6 +14,8 @@
 		CB0854C72C15723C0088E87D /* SpotifyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0854C62C15723C0088E87D /* SpotifyAPI.swift */; };
 		CB0854C92C1573D10088E87D /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0854C82C1573D10088E87D /* APIConstants.swift */; };
 		CB0854CB2C1574FE0088E87D /* SpotifyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0854CA2C1574FE0088E87D /* SpotifyProfile.swift */; };
+		CB3417F92C17FC3100BE70A8 /* getCurrentUserProfileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3417F82C17FC3100BE70A8 /* getCurrentUserProfileHelper.swift */; };
+		CB3417FB2C180D3D00BE70A8 /* APIErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3417FA2C180D3D00BE70A8 /* APIErrors.swift */; };
 		CB7C05A22C0EAB3B001A0062 /* AuthErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05A12C0EAB3B001A0062 /* AuthErrors.swift */; };
 		CB7C05A42C0EB4DB001A0062 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05A32C0EB4DB001A0062 /* Utils.swift */; };
 		CB7C05A92C0EBB25001A0062 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05A82C0EBB25001A0062 /* User.swift */; };
@@ -55,6 +57,8 @@
 		CB0854C62C15723C0088E87D /* SpotifyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAPI.swift; sourceTree = "<group>"; };
 		CB0854C82C1573D10088E87D /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		CB0854CA2C1574FE0088E87D /* SpotifyProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyProfile.swift; sourceTree = "<group>"; };
+		CB3417F82C17FC3100BE70A8 /* getCurrentUserProfileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getCurrentUserProfileHelper.swift; sourceTree = "<group>"; };
+		CB3417FA2C180D3D00BE70A8 /* APIErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrors.swift; sourceTree = "<group>"; };
 		CB7C05A12C0EAB3B001A0062 /* AuthErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthErrors.swift; sourceTree = "<group>"; };
 		CB7C05A32C0EB4DB001A0062 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		CB7C05A82C0EBB25001A0062 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -125,10 +129,20 @@
 		CB0854C52C1572270088E87D /* spotifyAPI */ = {
 			isa = PBXGroup;
 			children = (
+				CB3417F72C17FC1800BE70A8 /* helpers */,
 				CB0854C62C15723C0088E87D /* SpotifyAPI.swift */,
 				CB0854C82C1573D10088E87D /* APIConstants.swift */,
+				CB3417FA2C180D3D00BE70A8 /* APIErrors.swift */,
 			);
 			path = spotifyAPI;
+			sourceTree = "<group>";
+		};
+		CB3417F72C17FC1800BE70A8 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CB3417F82C17FC3100BE70A8 /* getCurrentUserProfileHelper.swift */,
+			);
+			path = helpers;
 			sourceTree = "<group>";
 		};
 		CB7C05A52C0EB8A2001A0062 /* utils */ = {
@@ -316,10 +330,12 @@
 				CB9A9ADC2C0BEC080073817C /* FriendActivityView.swift in Sources */,
 				CB0854C92C1573D10088E87D /* APIConstants.swift in Sources */,
 				CB0854BE2C14F0580088E87D /* SignInButton.swift in Sources */,
+				CB3417FB2C180D3D00BE70A8 /* APIErrors.swift in Sources */,
 				CB9A9AE02C0C22D70073817C /* SpotifyAuth.swift in Sources */,
 				CB8D3C2E2C0D28C000C493E8 /* CodeChallenge.swift in Sources */,
 				CB7C05B52C1191EC001A0062 /* SignInView.swift in Sources */,
 				CB7C05B32C1191BA001A0062 /* DeniedView.swift in Sources */,
+				CB3417F92C17FC3100BE70A8 /* getCurrentUserProfileHelper.swift in Sources */,
 				CB0854B82C1404710088E87D /* AuthorizationViewModel.swift in Sources */,
 				CB7C05AD2C0EEEA2001A0062 /* AuthorizationConstants.swift in Sources */,
 				CB0854C32C15583A0088E87D /* RealmDatabase.swift in Sources */,

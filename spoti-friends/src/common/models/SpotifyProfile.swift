@@ -9,15 +9,19 @@ class SpotifyProfile: Object {
     @Persisted var image: String
     @Persisted var currentOrMostRecentTrack: CurrentOrMostRecentTrack?
     
-    init(spotifyId: String, spotifyUri: String, displayName: String, image: String,
-         currentOrMostRecentTrack: CurrentOrMostRecentTrack? = nil) {
-        super.init()
-        self.spotifyId = spotifyId
-        self.spotifyUri = spotifyUri
-        self.displayName = displayName
-        self.image = image
-        self.currentOrMostRecentTrack = currentOrMostRecentTrack
-    }
+//    override init() {
+//        super.init()
+//    }
+    
+//    init(spotifyId: String, spotifyUri: String, displayName: String, image: String,
+//         currentOrMostRecentTrack: CurrentOrMostRecentTrack? = nil) {
+//        super.init()
+//        self.spotifyId = spotifyId
+//        self.spotifyUri = spotifyUri
+//        self.displayName = displayName
+//        self.image = image
+//        self.currentOrMostRecentTrack = currentOrMostRecentTrack
+//    }
     
     // List of methods
     //    getSpotifyId()
@@ -45,15 +49,15 @@ extension SpotifyResource {
 
 class CurrentOrMostRecentTrack: Object {
     @Persisted var timestamp: TimeInterval
-    @Persisted var track: Track
+    @Persisted var track: Track?
 }
 
 class Track: Object, SpotifyResource {
     @Persisted var spotifyUri: String
     @Persisted var name: String
-    @Persisted var artist: Artist
-    @Persisted var album: Album
-    @Persisted var context: Context
+    @Persisted var artist: Artist?
+    @Persisted var album: Album?
+    @Persisted var context: SpotifyContext?
 }
 
 class Artist: Object, SpotifyResource {
@@ -66,7 +70,7 @@ class Album: Object, SpotifyResource {
     @Persisted var image: String
 }
 
-class Context: Object, SpotifyResource {
+class SpotifyContext: Object, SpotifyResource {
     @Persisted var spotifyUri: String
     @Persisted var name: String
 }
