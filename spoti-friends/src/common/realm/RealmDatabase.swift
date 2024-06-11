@@ -1,6 +1,7 @@
 import Foundation
 import RealmSwift
 
+/// Singleton class for performing Realm database operations.
 class RealmDatabase {
     static let shared: RealmDatabase = RealmDatabase()
     private let realm: Realm

@@ -16,6 +16,7 @@ func storeInUserDefaults(key: String, value: Any) -> Void {
     UserDefaults.standard.set(value, forKey: key)
 }
 
+/// Retrieve the value for the `key` from the user defaults object.
 func getStringFromUserDefaultsValueForKey(_ key: String) -> String {
     return UserDefaults.standard.string(forKey: key) ?? ""
 }

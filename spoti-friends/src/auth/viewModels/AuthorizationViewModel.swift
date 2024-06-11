@@ -2,6 +2,7 @@ import Foundation
 import SwiftUI
 import RealmSwift
 
+/// The viewmodel used for the views involving the authorization code flow.
 class AuthorizationViewModel: ObservableObject {
     @Published var user: User
     private var notificationToken: NotificationToken?

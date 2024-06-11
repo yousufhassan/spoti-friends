@@ -1,5 +1,7 @@
 import Foundation
 
+
+/// This extension adds functionality related to the `getCurrentUsersProfile` endpoint.
 extension SpotifyAPI {
     internal func convertDataToSpotifyProfile(_ data: Data) throws -> SpotifyProfile {
         do {
@@ -22,11 +24,12 @@ extension SpotifyAPI {
         }
     }
     
-    /// Returns the url for the `image` as a String.
+    /// Returns the url for the `SpotifyImage` as a String.
     internal func getUrlAsStringFromSpotifyImage(_ image: SpotifyImage) -> String {
         return image.url
     }
     
+    /// Parses the API response object and returns the `SpotifyImage`
     internal func getSpotifyImageFromResponseData(_ data: [String : Any]) -> SpotifyImage {
         let image = ((data["images"] as! NSArray)[1]) as! Dictionary<String, Any>
         let spotifyImage = SpotifyImage(url: image["url"] as! String, height: image["height"] as! Int, width: image["width"] as! Int)

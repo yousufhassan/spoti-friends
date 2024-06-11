@@ -36,41 +36,48 @@ class SpotifyProfile: Object {
 }
 
 
-// Protocol ensures each abiding object has a well-defined spotifyUri attribute (like an abstract class)
+/// The `SpotifyResource` protocol ensures each abiding object has a well-defined spotifyUri attribute.
 protocol SpotifyResource {
     var spotifyUri: String { get }
 }
 
+/// This extensions defines the function that returns the `spotifyUri` for all `spotifyResource` objects.
 extension SpotifyResource {
+    /// Returns the `spotifyUri` for this `spotifyResource`.
     func getSpotifyUri() -> String {
         return self.spotifyUri  // might need to omit the 'self' if it binds itself to the `SpotifyProfile` object
     }
 }
 
+/// Object representing a user's current or most recent track that they played.
 class CurrentOrMostRecentTrack: Object {
     @Persisted var timestamp: TimeInterval
     @Persisted var track: Track?
 }
 
+/// Object representing a Spotify Track.
 class Track: Object, SpotifyResource {
     @Persisted var spotifyUri: String
     @Persisted var name: String
     @Persisted var artist: Artist?
     @Persisted var album: Album?
-    @Persisted var context: SpotifyContext?
+    @Persisted var context: TrackContext?
 }
 
+/// Object representing a Spotify Artist.
 class Artist: Object, SpotifyResource {
     @Persisted var spotifyUri: String
     @Persisted var name: String
 }
 
+/// Object representing a Spotify Album.
 class Album: Object, SpotifyResource {
     @Persisted var spotifyUri: String
     @Persisted var image: String
 }
 
-class SpotifyContext: Object, SpotifyResource {
+/// Object representing a Spotify Track Content.
+class TrackContext: Object, SpotifyResource {
     @Persisted var spotifyUri: String
     @Persisted var name: String
 }

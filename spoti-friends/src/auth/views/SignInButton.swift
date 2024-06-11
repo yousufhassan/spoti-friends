@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// The view that renders the sign in button in the `SignInView`.
 struct SignInButton: View {
     @EnvironmentObject var userViewModel: AuthorizationViewModel
     @Binding var showWebView: Bool

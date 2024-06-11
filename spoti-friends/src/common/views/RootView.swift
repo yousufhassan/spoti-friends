@@ -1,14 +1,20 @@
 import SwiftUI
 import RealmSwift
 
-
+/// The view that is rendered when the app opens, depending on the user's authorization status.
+///
+/// If the user granted authorization, render the `FriendActivityView`.
+///
+/// If the user denied authorization, render the `DeniedView`.
+///
+/// If the user has not completed authorization, render the `SignInView`.
 struct RootView: View {
-    @EnvironmentObject private var userViewModel: AuthorizationViewModel
+    @EnvironmentObject private var authorizationViewModel: AuthorizationViewModel
     
     var body: some View {
         // Navigate to the appropriate view depending on the user's authorization status
         NavigationStack {
-            switch userViewModel.user.authorizationStatus {
+            switch authorizationViewModel.user.authorizationStatus {
             case .unauthenticated:
                 SignInView()
             case .granted:
