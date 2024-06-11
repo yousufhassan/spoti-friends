@@ -5,7 +5,7 @@ import RealmSwift
 class User: Object {
     @Persisted(primaryKey: true) var spotifyId: String
     @Persisted var spotifyProfile: SpotifyProfile?
-//    var friends: List<SpotifyProfile>
+    @Persisted var friends: List<SpotifyProfile>
     @Persisted var authorizationCode: String?
     @Persisted var spotifyWebAccessToken: SpotifyWebAccessToken?
     @Persisted var authorizationStatus: AuthorizationStatus
@@ -15,7 +15,7 @@ class User: Object {
         super.init()
         self.spotifyId = ""
         self.spotifyProfile = nil
-//        self.friends = self.getFriendList(...)  // dummy function for example
+        self.friends = List()
         self.authorizationCode = nil
         self.spotifyWebAccessToken = nil
         self.authorizationStatus = .unauthenticated
