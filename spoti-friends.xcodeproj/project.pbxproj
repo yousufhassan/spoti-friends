@@ -7,41 +7,75 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB0854B82C1404710088E87D /* AuthorizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0854B72C1404710088E87D /* AuthorizationViewModel.swift */; };
+		CB0854BC2C14D58E0088E87D /* AuthorizationWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0854BB2C14D58E0088E87D /* AuthorizationWebView.swift */; };
+		CB0854BE2C14F0580088E87D /* SignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0854BD2C14F0580088E87D /* SignInButton.swift */; };
+		CB0854C32C15583A0088E87D /* RealmDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0854C22C15583A0088E87D /* RealmDatabase.swift */; };
+		CB0854C72C15723C0088E87D /* SpotifyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0854C62C15723C0088E87D /* SpotifyAPI.swift */; };
+		CB0854C92C1573D10088E87D /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0854C82C1573D10088E87D /* APIConstants.swift */; };
+		CB0854CB2C1574FE0088E87D /* SpotifyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0854CA2C1574FE0088E87D /* SpotifyProfile.swift */; };
+		CB3417F92C17FC3100BE70A8 /* getCurrentUserProfileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3417F82C17FC3100BE70A8 /* getCurrentUserProfileHelper.swift */; };
+		CB3417FB2C180D3D00BE70A8 /* APIErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3417FA2C180D3D00BE70A8 /* APIErrors.swift */; };
+		CB7C05A22C0EAB3B001A0062 /* AuthErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05A12C0EAB3B001A0062 /* AuthErrors.swift */; };
+		CB7C05A42C0EB4DB001A0062 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05A32C0EB4DB001A0062 /* Utils.swift */; };
+		CB7C05A92C0EBB25001A0062 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05A82C0EBB25001A0062 /* User.swift */; };
+		CB7C05AD2C0EEEA2001A0062 /* AuthorizationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05AC2C0EEEA2001A0062 /* AuthorizationConstants.swift */; };
+		CB7C05B02C0EEF7F001A0062 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05AF2C0EEF7E001A0062 /* Types.swift */; };
+		CB7C05B32C1191BA001A0062 /* DeniedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05B22C1191BA001A0062 /* DeniedView.swift */; };
+		CB7C05B52C1191EC001A0062 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05B42C1191EC001A0062 /* SignInView.swift */; };
+		CB7C05B82C128AC4001A0062 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CB7C05B72C128AC4001A0062 /* RealmSwift */; };
+		CB7C05B92C128B7E001A0062 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = CB7C05B72C128AC4001A0062 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		CB8D3C2E2C0D28C000C493E8 /* CodeChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8D3C2D2C0D28C000C493E8 /* CodeChallenge.swift */; };
 		CB9A9AAB2C0BB13E0073817C /* spotifriendsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A9AAA2C0BB13E0073817C /* spotifriendsApp.swift */; };
-		CB9A9AAD2C0BB13E0073817C /* UnauthenticatedHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A9AAC2C0BB13E0073817C /* UnauthenticatedHomeView.swift */; };
+		CB9A9AAD2C0BB13E0073817C /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A9AAC2C0BB13E0073817C /* RootView.swift */; };
 		CB9A9AAF2C0BB13F0073817C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB9A9AAE2C0BB13F0073817C /* Assets.xcassets */; };
 		CB9A9AB22C0BB13F0073817C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB9A9AB12C0BB13F0073817C /* Preview Assets.xcassets */; };
 		CB9A9ADA2C0BE2EE0073817C /* ColourExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A9AD92C0BE2EE0073817C /* ColourExtension.swift */; };
 		CB9A9ADC2C0BEC080073817C /* FriendActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A9ADB2C0BEC080073817C /* FriendActivityView.swift */; };
+		CB9A9AE02C0C22D70073817C /* SpotifyAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A9ADF2C0C22D70073817C /* SpotifyAuth.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		CB9A9ABD2C0BB13F0073817C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CB9A9A9F2C0BB13E0073817C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CB9A9AA62C0BB13E0073817C;
-			remoteInfo = "spoti-friends";
+/* Begin PBXCopyFilesBuildPhase section */
+		CB7C05BA2C128B7E001A0062 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CB7C05B92C128B7E001A0062 /* RealmSwift in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CB9A9AC72C0BB13F0073817C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CB9A9A9F2C0BB13E0073817C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CB9A9AA62C0BB13E0073817C;
-			remoteInfo = "spoti-friends";
-		};
-/* End PBXContainerItemProxy section */
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CB0854B72C1404710088E87D /* AuthorizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewModel.swift; sourceTree = "<group>"; };
+		CB0854BB2C14D58E0088E87D /* AuthorizationWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationWebView.swift; sourceTree = "<group>"; };
+		CB0854BD2C14F0580088E87D /* SignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInButton.swift; sourceTree = "<group>"; };
+		CB0854C22C15583A0088E87D /* RealmDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDatabase.swift; sourceTree = "<group>"; };
+		CB0854C62C15723C0088E87D /* SpotifyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAPI.swift; sourceTree = "<group>"; };
+		CB0854C82C1573D10088E87D /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		CB0854CA2C1574FE0088E87D /* SpotifyProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyProfile.swift; sourceTree = "<group>"; };
+		CB3417F82C17FC3100BE70A8 /* getCurrentUserProfileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getCurrentUserProfileHelper.swift; sourceTree = "<group>"; };
+		CB3417FA2C180D3D00BE70A8 /* APIErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrors.swift; sourceTree = "<group>"; };
+		CB7C05A12C0EAB3B001A0062 /* AuthErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthErrors.swift; sourceTree = "<group>"; };
+		CB7C05A32C0EB4DB001A0062 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		CB7C05A82C0EBB25001A0062 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CB7C05AC2C0EEEA2001A0062 /* AuthorizationConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationConstants.swift; sourceTree = "<group>"; };
+		CB7C05AF2C0EEF7E001A0062 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		CB7C05B22C1191BA001A0062 /* DeniedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeniedView.swift; sourceTree = "<group>"; };
+		CB7C05B42C1191EC001A0062 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		CB8D3C2C2C0D1E5000C493E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		CB8D3C2D2C0D28C000C493E8 /* CodeChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeChallenge.swift; sourceTree = "<group>"; };
 		CB9A9AA72C0BB13E0073817C /* spoti-friends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "spoti-friends.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB9A9AAA2C0BB13E0073817C /* spotifriendsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spotifriendsApp.swift; sourceTree = "<group>"; };
-		CB9A9AAC2C0BB13E0073817C /* UnauthenticatedHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnauthenticatedHomeView.swift; sourceTree = "<group>"; };
+		CB9A9AAC2C0BB13E0073817C /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		CB9A9AAE2C0BB13F0073817C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB9A9AB12C0BB13F0073817C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		CB9A9ABC2C0BB13F0073817C /* spoti-friendsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "spoti-friendsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB9A9AC62C0BB13F0073817C /* spoti-friendsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "spoti-friendsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB9A9AD92C0BE2EE0073817C /* ColourExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourExtension.swift; sourceTree = "<group>"; };
 		CB9A9ADB2C0BEC080073817C /* FriendActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendActivityView.swift; sourceTree = "<group>"; };
+		CB9A9ADF2C0C22D70073817C /* SpotifyAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAuth.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,26 +83,115 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CB9A9AB92C0BB13F0073817C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CB9A9AC32C0BB13F0073817C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				CB7C05B82C128AC4001A0062 /* RealmSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CB0854BF2C14F5030088E87D /* viewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CB0854B72C1404710088E87D /* AuthorizationViewModel.swift */,
+			);
+			path = viewModels;
+			sourceTree = "<group>";
+		};
+		CB0854C02C14F5250088E87D /* common */ = {
+			isa = PBXGroup;
+			children = (
+				CB0854C52C1572270088E87D /* spotifyAPI */,
+				CB0854C12C1558260088E87D /* realm */,
+				CB0854C42C155C510088E87D /* views */,
+				CB7C05A72C0EBB18001A0062 /* models */,
+				CB7C05A52C0EB8A2001A0062 /* utils */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		CB0854C12C1558260088E87D /* realm */ = {
+			isa = PBXGroup;
+			children = (
+				CB0854C22C15583A0088E87D /* RealmDatabase.swift */,
+			);
+			path = realm;
+			sourceTree = "<group>";
+		};
+		CB0854C42C155C510088E87D /* views */ = {
+			isa = PBXGroup;
+			children = (
+				CB9A9AAC2C0BB13E0073817C /* RootView.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		CB0854C52C1572270088E87D /* spotifyAPI */ = {
+			isa = PBXGroup;
+			children = (
+				CB3417F72C17FC1800BE70A8 /* helpers */,
+				CB0854C62C15723C0088E87D /* SpotifyAPI.swift */,
+				CB0854C82C1573D10088E87D /* APIConstants.swift */,
+				CB3417FA2C180D3D00BE70A8 /* APIErrors.swift */,
+			);
+			path = spotifyAPI;
+			sourceTree = "<group>";
+		};
+		CB3417F72C17FC1800BE70A8 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CB3417F82C17FC3100BE70A8 /* getCurrentUserProfileHelper.swift */,
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
+		CB7C05A52C0EB8A2001A0062 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				CB9A9AD92C0BE2EE0073817C /* ColourExtension.swift */,
+				CB7C05A32C0EB4DB001A0062 /* Utils.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		CB7C05A62C0EB8F0001A0062 /* friendActivity */ = {
+			isa = PBXGroup;
+			children = (
+				CB9A9ADB2C0BEC080073817C /* FriendActivityView.swift */,
+			);
+			path = friendActivity;
+			sourceTree = "<group>";
+		};
+		CB7C05A72C0EBB18001A0062 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				CB7C05A82C0EBB25001A0062 /* User.swift */,
+				CB0854CA2C1574FE0088E87D /* SpotifyProfile.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		CB7C05AE2C0EEF2D001A0062 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				CB7C05A12C0EAB3B001A0062 /* AuthErrors.swift */,
+				CB7C05AC2C0EEEA2001A0062 /* AuthorizationConstants.swift */,
+				CB7C05AF2C0EEF7E001A0062 /* Types.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		CB7C05B12C1191A7001A0062 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				CB7C05B22C1191BA001A0062 /* DeniedView.swift */,
+				CB7C05B42C1191EC001A0062 /* SignInView.swift */,
+				CB0854BB2C14D58E0088E87D /* AuthorizationWebView.swift */,
+				CB0854BD2C14F0580088E87D /* SignInButton.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
 		CB9A9A9E2C0BB13E0073817C = {
 			isa = PBXGroup;
 			children = (
@@ -81,8 +204,6 @@
 			isa = PBXGroup;
 			children = (
 				CB9A9AA72C0BB13E0073817C /* spoti-friends.app */,
-				CB9A9ABC2C0BB13F0073817C /* spoti-friendsTests.xctest */,
-				CB9A9AC62C0BB13F0073817C /* spoti-friendsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,6 +211,7 @@
 		CB9A9AA92C0BB13E0073817C /* spoti-friends */ = {
 			isa = PBXGroup;
 			children = (
+				CB8D3C2C2C0D1E5000C493E8 /* Info.plist */,
 				CB9A9ADD2C0BEC170073817C /* src */,
 				CB9A9AAE2C0BB13F0073817C /* Assets.xcassets */,
 				CB9A9AB02C0BB13F0073817C /* Preview Content */,
@@ -108,12 +230,24 @@
 		CB9A9ADD2C0BEC170073817C /* src */ = {
 			isa = PBXGroup;
 			children = (
+				CB0854C02C14F5250088E87D /* common */,
+				CB7C05A62C0EB8F0001A0062 /* friendActivity */,
+				CB9A9ADE2C0C22620073817C /* auth */,
 				CB9A9AAA2C0BB13E0073817C /* spotifriendsApp.swift */,
-				CB9A9AAC2C0BB13E0073817C /* UnauthenticatedHomeView.swift */,
-				CB9A9AD92C0BE2EE0073817C /* ColourExtension.swift */,
-				CB9A9ADB2C0BEC080073817C /* FriendActivityView.swift */,
 			);
 			path = src;
+			sourceTree = "<group>";
+		};
+		CB9A9ADE2C0C22620073817C /* auth */ = {
+			isa = PBXGroup;
+			children = (
+				CB0854BF2C14F5030088E87D /* viewModels */,
+				CB7C05B12C1191A7001A0062 /* views */,
+				CB7C05AE2C0EEF2D001A0062 /* utils */,
+				CB9A9ADF2C0C22D70073817C /* SpotifyAuth.swift */,
+				CB8D3C2D2C0D28C000C493E8 /* CodeChallenge.swift */,
+			);
+			path = auth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,51 +260,19 @@
 				CB9A9AA32C0BB13E0073817C /* Sources */,
 				CB9A9AA42C0BB13E0073817C /* Frameworks */,
 				CB9A9AA52C0BB13E0073817C /* Resources */,
+				CB7C05BA2C128B7E001A0062 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "spoti-friends";
+			packageProductDependencies = (
+				CB7C05B72C128AC4001A0062 /* RealmSwift */,
+			);
 			productName = "spoti-friends";
 			productReference = CB9A9AA72C0BB13E0073817C /* spoti-friends.app */;
 			productType = "com.apple.product-type.application";
-		};
-		CB9A9ABB2C0BB13F0073817C /* spoti-friendsTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CB9A9AD32C0BB13F0073817C /* Build configuration list for PBXNativeTarget "spoti-friendsTests" */;
-			buildPhases = (
-				CB9A9AB82C0BB13F0073817C /* Sources */,
-				CB9A9AB92C0BB13F0073817C /* Frameworks */,
-				CB9A9ABA2C0BB13F0073817C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CB9A9ABE2C0BB13F0073817C /* PBXTargetDependency */,
-			);
-			name = "spoti-friendsTests";
-			productName = "spoti-friendsTests";
-			productReference = CB9A9ABC2C0BB13F0073817C /* spoti-friendsTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		CB9A9AC52C0BB13F0073817C /* spoti-friendsUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CB9A9AD62C0BB13F0073817C /* Build configuration list for PBXNativeTarget "spoti-friendsUITests" */;
-			buildPhases = (
-				CB9A9AC22C0BB13F0073817C /* Sources */,
-				CB9A9AC32C0BB13F0073817C /* Frameworks */,
-				CB9A9AC42C0BB13F0073817C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CB9A9AC82C0BB13F0073817C /* PBXTargetDependency */,
-			);
-			name = "spoti-friendsUITests";
-			productName = "spoti-friendsUITests";
-			productReference = CB9A9AC62C0BB13F0073817C /* spoti-friendsUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -180,18 +282,10 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					CB9A9AA62C0BB13E0073817C = {
 						CreatedOnToolsVersion = 14.3.1;
-					};
-					CB9A9ABB2C0BB13F0073817C = {
-						CreatedOnToolsVersion = 14.3.1;
-						TestTargetID = CB9A9AA62C0BB13E0073817C;
-					};
-					CB9A9AC52C0BB13F0073817C = {
-						CreatedOnToolsVersion = 14.3.1;
-						TestTargetID = CB9A9AA62C0BB13E0073817C;
 					};
 				};
 			};
@@ -204,13 +298,14 @@
 				Base,
 			);
 			mainGroup = CB9A9A9E2C0BB13E0073817C;
+			packageReferences = (
+				CB7C05B62C128AC4001A0062 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = CB9A9AA82C0BB13E0073817C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				CB9A9AA62C0BB13E0073817C /* spoti-friends */,
-				CB9A9ABB2C0BB13F0073817C /* spoti-friendsTests */,
-				CB9A9AC52C0BB13F0073817C /* spoti-friendsUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -225,20 +320,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CB9A9ABA2C0BB13F0073817C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CB9A9AC42C0BB13F0073817C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -247,40 +328,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB9A9ADC2C0BEC080073817C /* FriendActivityView.swift in Sources */,
-				CB9A9AAD2C0BB13E0073817C /* UnauthenticatedHomeView.swift in Sources */,
+				CB0854C92C1573D10088E87D /* APIConstants.swift in Sources */,
+				CB0854BE2C14F0580088E87D /* SignInButton.swift in Sources */,
+				CB3417FB2C180D3D00BE70A8 /* APIErrors.swift in Sources */,
+				CB9A9AE02C0C22D70073817C /* SpotifyAuth.swift in Sources */,
+				CB8D3C2E2C0D28C000C493E8 /* CodeChallenge.swift in Sources */,
+				CB7C05B52C1191EC001A0062 /* SignInView.swift in Sources */,
+				CB7C05B32C1191BA001A0062 /* DeniedView.swift in Sources */,
+				CB3417F92C17FC3100BE70A8 /* getCurrentUserProfileHelper.swift in Sources */,
+				CB0854B82C1404710088E87D /* AuthorizationViewModel.swift in Sources */,
+				CB7C05AD2C0EEEA2001A0062 /* AuthorizationConstants.swift in Sources */,
+				CB0854C32C15583A0088E87D /* RealmDatabase.swift in Sources */,
+				CB0854C72C15723C0088E87D /* SpotifyAPI.swift in Sources */,
+				CB9A9AAD2C0BB13E0073817C /* RootView.swift in Sources */,
 				CB9A9AAB2C0BB13E0073817C /* spotifriendsApp.swift in Sources */,
+				CB7C05A92C0EBB25001A0062 /* User.swift in Sources */,
+				CB7C05A22C0EAB3B001A0062 /* AuthErrors.swift in Sources */,
 				CB9A9ADA2C0BE2EE0073817C /* ColourExtension.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CB9A9AB82C0BB13F0073817C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CB9A9AC22C0BB13F0073817C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				CB7C05B02C0EEF7F001A0062 /* Types.swift in Sources */,
+				CB7C05A42C0EB4DB001A0062 /* Utils.swift in Sources */,
+				CB0854CB2C1574FE0088E87D /* SpotifyProfile.swift in Sources */,
+				CB0854BC2C14D58E0088E87D /* AuthorizationWebView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		CB9A9ABE2C0BB13F0073817C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CB9A9AA62C0BB13E0073817C /* spoti-friends */;
-			targetProxy = CB9A9ABD2C0BB13F0073817C /* PBXContainerItemProxy */;
-		};
-		CB9A9AC82C0BB13F0073817C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CB9A9AA62C0BB13E0073817C /* spoti-friends */;
-			targetProxy = CB9A9AC72C0BB13F0073817C /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		CB9A9ACE2C0BB13F0073817C /* Debug */ = {
@@ -319,6 +391,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -379,6 +452,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -405,13 +479,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"spoti-friends/Preview Content\"";
+				DEVELOPMENT_TEAM = FD57SWWZ5D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "spoti-friends/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -433,13 +510,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"spoti-friends/Preview Content\"";
+				DEVELOPMENT_TEAM = FD57SWWZ5D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "spoti-friends/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -450,78 +530,6 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		CB9A9AD42C0BB13F0073817C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yousufhassan.spoti-friendsTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/spoti-friends.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/spoti-friends";
-			};
-			name = Debug;
-		};
-		CB9A9AD52C0BB13F0073817C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yousufhassan.spoti-friendsTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/spoti-friends.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/spoti-friends";
-			};
-			name = Release;
-		};
-		CB9A9AD72C0BB13F0073817C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yousufhassan.spoti-friendsUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "spoti-friends";
-			};
-			name = Debug;
-		};
-		CB9A9AD82C0BB13F0073817C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yousufhassan.spoti-friendsUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "spoti-friends";
 			};
 			name = Release;
 		};
@@ -546,25 +554,26 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CB9A9AD32C0BB13F0073817C /* Build configuration list for PBXNativeTarget "spoti-friendsTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CB9A9AD42C0BB13F0073817C /* Debug */,
-				CB9A9AD52C0BB13F0073817C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CB9A9AD62C0BB13F0073817C /* Build configuration list for PBXNativeTarget "spoti-friendsUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CB9A9AD72C0BB13F0073817C /* Debug */,
-				CB9A9AD82C0BB13F0073817C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CB7C05B62C128AC4001A0062 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.51.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CB7C05B72C128AC4001A0062 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CB7C05B62C128AC4001A0062 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CB9A9A9F2C0BB13E0073817C /* Project object */;
 }

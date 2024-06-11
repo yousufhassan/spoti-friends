@@ -2,10 +2,12 @@ import SwiftUI
 
 @main
 struct spoti_friendsApp: App {
-
+    @StateObject private var authorizationViewModel = AuthorizationViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            UnauthenticatedHomeView()
+            RootView()
+                .environmentObject(authorizationViewModel)
         }
     }
 }
