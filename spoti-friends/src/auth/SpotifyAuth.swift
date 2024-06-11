@@ -51,17 +51,19 @@ class SpotifyAuth {
     /// Creates user object and adds it to the Realm.
     private func handleGrantedAuthorization(user: User, queryItems: [URLQueryItem]) async -> Void {
         do {
-            // Get the values for all the user fields to fill
+            // Set all fields for the user
             let authorizationCode = try getAuthorizationCodeFromQueryItems(queryItems)
+            user.setAuthorizationCode(authorizationCode)
+            
             let spotifyWebAccessToken = await requestAccessTokenObject(authorizationCode: authorizationCode)
+            user.setSpotifyWebAccessToken(spotifyWebAccessToken!)
+            
             let spotifyProfile = try await SpotifyAPI.shared.getCurrentUsersProfile(
                 accessToken: user.spotifyWebAccessToken!.access_token)
-            
-            // Set the user fields
-            user.setAuthorizationCode(authorizationCode)
-            user.setSpotifyWebAccessToken(spotifyWebAccessToken!)
-            user.setAuthorizationStatusAs(.granted)
             user.setSpotifyProfile(spotifyProfile)
+
+            user.setSpotifyId(spotifyProfile.spotifyId)
+            user.setAuthorizationStatusAs(.granted)
             
             // Add user to database
             RealmDatabase.shared.addToRealm(object: user);

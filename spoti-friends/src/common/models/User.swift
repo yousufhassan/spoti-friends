@@ -3,7 +3,7 @@ import RealmSwift
 
 /// Class representing a User of the application.
 class User: Object {
-    @Persisted(primaryKey: true) var _id: UUID
+    @Persisted(primaryKey: true) var spotifyId: String
     @Persisted var spotifyProfile: SpotifyProfile?
 //    var friends: List<SpotifyProfile>
     @Persisted var authorizationCode: String?
@@ -13,13 +13,18 @@ class User: Object {
     
     override init() {
         super.init()
-        self._id = UUID()
+        self.spotifyId = ""
         self.spotifyProfile = nil
 //        self.friends = self.getFriendList(...)  // dummy function for example
         self.authorizationCode = nil
         self.spotifyWebAccessToken = nil
         self.authorizationStatus = .unauthenticated
         self.spDcCookie = nil
+    }
+    
+    /// Sets the user's `spotifyId` to their Spotify Account ID.
+    public func setSpotifyId(_ spotifyId: String) -> Void {
+        self.spotifyId = spotifyId
     }
     
     /// Sets the user's `spotifyProfile`.
