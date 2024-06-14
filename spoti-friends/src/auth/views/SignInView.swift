@@ -24,6 +24,7 @@ struct SignInView: View {
     }
 }
 
+/// The title view that renders the "Spotifriends" text.
 struct SignInTitle: View {
     var body: some View {
         HStack {

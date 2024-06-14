@@ -43,6 +43,7 @@ struct AuthorizationDeniedView: View {
     }
 }
 
+/// The view that renders the back to sign in button.
 struct BackToSignInButton: View {
     @EnvironmentObject var userViewModel: AuthorizationViewModel
     
