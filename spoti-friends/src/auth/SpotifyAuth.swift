@@ -24,7 +24,7 @@ class SpotifyAuth {
     }
     
     /// Handles the response from the Spotify authorization flow depending on whether the user granted authorization or denied authorization.
-    func handleResponseUrl(user: User, url: URL) async -> Void {
+    func handleResponseUrl(user: User, url: URL, authorizationStatus: inout AuthorizationStatus) async -> Void {
         do {
             guard let responseUrlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false),
                   let queryItems = responseUrlComponents.queryItems
@@ -32,11 +32,11 @@ class SpotifyAuth {
             
             if (userGrantedAuthorization(queryItems)) {
                 await handleGrantedAuthorization(user: user, queryItems: queryItems)
+                authorizationStatus = .granted
             }
             else {
                 // Handle authorization denied flow
-                print("Denied. User not created.")
-                
+                authorizationStatus = .denied
             }
         } catch {
             printError("\(error)")

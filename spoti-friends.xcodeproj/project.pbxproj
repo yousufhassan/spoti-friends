@@ -21,7 +21,7 @@
 		CB7C05A92C0EBB25001A0062 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05A82C0EBB25001A0062 /* User.swift */; };
 		CB7C05AD2C0EEEA2001A0062 /* AuthorizationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05AC2C0EEEA2001A0062 /* AuthorizationConstants.swift */; };
 		CB7C05B02C0EEF7F001A0062 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05AF2C0EEF7E001A0062 /* Types.swift */; };
-		CB7C05B32C1191BA001A0062 /* DeniedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05B22C1191BA001A0062 /* DeniedView.swift */; };
+		CB7C05B32C1191BA001A0062 /* AuthorizationDeniedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05B22C1191BA001A0062 /* AuthorizationDeniedView.swift */; };
 		CB7C05B52C1191EC001A0062 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05B42C1191EC001A0062 /* SignInView.swift */; };
 		CB7C05B82C128AC4001A0062 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CB7C05B72C128AC4001A0062 /* RealmSwift */; };
 		CB7C05B92C128B7E001A0062 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = CB7C05B72C128AC4001A0062 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -64,7 +64,7 @@
 		CB7C05A82C0EBB25001A0062 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CB7C05AC2C0EEEA2001A0062 /* AuthorizationConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationConstants.swift; sourceTree = "<group>"; };
 		CB7C05AF2C0EEF7E001A0062 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
-		CB7C05B22C1191BA001A0062 /* DeniedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeniedView.swift; sourceTree = "<group>"; };
+		CB7C05B22C1191BA001A0062 /* AuthorizationDeniedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationDeniedView.swift; sourceTree = "<group>"; };
 		CB7C05B42C1191EC001A0062 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		CB8D3C2C2C0D1E5000C493E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CB8D3C2D2C0D28C000C493E8 /* CodeChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeChallenge.swift; sourceTree = "<group>"; };
@@ -184,7 +184,7 @@
 		CB7C05B12C1191A7001A0062 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				CB7C05B22C1191BA001A0062 /* DeniedView.swift */,
+				CB7C05B22C1191BA001A0062 /* AuthorizationDeniedView.swift */,
 				CB7C05B42C1191EC001A0062 /* SignInView.swift */,
 				CB0854BB2C14D58E0088E87D /* AuthorizationWebView.swift */,
 				CB0854BD2C14F0580088E87D /* SignInButton.swift */,
@@ -334,7 +334,7 @@
 				CB9A9AE02C0C22D70073817C /* SpotifyAuth.swift in Sources */,
 				CB8D3C2E2C0D28C000C493E8 /* CodeChallenge.swift in Sources */,
 				CB7C05B52C1191EC001A0062 /* SignInView.swift in Sources */,
-				CB7C05B32C1191BA001A0062 /* DeniedView.swift in Sources */,
+				CB7C05B32C1191BA001A0062 /* AuthorizationDeniedView.swift in Sources */,
 				CB3417F92C17FC3100BE70A8 /* getCurrentUserProfileHelper.swift in Sources */,
 				CB0854B82C1404710088E87D /* AuthorizationViewModel.swift in Sources */,
 				CB7C05AD2C0EEEA2001A0062 /* AuthorizationConstants.swift in Sources */,

@@ -5,10 +5,12 @@ import RealmSwift
 /// The viewmodel used for the views involving the authorization code flow.
 class AuthorizationViewModel: ObservableObject {
     @Published var user: User
+    @Published var authorizationStatus: AuthorizationStatus
     private var notificationToken: NotificationToken?
     
     init() {
         self.user = User()
+        self.authorizationStatus = .unauthenticated
         DispatchQueue.main.async {
             let realm = RealmDatabase.shared.getRealmInstance()
             
@@ -34,7 +36,7 @@ class AuthorizationViewModel: ObservableObject {
     /// Handler for when the user has completed the Spotify authorization process and is redirected back to the app.
     public func handleRedirectBackToApp(_ responseUrl: URL) -> Void {
         Task {
-            await SpotifyAuth.shared.handleResponseUrl(user: self.user, url: responseUrl)
+            await SpotifyAuth.shared.handleResponseUrl(user: self.user, url: responseUrl, authorizationStatus: &self.authorizationStatus)
         }
     }
     
