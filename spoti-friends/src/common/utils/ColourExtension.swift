@@ -5,10 +5,12 @@ let backgroundGradient: LinearGradient = LinearGradient(gradient: Color.PresetGr
 
 extension Color {
     struct PresetColour {
-        static var spotifyGreen: Color { return Color(red: 0.11, green: 0.72, blue: 0.33)}
-        static var white: Color { return Color(red: 0.94, green: 0.94, blue: 0.94)}
-        static var black: Color { return Color(red: 0.03, green: 0.03, blue: 0.03)}
-        static var darkgrey: Color { return Color(red: 0.13, green: 0.13, blue: 0.13)}
+        static var spotifyGreen: Color { return Color(red: 0.11, green: 0.72, blue: 0.33) }
+        static var white: Color { return Color(red: 0.94, green: 0.94, blue: 0.94) }
+        static var black: Color { return Color(red: 0.03, green: 0.03, blue: 0.03) }
+        static var darkgrey: Color { return Color(red: 0.11, green: 0.11, blue: 0.11) }
+        static var red: Color { return Color(red: 0.74, green: 0.11, blue: 0.11) }
+        static var transparentMaroon: Color { return Color(red: 0.38, green: 0.16, blue: 0.16, opacity: 0.55) }
     }
     
     struct PresetGradient {
