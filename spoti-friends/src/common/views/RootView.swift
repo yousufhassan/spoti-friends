@@ -10,19 +10,25 @@ import RealmSwift
 /// If the user has not completed authorization, render the `SignInView`.
 struct RootView: View {
     @EnvironmentObject private var authorizationViewModel: AuthorizationViewModel
+    @State private var authorizationStatus: AuthorizationStatus = .unauthenticated
     
     var body: some View {
         // Navigate to the appropriate view depending on the user's authorization status
         NavigationStack {
-            switch authorizationViewModel.user.authorizationStatus {
+            switch authorizationStatus {
             case .unauthenticated:
                 SignInView()
             case .granted:
                 FriendActivityView()
             case .denied:
-                DeniedView()
+                AuthorizationDeniedView()
             }
         }
+        // The onReceive is called when the `authorizationViewModel.authorizationStatus` variable
+        // is changed.
+        .onReceive(authorizationViewModel.$authorizationStatus, perform: { _ in
+            self.authorizationStatus = self.authorizationViewModel.authorizationStatus
+        })
     }
 }
 
