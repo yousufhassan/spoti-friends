@@ -23,15 +23,16 @@ struct LogoutButton: View {
     
     var body: some View {
         let buttonLabel = "Log out"
-        Button(buttonLabel) {
+        Button(action: {
             authorizationViewModel.signOutUser()
+        }) {
+            Text(buttonLabel)
+                .frame(width: 320, height: 50) // Adjust the height as needed
+                .background(Color.PresetColour.transparentMaroon)
+                .foregroundColor(Color.PresetColour.red)
+                .fontWeight(.semibold)
+                .cornerRadius(12)
         }
-        .padding()
-        .frame(width: 320)
-        .background(Color.PresetColour.transparentMaroon)
-        .foregroundColor(Color.PresetColour.red)
-        .fontWeight(.semibold)
-        .cornerRadius(12)
     }
 }
 
