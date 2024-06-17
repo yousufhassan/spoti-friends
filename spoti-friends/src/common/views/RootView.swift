@@ -17,9 +17,9 @@ struct RootView: View {
         NavigationStack {
             switch authorizationStatus {
             case .unauthenticated:
-                SignInView()
+                UnauthenticatedView()
             case .granted:
-                FriendActivityView()
+                AuthenticatedView()
             case .denied:
                 AuthorizationDeniedView()
             }

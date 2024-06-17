@@ -9,23 +9,28 @@ class AuthorizationViewModel: ObservableObject {
     private var notificationToken: NotificationToken?
     
     init() {
+        let realm = RealmDatabase.shared.getRealmInstance()
+        
+        // If we find a matching user in the database, set that as current user.
+        // Otherwise, this is a new user.
+        if let existingUser = realm.objects(User.self).first {
+            self.user = existingUser
+            self.authorizationStatus = existingUser.authorizationStatus
+        } else {
+            self.user = User()
+            self.authorizationStatus = .unauthenticated
+        }
+        
+        self.notificationToken = realm.observe { [weak self] _, _ in
+            self?.objectWillChange.send()
+        }
+    }
+    
+    
+    /// Signs out the currently signed in user.
+    public func signOutUser() -> Void {
         self.user = User()
         self.authorizationStatus = .unauthenticated
-        DispatchQueue.main.async {
-            let realm = RealmDatabase.shared.getRealmInstance()
-            
-            // If we find a matching user in the database, set that as current user.
-            // Otherwise, this is a new user.
-            if let existingUser = realm.objects(User.self).first {
-                self.user = existingUser
-            } else {
-                self.user = User()
-            }
-            
-            self.notificationToken = realm.observe { [weak self] _, _ in
-                self?.objectWillChange.send()
-            }
-        }
     }
     
     /// Returns the Spotify user authorization URL.

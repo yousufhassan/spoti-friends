@@ -11,6 +11,7 @@ struct MyProfileView: View {
             Spacer()
             
             LogoutButton()
+                .padding(.bottom, 10)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.PresetColour.darkgrey)
@@ -18,10 +19,12 @@ struct MyProfileView: View {
 }
 
 struct LogoutButton: View {
+    @EnvironmentObject private var authorizationViewModel: AuthorizationViewModel
+    
     var body: some View {
         let buttonLabel = "Log out"
         Button(buttonLabel) {
-            
+            authorizationViewModel.signOutUser()
         }
         .padding()
         .frame(width: 320)

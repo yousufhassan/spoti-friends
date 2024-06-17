@@ -1,7 +1,7 @@
 import SwiftUI
 
 /// This is the view rendered for when the user opens the application and is not signed in.
-struct SignInView: View {
+struct UnauthenticatedView: View {
     @EnvironmentObject private var authorizationViewModel: AuthorizationViewModel
     @State private var showWebView = false
     @State private var responseUrl: URL?
@@ -47,5 +47,5 @@ struct SignInTitle: View {
 }
 
 #Preview {
-    SignInView()
+    UnauthenticatedView()
 }

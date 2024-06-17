@@ -18,13 +18,14 @@
 		CB3417FB2C180D3D00BE70A8 /* APIErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3417FA2C180D3D00BE70A8 /* APIErrors.swift */; };
 		CB3417FF2C1BDBC800BE70A8 /* MyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3417FE2C1BDBC800BE70A8 /* MyProfileView.swift */; };
 		CB3B617F2C1BDFB00088DFA1 /* PageTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3B617E2C1BDFB00088DFA1 /* PageTitle.swift */; };
+		CB3B61812C1F83AE0088DFA1 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3B61802C1F83AE0088DFA1 /* AuthenticatedView.swift */; };
 		CB7C05A22C0EAB3B001A0062 /* AuthErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05A12C0EAB3B001A0062 /* AuthErrors.swift */; };
 		CB7C05A42C0EB4DB001A0062 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05A32C0EB4DB001A0062 /* Utils.swift */; };
 		CB7C05A92C0EBB25001A0062 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05A82C0EBB25001A0062 /* User.swift */; };
 		CB7C05AD2C0EEEA2001A0062 /* AuthorizationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05AC2C0EEEA2001A0062 /* AuthorizationConstants.swift */; };
 		CB7C05B02C0EEF7F001A0062 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05AF2C0EEF7E001A0062 /* Types.swift */; };
 		CB7C05B32C1191BA001A0062 /* AuthorizationDeniedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05B22C1191BA001A0062 /* AuthorizationDeniedView.swift */; };
-		CB7C05B52C1191EC001A0062 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05B42C1191EC001A0062 /* SignInView.swift */; };
+		CB7C05B52C1191EC001A0062 /* UnauthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05B42C1191EC001A0062 /* UnauthenticatedView.swift */; };
 		CB7C05B82C128AC4001A0062 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CB7C05B72C128AC4001A0062 /* RealmSwift */; };
 		CB7C05B92C128B7E001A0062 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = CB7C05B72C128AC4001A0062 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		CB8D3C2E2C0D28C000C493E8 /* CodeChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8D3C2D2C0D28C000C493E8 /* CodeChallenge.swift */; };
@@ -63,13 +64,14 @@
 		CB3417FA2C180D3D00BE70A8 /* APIErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrors.swift; sourceTree = "<group>"; };
 		CB3417FE2C1BDBC800BE70A8 /* MyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileView.swift; sourceTree = "<group>"; };
 		CB3B617E2C1BDFB00088DFA1 /* PageTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTitle.swift; sourceTree = "<group>"; };
+		CB3B61802C1F83AE0088DFA1 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
 		CB7C05A12C0EAB3B001A0062 /* AuthErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthErrors.swift; sourceTree = "<group>"; };
 		CB7C05A32C0EB4DB001A0062 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		CB7C05A82C0EBB25001A0062 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CB7C05AC2C0EEEA2001A0062 /* AuthorizationConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationConstants.swift; sourceTree = "<group>"; };
 		CB7C05AF2C0EEF7E001A0062 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		CB7C05B22C1191BA001A0062 /* AuthorizationDeniedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationDeniedView.swift; sourceTree = "<group>"; };
-		CB7C05B42C1191EC001A0062 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		CB7C05B42C1191EC001A0062 /* UnauthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnauthenticatedView.swift; sourceTree = "<group>"; };
 		CB8D3C2C2C0D1E5000C493E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CB8D3C2D2C0D28C000C493E8 /* CodeChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeChallenge.swift; sourceTree = "<group>"; };
 		CB9A9AA72C0BB13E0073817C /* spoti-friends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "spoti-friends.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +129,7 @@
 			children = (
 				CB9A9AAC2C0BB13E0073817C /* RootView.swift */,
 				CB3B617E2C1BDFB00088DFA1 /* PageTitle.swift */,
+				CB3B61802C1F83AE0088DFA1 /* AuthenticatedView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -213,7 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				CB7C05B22C1191BA001A0062 /* AuthorizationDeniedView.swift */,
-				CB7C05B42C1191EC001A0062 /* SignInView.swift */,
+				CB7C05B42C1191EC001A0062 /* UnauthenticatedView.swift */,
 				CB0854BB2C14D58E0088E87D /* AuthorizationWebView.swift */,
 				CB0854BD2C14F0580088E87D /* SignInButton.swift */,
 			);
@@ -357,6 +360,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB3B61812C1F83AE0088DFA1 /* AuthenticatedView.swift in Sources */,
 				CB9A9ADC2C0BEC080073817C /* FriendActivityView.swift in Sources */,
 				CB3B617F2C1BDFB00088DFA1 /* PageTitle.swift in Sources */,
 				CB0854C92C1573D10088E87D /* APIConstants.swift in Sources */,
@@ -365,7 +369,7 @@
 				CB9A9AE02C0C22D70073817C /* SpotifyAuth.swift in Sources */,
 				CB3417FF2C1BDBC800BE70A8 /* MyProfileView.swift in Sources */,
 				CB8D3C2E2C0D28C000C493E8 /* CodeChallenge.swift in Sources */,
-				CB7C05B52C1191EC001A0062 /* SignInView.swift in Sources */,
+				CB7C05B52C1191EC001A0062 /* UnauthenticatedView.swift in Sources */,
 				CB7C05B32C1191BA001A0062 /* AuthorizationDeniedView.swift in Sources */,
 				CB3417F92C17FC3100BE70A8 /* getCurrentUserProfileHelper.swift in Sources */,
 				CB0854B82C1404710088E87D /* AuthorizationViewModel.swift in Sources */,

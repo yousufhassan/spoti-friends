@@ -9,6 +9,7 @@ extension Color {
         static var white: Color { return Color(red: 0.94, green: 0.94, blue: 0.94) }
         static var black: Color { return Color(red: 0.03, green: 0.03, blue: 0.03) }
         static var darkgrey: Color { return Color(red: 0.11, green: 0.11, blue: 0.11) }
+        static var navbar: Color { return Color(red: 0.10, green: 0.10, blue: 0.10) }
         static var red: Color { return Color(red: 0.74, green: 0.11, blue: 0.11) }
         static var transparentMaroon: Color { return Color(red: 0.38, green: 0.16, blue: 0.16, opacity: 0.55) }
     }
