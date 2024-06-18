@@ -13,7 +13,9 @@ class AuthorizationViewModel: ObservableObject {
         
         // If we find a matching user in the database, set that as current user.
         // Otherwise, this is a new user.
-        if let existingUser = realm.objects(User.self).first {
+        let signedInUser = getStringFromUserDefaultsValueForKey("signedInUser")
+        if signedInUser != "" {
+            let existingUser: User = realm.objects(User.self).where { $0.spotifyId == signedInUser }.first!
             self.user = existingUser
             self.authorizationStatus = existingUser.authorizationStatus
         } else {
@@ -31,6 +33,7 @@ class AuthorizationViewModel: ObservableObject {
     public func signOutUser() -> Void {
         self.user = User()
         self.authorizationStatus = .unauthenticated
+        storeInUserDefaults(key: "signedInUser", value: "")
     }
     
     /// Returns the Spotify user authorization URL.

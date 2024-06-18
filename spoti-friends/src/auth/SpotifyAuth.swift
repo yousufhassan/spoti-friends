@@ -67,6 +67,10 @@ class SpotifyAuth {
             
             // Add user to database
             RealmDatabase.shared.addToRealm(object: user);
+            
+            // Set signed in user information in UserDefaults so that the app knows which user to get
+            // when they close and open the app again (without logging out).
+            storeInUserDefaults(key: "signedInUser", value: user.spotifyId)
         } catch {
             printError("\(error)")
         }
