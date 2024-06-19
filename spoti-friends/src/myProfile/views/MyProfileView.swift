@@ -19,7 +19,7 @@ struct MyProfileView: View {
     }
 }
 
-The view for the log out button.
+/// The view for the log out button.
 struct LogoutButton: View {
     @EnvironmentObject private var authorizationViewModel: AuthorizationViewModel
     
