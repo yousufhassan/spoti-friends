@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// Renders the title for a Swift View
 struct PageTitle: View {
     let pageTitle: String
     
