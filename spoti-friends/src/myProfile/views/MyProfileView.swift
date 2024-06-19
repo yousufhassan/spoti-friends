@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// Renders the View for a user's profile.
 struct MyProfileView: View {
     var body: some View {
         VStack {
