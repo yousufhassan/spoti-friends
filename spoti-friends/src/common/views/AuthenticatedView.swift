@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// The view for when a user is signed into the app.
 struct AuthenticatedView: View {
     init() {
         let appearance = UITabBar.appearance()
