@@ -10,7 +10,7 @@ struct AuthenticatedView: View {
     
     var body: some View {
         TabView {
-            FriendActivityView().tabItem { Label("Friend Activity", systemImage: "person.2") }
+            FriendActivityView().tabItem { Label("Friend Activity", systemImage: "figure.socialdance") }
             MyProfileView().tabItem { Label("Profile", systemImage: "person") }
         }
     }
