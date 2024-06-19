@@ -30,28 +30,33 @@ class SpotifyAuth {
                   let queryItems = responseUrlComponents.queryItems
             else { throw URLError(.badURL) }
             
-            if (userGrantedAuthorization(queryItems)) {
-                await handleGrantedAuthorization(user: user, queryItems: queryItems)
-                authorizationStatus = .granted
+            if (user.isEmpty()) {
+                await populateUserWithData(user, queryItems: queryItems);
             }
-            else {
-                // Handle authorization denied flow
-                authorizationStatus = .denied
+            
+            if (await userExistsInDatabase(user)) {
+                storeSignedInUser(user)
+                authorizationStatus = .granted
+            } else {
+                if (userGrantedAuthorization(queryItems)) {
+                    user.setAuthorizationStatusAs(.granted)
+                    storeSignedInUser(user)
+                    RealmDatabase.shared.addToRealm(object: user);
+                    authorizationStatus = .granted
+                }
+                else {
+                    // Handle authorization denied flow
+                    authorizationStatus = .denied
+                }
             }
         } catch {
             printError("\(error)")
         }
     }
     
-    /// Returns `true` if user granted authorization to the application and response included the "code" value; `false`, otherwise.
-    private func userGrantedAuthorization(_ queryItems: [URLQueryItem]) -> Bool {
-        return queryItems.contains(where: {$0.name == "code"})
-    }
-    
-    /// Creates user object and adds it to the Realm.
-    private func handleGrantedAuthorization(user: User, queryItems: [URLQueryItem]) async -> Void {
+    /// Populates the `user` fields with their data.
+    private func populateUserWithData(_ user: User, queryItems: [URLQueryItem]) async -> Void {
         do {
-            // Set all fields for the user
             let authorizationCode = try getAuthorizationCodeFromQueryItems(queryItems)
             user.setAuthorizationCode(authorizationCode)
             
@@ -61,15 +66,32 @@ class SpotifyAuth {
             let spotifyProfile = try await SpotifyAPI.shared.getCurrentUsersProfile(
                 accessToken: user.spotifyWebAccessToken!.access_token)
             user.setSpotifyProfile(spotifyProfile)
-
-            user.setSpotifyId(spotifyProfile.spotifyId)
-            user.setAuthorizationStatusAs(.granted)
             
-            // Add user to database
-            RealmDatabase.shared.addToRealm(object: user);
+            user.setSpotifyId(spotifyProfile.spotifyId)
         } catch {
             printError("\(error)")
         }
+    }
+    
+    /// Returns `true` if the `user` already exists in the database and `false` otherwise.
+    private func userExistsInDatabase(_ user: User) async -> Bool {
+        var userExists: Bool = false
+        DispatchQueue.main.sync {
+            let realm = RealmDatabase.shared.getRealmInstance()
+            userExists = realm.objects(User.self).where { $0.spotifyId == user.spotifyId }.count != 0
+        }
+        
+        return userExists
+    }
+    
+    /// Stores the user as the signed in user in `UserDefaults`.
+    private func storeSignedInUser(_ user: User) -> Void {
+        storeInUserDefaults(key: "signedInUser", value: user.spotifyId)
+    }
+    
+    /// Returns `true` if user granted authorization to the application and response included the "code" value; `false`, otherwise.
+    private func userGrantedAuthorization(_ queryItems: [URLQueryItem]) -> Bool {
+        return queryItems.contains(where: {$0.name == "code"})
     }
     
     /// Parses the `queryItems` and returns the authorization code.

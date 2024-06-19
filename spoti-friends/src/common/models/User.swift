@@ -22,6 +22,11 @@ class User: Object {
         self.spDcCookie = nil
     }
     
+    /// Returns `true` if the user object is not set and is empty, `false` otherwise.
+    public func isEmpty() -> Bool {
+        return self.spotifyId == ""
+    }
+    
     /// Sets the user's `spotifyId` to their Spotify Account ID.
     public func setSpotifyId(_ spotifyId: String) -> Void {
         self.spotifyId = spotifyId
