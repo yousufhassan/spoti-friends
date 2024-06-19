@@ -107,11 +107,7 @@
 		CB0854C02C14F5250088E87D /* common */ = {
 			isa = PBXGroup;
 			children = (
-				CB0854C52C1572270088E87D /* spotifyAPI */,
-				CB0854C12C1558260088E87D /* realm */,
-				CB0854C42C155C510088E87D /* views */,
-				CB7C05A72C0EBB18001A0062 /* models */,
-				CB7C05A52C0EB8A2001A0062 /* utils */,
+				CB3B61832C2317260088DFA1 /* src */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -156,7 +152,7 @@
 		CB3417FC2C1BDB9A00BE70A8 /* myProfile */ = {
 			isa = PBXGroup;
 			children = (
-				CB3417FD2C1BDBB300BE70A8 /* views */,
+				CB3B61822C2317170088DFA1 /* src */,
 			);
 			path = myProfile;
 			sourceTree = "<group>";
@@ -176,6 +172,62 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CB3B61822C2317170088DFA1 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				CB3417FD2C1BDBB300BE70A8 /* views */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		CB3B61832C2317260088DFA1 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				CB0854C52C1572270088E87D /* spotifyAPI */,
+				CB0854C12C1558260088E87D /* realm */,
+				CB0854C42C155C510088E87D /* views */,
+				CB7C05A72C0EBB18001A0062 /* models */,
+				CB7C05A52C0EB8A2001A0062 /* utils */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		CB3B61842C231BA90088DFA1 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				CB3B61852C231BB00088DFA1 /* views */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		CB3B61852C231BB00088DFA1 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				CB9A9ADB2C0BEC080073817C /* FriendActivityView.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		CB3B61862C231BBC0088DFA1 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				CB3B61872C231BEA0088DFA1 /* spotifyAuth */,
+				CB0854BF2C14F5030088E87D /* viewModels */,
+				CB7C05B12C1191A7001A0062 /* views */,
+				CB7C05AE2C0EEF2D001A0062 /* utils */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		CB3B61872C231BEA0088DFA1 /* spotifyAuth */ = {
+			isa = PBXGroup;
+			children = (
+				CB9A9ADF2C0C22D70073817C /* SpotifyAuth.swift */,
+				CB8D3C2D2C0D28C000C493E8 /* CodeChallenge.swift */,
+			);
+			path = spotifyAuth;
+			sourceTree = "<group>";
+		};
 		CB7C05A52C0EB8A2001A0062 /* utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,7 +240,7 @@
 		CB7C05A62C0EB8F0001A0062 /* friendActivity */ = {
 			isa = PBXGroup;
 			children = (
-				CB9A9ADB2C0BEC080073817C /* FriendActivityView.swift */,
+				CB3B61842C231BA90088DFA1 /* src */,
 			);
 			path = friendActivity;
 			sourceTree = "<group>";
@@ -244,7 +296,11 @@
 			isa = PBXGroup;
 			children = (
 				CB8D3C2C2C0D1E5000C493E8 /* Info.plist */,
-				CB9A9ADD2C0BEC170073817C /* src */,
+				CB3417FC2C1BDB9A00BE70A8 /* myProfile */,
+				CB0854C02C14F5250088E87D /* common */,
+				CB7C05A62C0EB8F0001A0062 /* friendActivity */,
+				CB9A9ADE2C0C22620073817C /* auth */,
+				CB9A9AAA2C0BB13E0073817C /* spotifriendsApp.swift */,
 				CB9A9AAE2C0BB13F0073817C /* Assets.xcassets */,
 				CB9A9AB02C0BB13F0073817C /* Preview Content */,
 			);
@@ -259,26 +315,10 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		CB9A9ADD2C0BEC170073817C /* src */ = {
-			isa = PBXGroup;
-			children = (
-				CB3417FC2C1BDB9A00BE70A8 /* myProfile */,
-				CB0854C02C14F5250088E87D /* common */,
-				CB7C05A62C0EB8F0001A0062 /* friendActivity */,
-				CB9A9ADE2C0C22620073817C /* auth */,
-				CB9A9AAA2C0BB13E0073817C /* spotifriendsApp.swift */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
 		CB9A9ADE2C0C22620073817C /* auth */ = {
 			isa = PBXGroup;
 			children = (
-				CB0854BF2C14F5030088E87D /* viewModels */,
-				CB7C05B12C1191A7001A0062 /* views */,
-				CB7C05AE2C0EEF2D001A0062 /* utils */,
-				CB9A9ADF2C0C22D70073817C /* SpotifyAuth.swift */,
-				CB8D3C2D2C0D28C000C493E8 /* CodeChallenge.swift */,
+				CB3B61862C231BBC0088DFA1 /* src */,
 			);
 			path = auth;
 			sourceTree = "<group>";
