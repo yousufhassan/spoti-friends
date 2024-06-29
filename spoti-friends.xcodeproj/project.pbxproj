@@ -19,6 +19,9 @@
 		CB3417FF2C1BDBC800BE70A8 /* MyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3417FE2C1BDBC800BE70A8 /* MyProfileView.swift */; };
 		CB3B617F2C1BDFB00088DFA1 /* PageTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3B617E2C1BDFB00088DFA1 /* PageTitle.swift */; };
 		CB3B61812C1F83AE0088DFA1 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3B61802C1F83AE0088DFA1 /* AuthenticatedView.swift */; };
+		CB59BCB52C2FA08D0061C99B /* ListeningActivityItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB59BCB42C2FA08D0061C99B /* ListeningActivityItem.swift */; };
+		CB59BCB72C2FAB890061C99B /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB59BCB62C2FAB890061C99B /* ProfileImage.swift */; };
+		CB59BCBF2C2FAFB30061C99B /* AlbumCover.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB59BCBE2C2FAFB30061C99B /* AlbumCover.swift */; };
 		CB7C05A22C0EAB3B001A0062 /* AuthErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05A12C0EAB3B001A0062 /* AuthErrors.swift */; };
 		CB7C05A42C0EB4DB001A0062 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05A32C0EB4DB001A0062 /* Utils.swift */; };
 		CB7C05A92C0EBB25001A0062 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05A82C0EBB25001A0062 /* User.swift */; };
@@ -65,6 +68,9 @@
 		CB3417FE2C1BDBC800BE70A8 /* MyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileView.swift; sourceTree = "<group>"; };
 		CB3B617E2C1BDFB00088DFA1 /* PageTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTitle.swift; sourceTree = "<group>"; };
 		CB3B61802C1F83AE0088DFA1 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
+		CB59BCB42C2FA08D0061C99B /* ListeningActivityItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeningActivityItem.swift; sourceTree = "<group>"; };
+		CB59BCB62C2FAB890061C99B /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
+		CB59BCBE2C2FAFB30061C99B /* AlbumCover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCover.swift; sourceTree = "<group>"; };
 		CB7C05A12C0EAB3B001A0062 /* AuthErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthErrors.swift; sourceTree = "<group>"; };
 		CB7C05A32C0EB4DB001A0062 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		CB7C05A82C0EBB25001A0062 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -107,7 +113,6 @@
 		CB0854C02C14F5250088E87D /* common */ = {
 			isa = PBXGroup;
 			children = (
-				CB0854C52C1572270088E87D /* spotifyAPI */,
 				CB0854C12C1558260088E87D /* realm */,
 				CB0854C42C155C510088E87D /* views */,
 				CB7C05A72C0EBB18001A0062 /* models */,
@@ -176,6 +181,42 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CB59BCB22C2F9EF20061C99B /* views */ = {
+			isa = PBXGroup;
+			children = (
+				CB9A9ADB2C0BEC080073817C /* FriendActivityView.swift */,
+				CB59BCB42C2FA08D0061C99B /* ListeningActivityItem.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		CB59BCBB2C2FAED50061C99B /* views */ = {
+			isa = PBXGroup;
+			children = (
+				CB59BCB62C2FAB890061C99B /* ProfileImage.swift */,
+				CB59BCBE2C2FAFB30061C99B /* AlbumCover.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		CB59BCBC2C2FAED50061C99B /* spotify */ = {
+			isa = PBXGroup;
+			children = (
+				CB0854C52C1572270088E87D /* spotifyAPI */,
+				CB59BCBD2C2FAF7F0061C99B /* models */,
+				CB59BCBB2C2FAED50061C99B /* views */,
+			);
+			path = spotify;
+			sourceTree = "<group>";
+		};
+		CB59BCBD2C2FAF7F0061C99B /* models */ = {
+			isa = PBXGroup;
+			children = (
+				CB0854CA2C1574FE0088E87D /* SpotifyProfile.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
 		CB7C05A52C0EB8A2001A0062 /* utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,7 +229,7 @@
 		CB7C05A62C0EB8F0001A0062 /* friendActivity */ = {
 			isa = PBXGroup;
 			children = (
-				CB9A9ADB2C0BEC080073817C /* FriendActivityView.swift */,
+				CB59BCB22C2F9EF20061C99B /* views */,
 			);
 			path = friendActivity;
 			sourceTree = "<group>";
@@ -197,7 +238,6 @@
 			isa = PBXGroup;
 			children = (
 				CB7C05A82C0EBB25001A0062 /* User.swift */,
-				CB0854CA2C1574FE0088E87D /* SpotifyProfile.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -262,6 +302,7 @@
 		CB9A9ADD2C0BEC170073817C /* src */ = {
 			isa = PBXGroup;
 			children = (
+				CB59BCBC2C2FAED50061C99B /* spotify */,
 				CB3417FC2C1BDB9A00BE70A8 /* myProfile */,
 				CB0854C02C14F5250088E87D /* common */,
 				CB7C05A62C0EB8F0001A0062 /* friendActivity */,
@@ -362,9 +403,11 @@
 			files = (
 				CB3B61812C1F83AE0088DFA1 /* AuthenticatedView.swift in Sources */,
 				CB9A9ADC2C0BEC080073817C /* FriendActivityView.swift in Sources */,
+				CB59BCB52C2FA08D0061C99B /* ListeningActivityItem.swift in Sources */,
 				CB3B617F2C1BDFB00088DFA1 /* PageTitle.swift in Sources */,
 				CB0854C92C1573D10088E87D /* APIConstants.swift in Sources */,
 				CB0854BE2C14F0580088E87D /* SignInButton.swift in Sources */,
+				CB59BCBF2C2FAFB30061C99B /* AlbumCover.swift in Sources */,
 				CB3417FB2C180D3D00BE70A8 /* APIErrors.swift in Sources */,
 				CB9A9AE02C0C22D70073817C /* SpotifyAuth.swift in Sources */,
 				CB3417FF2C1BDBC800BE70A8 /* MyProfileView.swift in Sources */,
@@ -372,6 +415,7 @@
 				CB7C05B52C1191EC001A0062 /* UnauthenticatedView.swift in Sources */,
 				CB7C05B32C1191BA001A0062 /* AuthorizationDeniedView.swift in Sources */,
 				CB3417F92C17FC3100BE70A8 /* getCurrentUserProfileHelper.swift in Sources */,
+				CB59BCB72C2FAB890061C99B /* ProfileImage.swift in Sources */,
 				CB0854B82C1404710088E87D /* AuthorizationViewModel.swift in Sources */,
 				CB7C05AD2C0EEEA2001A0062 /* AuthorizationConstants.swift in Sources */,
 				CB0854C32C15583A0088E87D /* RealmDatabase.swift in Sources */,
