@@ -5,7 +5,7 @@ import SwiftUI
 /// - Parameters:
 ///   - backgroundColor: The background color for the component.
 ///   - profileImageURL: The URL for the profile image.
-///   - albumImageURL: The URL for the album cover image.
+///   - album: The album for the current track.
 ///   - username: The username for the user whose listenting activity this is.
 ///   - track: The current or most recent track to display for the user.
 ///
@@ -13,7 +13,7 @@ import SwiftUI
 struct ListeningActivityItem: View {
     let backgroundColor: Color
     let profileImageURL: URL
-    let albumImageURL: URL
+    let album: Album
     let username: String
     let track: CurrentOrMostRecentTrack
     
@@ -24,7 +24,7 @@ struct ListeningActivityItem: View {
                 
                 ListeningActivityDetails(username: username, track: track)
                 
-                AlbumCover(imageURL: albumImageURL, width: 80, height: 80)
+                AlbumCover(album: album, width: 80, height: 80)
                     .padding(.leading, 4)
             }
             .padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 8))
@@ -86,13 +86,13 @@ struct ListeningActivityDetails: View {
 
 #Preview {
     let profileImageURL = URL(string: "https://i.scdn.co/image/ab6775700000ee8593e8cec90c9689ba0f18c26f")!
-    let albumImageURL = URL(string: "https://i.scdn.co/image/ab67616d0000b273753639aa8d7646a69fdb5879")!
+    let album = Album()
     let username = "yousuf"
     let track = CurrentOrMostRecentTrack()  // dummy object just to please Preview Simulator
     
     ListeningActivityItem(backgroundColor: Color.brown,
                           profileImageURL: profileImageURL,
-                          albumImageURL: albumImageURL,
+                          album: album,
                           username: username,
                           track: track)
 }
