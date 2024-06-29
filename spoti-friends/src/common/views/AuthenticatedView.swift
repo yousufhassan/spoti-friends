@@ -5,7 +5,7 @@ struct AuthenticatedView: View {
     init() {
         let appearance = UITabBar.appearance()
         // Set the background color of the TabView's tab bar
-        appearance.backgroundColor = UIColor(Color.PresetColour.navbar)
+        appearance.backgroundColor = UIColor(Color.PresetColour.darkgrey)
         }
     
     var body: some View {
