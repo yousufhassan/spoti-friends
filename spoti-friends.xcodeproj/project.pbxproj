@@ -22,6 +22,8 @@
 		CB59BCB52C2FA08D0061C99B /* ListeningActivityItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB59BCB42C2FA08D0061C99B /* ListeningActivityItem.swift */; };
 		CB59BCB72C2FAB890061C99B /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB59BCB62C2FAB890061C99B /* ProfileImage.swift */; };
 		CB59BCBF2C2FAFB30061C99B /* AlbumCover.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB59BCBE2C2FAFB30061C99B /* AlbumCover.swift */; };
+		CB59BCC92C30A5370061C99B /* UIImageColors in Frameworks */ = {isa = PBXBuildFile; productRef = CB59BCC82C30A5370061C99B /* UIImageColors */; };
+		CB59BCCE2C30BA470061C99B /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB59BCCD2C30BA420061C99B /* ImageUtils.swift */; };
 		CB7C05A22C0EAB3B001A0062 /* AuthErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05A12C0EAB3B001A0062 /* AuthErrors.swift */; };
 		CB7C05A42C0EB4DB001A0062 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05A32C0EB4DB001A0062 /* Utils.swift */; };
 		CB7C05A92C0EBB25001A0062 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7C05A82C0EBB25001A0062 /* User.swift */; };
@@ -71,6 +73,7 @@
 		CB59BCB42C2FA08D0061C99B /* ListeningActivityItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeningActivityItem.swift; sourceTree = "<group>"; };
 		CB59BCB62C2FAB890061C99B /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
 		CB59BCBE2C2FAFB30061C99B /* AlbumCover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCover.swift; sourceTree = "<group>"; };
+		CB59BCCD2C30BA420061C99B /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
 		CB7C05A12C0EAB3B001A0062 /* AuthErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthErrors.swift; sourceTree = "<group>"; };
 		CB7C05A32C0EB4DB001A0062 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		CB7C05A82C0EBB25001A0062 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -95,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB59BCC92C30A5370061C99B /* UIImageColors in Frameworks */,
 				CB7C05B82C128AC4001A0062 /* RealmSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,9 +221,17 @@
 			path = models;
 			sourceTree = "<group>";
 		};
+		CB59BCCA2C30B1E20061C99B /* viewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = viewModels;
+			sourceTree = "<group>";
+		};
 		CB7C05A52C0EB8A2001A0062 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				CB59BCCD2C30BA420061C99B /* ImageUtils.swift */,
 				CB9A9AD92C0BE2EE0073817C /* ColourExtension.swift */,
 				CB7C05A32C0EB4DB001A0062 /* Utils.swift */,
 			);
@@ -229,6 +241,7 @@
 		CB7C05A62C0EB8F0001A0062 /* friendActivity */ = {
 			isa = PBXGroup;
 			children = (
+				CB59BCCA2C30B1E20061C99B /* viewModels */,
 				CB59BCB22C2F9EF20061C99B /* views */,
 			);
 			path = friendActivity;
@@ -343,6 +356,7 @@
 			name = "spoti-friends";
 			packageProductDependencies = (
 				CB7C05B72C128AC4001A0062 /* RealmSwift */,
+				CB59BCC82C30A5370061C99B /* UIImageColors */,
 			);
 			productName = "spoti-friends";
 			productReference = CB9A9AA72C0BB13E0073817C /* spoti-friends.app */;
@@ -374,6 +388,7 @@
 			mainGroup = CB9A9A9E2C0BB13E0073817C;
 			packageReferences = (
 				CB7C05B62C128AC4001A0062 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				CB59BCC72C30A5370061C99B /* XCRemoteSwiftPackageReference "UIImageColors" */,
 			);
 			productRefGroup = CB9A9AA82C0BB13E0073817C /* Products */;
 			projectDirPath = "";
@@ -423,6 +438,7 @@
 				CB9A9AAD2C0BB13E0073817C /* RootView.swift in Sources */,
 				CB9A9AAB2C0BB13E0073817C /* spotifriendsApp.swift in Sources */,
 				CB7C05A92C0EBB25001A0062 /* User.swift in Sources */,
+				CB59BCCE2C30BA470061C99B /* ImageUtils.swift in Sources */,
 				CB7C05A22C0EAB3B001A0062 /* AuthErrors.swift in Sources */,
 				CB9A9ADA2C0BE2EE0073817C /* ColourExtension.swift in Sources */,
 				CB7C05B02C0EEF7F001A0062 /* Types.swift in Sources */,
@@ -637,6 +653,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		CB59BCC72C30A5370061C99B /* XCRemoteSwiftPackageReference "UIImageColors" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jathu/UIImageColors";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
 		CB7C05B62C128AC4001A0062 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -648,6 +672,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CB59BCC82C30A5370061C99B /* UIImageColors */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CB59BCC72C30A5370061C99B /* XCRemoteSwiftPackageReference "UIImageColors" */;
+			productName = UIImageColors;
+		};
 		CB7C05B72C128AC4001A0062 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CB7C05B62C128AC4001A0062 /* XCRemoteSwiftPackageReference "realm-swift" */;

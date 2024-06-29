@@ -7,7 +7,7 @@ struct FriendActivityView: View {
         let username = "yousuf"
         let track = CurrentOrMostRecentTrack()  // dummy object just to please Preview Simulator
         
-        ListeningActivityItem(backgroundColor: Color.brown,
+        ListeningActivityItem(
                               profileImageURL: profileImageURL,
                               album: album,
                               username: username,

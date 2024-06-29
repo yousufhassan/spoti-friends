@@ -3,7 +3,6 @@ import SwiftUI
 /// The View that renders a Listening Acvitiy Component.
 ///
 /// - Parameters:
-///   - backgroundColor: The background color for the component.
 ///   - profileImageURL: The URL for the profile image.
 ///   - album: The album for the current track.
 ///   - username: The username for the user whose listenting activity this is.
@@ -11,27 +10,36 @@ import SwiftUI
 ///
 /// - Returns: A View for the Listening Activity Item.
 struct ListeningActivityItem: View {
-    let backgroundColor: Color
     let profileImageURL: URL
     let album: Album
     let username: String
     let track: CurrentOrMostRecentTrack
+    @State var backgroundColor: UIColor = UIColor.white
     
     var body: some View {
-        GeometryReader { geometry in
-            HStack {
-                ProfileImage(imageURL: profileImageURL, width: 56, height: 56)
-                
-                ListeningActivityDetails(username: username, track: track)
-                
-                AlbumCover(album: album, width: 80, height: 80)
-                    .padding(.leading, 4)
+        VStack {
+            GeometryReader { geometry in
+                HStack {
+                    ProfileImage(imageURL: profileImageURL, width: 56, height: 56)
+                    
+                    ListeningActivityDetails(username: username, track: track)
+                    
+                    AlbumCover(album: album, width: 80, height: 80)
+                        .padding(.leading, 4)
+                        .onAppear {
+                            Task {
+                                // TODO: Uncomment and replace when implementing logic
+                                // backgroundColor = try await getAccentColorForImage(album.image)
+                                backgroundColor = try await getAccentColorForImage("https://i.scdn.co/image/ab67616d0000b273753639aa8d7646a69fdb5879")
+                            }
+                        }
+                }
+                .padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 8))
+                .frame(width: geometry.size.width * 0.9, height: 96)
+                .background(Color(backgroundColor))
+                .cornerRadius(12)
+                .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
             }
-            .padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 8))
-            .frame(width: geometry.size.width * 0.9, height: 96)
-            .background(Rectangle().fill(backgroundColor))
-            .cornerRadius(12)
-            .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
         }
     }
 }
@@ -90,8 +98,7 @@ struct ListeningActivityDetails: View {
     let username = "yousuf"
     let track = CurrentOrMostRecentTrack()  // dummy object just to please Preview Simulator
     
-    ListeningActivityItem(backgroundColor: Color.brown,
-                          profileImageURL: profileImageURL,
+    ListeningActivityItem(profileImageURL: profileImageURL,
                           album: album,
                           username: username,
                           track: track)
