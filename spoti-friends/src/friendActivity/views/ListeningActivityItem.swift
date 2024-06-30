@@ -18,7 +18,6 @@ struct ListeningActivityItem: View {
     
     var body: some View {
         VStack {
-            GeometryReader { geometry in
                 HStack {
                     ProfileImage(imageURL: profileImageURL, width: 56, height: 56)
                     
@@ -35,11 +34,11 @@ struct ListeningActivityItem: View {
                         }
                 }
                 .padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 8))
-                .frame(width: geometry.size.width * 0.9, height: 96)
+                .frame(maxWidth: 600, maxHeight: 96)
+                .frame(height: 96)
                 .background(Color(backgroundColor))
                 .cornerRadius(12)
-                .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
-            }
+//            }
         }
     }
 }
