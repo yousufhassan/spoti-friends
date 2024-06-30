@@ -48,7 +48,7 @@ class AuthorizationViewModel: ObservableObject {
         }
     }
     
-    /// Handler for when the `sp_dc` cookie is fetched. It stores the cookie value in the user object, but does not save to database.
+    /// Handler for when the `sp_dc` cookie is fetched. It stores the cookie value in the user object, but does not save to database yet.
     public func handleFetchedSpDcCookie(_ cookie: HTTPCookie?) -> Void {
         let spDcCookie = convertToSpDcCookie(cookie)
         self.user.spDcCookie = spDcCookie

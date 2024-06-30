@@ -63,6 +63,9 @@ class SpotifyAuth {
             let spotifyWebAccessToken = await requestAccessTokenObject(authorizationCode: authorizationCode)
             user.setSpotifyWebAccessToken(spotifyWebAccessToken!)
             
+            let internalAPIAccessToken = try await getInternalAPIAccessToken(spDcCookieValue: user.spDcCookie!.value)
+            user.setInternalAPIAccessToken(internalAPIAccessToken)
+            
             let spotifyProfile = try await SpotifyAPI.shared.getCurrentUsersProfile(
                 accessToken: user.spotifyWebAccessToken!.access_token)
             user.setSpotifyProfile(spotifyProfile)
@@ -128,12 +131,29 @@ class SpotifyAuth {
         do {
             let request = try constructAccessTokenUrlRequest(authorizationCode: authorizationCode)
             let (data, _) = try await URLSession.shared.data(for: request)
-            let response = try JSONDecoder().decode(SpotifyWebAccessToken.self, from: data)
-            return response
+            let accessToken = try JSONDecoder().decode(SpotifyWebAccessToken.self, from: data)
+            return accessToken
         } catch {
             printError("\(error)")
             return nil
         }
         
+    }
+    
+    /// Returns the Spotify Web Player Access Token needed for calling the `/buddylist` internal API endpoint.
+    /// This is different than the Access Token for the Web API.
+    ///
+    /// - Parameters:
+    ///   - spDcCookieValue: The user's `sp_dc` cookie value.
+    ///
+    /// - Returns: The **internal** Spotify Web Player Access Token .
+    private func getInternalAPIAccessToken(spDcCookieValue: String) async throws -> InternalAPIAccessToken {
+        guard let endpoint = URL(string: "https://open.spotify.com/get_access_token?reason=transport&productType=web_player") else {
+            throw URLError(.badURL)
+        }
+        let request = URLRequest(url: endpoint)
+        let (data, _) = try await URLSession.shared.data(for: request)
+        let internalAPIAccessToken = try JSONDecoder().decode(InternalAPIAccessToken.self, from: data)
+        return internalAPIAccessToken
     }
 }

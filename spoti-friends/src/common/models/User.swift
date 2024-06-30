@@ -8,6 +8,7 @@ class User: Object {
     @Persisted var friends: List<SpotifyProfile>
     @Persisted var authorizationCode: String?
     @Persisted var spotifyWebAccessToken: SpotifyWebAccessToken?
+    @Persisted var internalAPIAccessToken: InternalAPIAccessToken?
     @Persisted var authorizationStatus: AuthorizationStatus
     @Persisted var spDcCookie: SpDcCookie?
     
@@ -18,6 +19,7 @@ class User: Object {
         self.friends = List()
         self.authorizationCode = nil
         self.spotifyWebAccessToken = nil
+        self.internalAPIAccessToken = nil
         self.authorizationStatus = .unauthenticated
         self.spDcCookie = nil
     }
@@ -45,6 +47,10 @@ class User: Object {
     /// Sets the user's `spotifyWebAccessToken`.
     public func setSpotifyWebAccessToken(_ spotifyWebAccessToken: SpotifyWebAccessToken) -> Void {
         self.spotifyWebAccessToken = spotifyWebAccessToken
+    }
+    /// Sets the user's `internalAPIAccessToken`.
+    public func setInternalAPIAccessToken(_ internalAPIAccessToken: InternalAPIAccessToken) -> Void {
+        self.internalAPIAccessToken = internalAPIAccessToken
     }
     
     /// Sets the user's `authorizationStatus` as `status`.

@@ -254,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				CB7C05A82C0EBB25001A0062 /* User.swift */,
+				CB7C05AF2C0EEF7E001A0062 /* Types.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -263,7 +264,6 @@
 			children = (
 				CB7C05A12C0EAB3B001A0062 /* AuthErrors.swift */,
 				CB7C05AC2C0EEEA2001A0062 /* AuthorizationConstants.swift */,
-				CB7C05AF2C0EEF7E001A0062 /* Types.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
