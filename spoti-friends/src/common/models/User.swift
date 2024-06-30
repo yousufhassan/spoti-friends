@@ -39,6 +39,13 @@ class User: Object {
         self.spotifyProfile = spotifyProfile
     }
     
+    /// Sets the user's `friends`.
+    public func setFriends(_ friendsAsSpotifyProfiles: [SpotifyProfile]) -> Void {
+        let friends = List<SpotifyProfile>()
+        friends.append(objectsIn: friendsAsSpotifyProfiles)
+        self.friends = friends
+    }
+    
     /// Sets the user's `authorizationCode`.
     public func setAuthorizationCode(_ code: String) -> Void {
         self.authorizationCode = code

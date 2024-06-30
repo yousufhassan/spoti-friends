@@ -69,8 +69,11 @@ class SpotifyAuth {
             let spotifyProfile = try await SpotifyAPI.shared.getCurrentUsersProfile(
                 accessToken: user.spotifyWebAccessToken!.access_token)
             user.setSpotifyProfile(spotifyProfile)
-            
             user.setSpotifyId(spotifyProfile.spotifyId)
+            
+            let friends = try await SpotifyAPI.shared.getListOfUsersFriends(internalAPIAccessToken: internalAPIAccessToken.accessToken)
+            user.setFriends(friends)
+            
         } catch {
             printError("\(error)")
         }
@@ -148,10 +151,11 @@ class SpotifyAuth {
     ///
     /// - Returns: The **internal** Spotify Web Player Access Token .
     private func getInternalAPIAccessToken(spDcCookieValue: String) async throws -> InternalAPIAccessToken {
-        guard let endpoint = URL(string: "https://open.spotify.com/get_access_token?reason=transport&productType=web_player") else {
+        guard let endpointURL = URL(string: "https://open.spotify.com/get_access_token?reason=transport&productType=web_player") else {
             throw URLError(.badURL)
         }
-        let request = URLRequest(url: endpoint)
+        var request = URLRequest(url: endpointURL)
+        request.setValue("sp_dc=\(spDcCookieValue)", forHTTPHeaderField: "Cookie")
         let (data, _) = try await URLSession.shared.data(for: request)
         let internalAPIAccessToken = try JSONDecoder().decode(InternalAPIAccessToken.self, from: data)
         return internalAPIAccessToken

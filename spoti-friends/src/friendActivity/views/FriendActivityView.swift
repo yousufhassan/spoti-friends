@@ -28,6 +28,12 @@ struct FriendActivityView: View {
             }
             .padding()
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+            
+            Button ("button") {
+                Task {
+                    try await SpotifyAPI.shared.getListOfUsersFriends(internalAPIAccessToken: "BQAdkJmE6FHh0DtGMzDW8NBs-NB2PNVZg8e-PFUL43-S5dnSCPueI14fGZXKaTDauqQ3sJgD0eZnFlpa0Ub6DHWWTW8CsX1Cj4F9tuZgcdcii1svPQSKl753iyEVmaU-hdXIUB2fNtHXOifp9fEMW-gapWYGD69wxNuE9GSSZj6ZcJalMfIMJ_2R7u8mlsu0D_7kJLySsb_KKZgAsof-JKLRT_tu-qOo9vqvi-x6VewnVe1aIgJQSx9OptQ27AtTNpNPh-O6Bt1jfkvSK1w7aJ5W3XzMvdSiaTOWUW8pWdQyt3e9TorFXAhcdHjC")
+                }
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.PresetColour.darkgrey)

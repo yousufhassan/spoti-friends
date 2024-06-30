@@ -13,13 +13,40 @@ class SpotifyAPI {
             let request = try createRequestTo(endpoint: endpoint, accessToken: accessToken, method: RequestMethod.GET)
             let (data, response) = try await URLSession.shared.data(for: request)
             
-            if (!requestSucceeded(response as! HTTPURLResponse)) { throw SpotifyAPIError.unsuccessfulRequest }
+            if (requestFailed(response as! HTTPURLResponse)) { throw SpotifyAPIError.unsuccessfulRequest }
             let spotifyProfile = try convertDataToSpotifyProfile(data)
             return spotifyProfile
         } catch {
             printError("\(error)")
             throw error
         }
+    }
+    
+    /// Returns a list of the user's friends as `SpotifyProfile`s.
+    /// 
+    /// - Parameters:
+    ///   - internalAPIAccessToken: Access token for the internal Spotify API.
+    public func getListOfUsersFriends(internalAPIAccessToken: String) async throws -> [SpotifyProfile] {
+        let data = try await fetchBuddylistEndpoint(internalAPIAccessToken: internalAPIAccessToken)
+        let friends = try convertDataToFriendList(data)
+        print(friends)
+        return friends
+    }
+    
+    /// Fetches and returns the data from the `/buddylist` internal API endpoint.
+    ///
+    /// - Parameters:
+    ///   - internalAPIAccessToken: Access token for the internal Spotify API.
+    private func fetchBuddylistEndpoint(internalAPIAccessToken: String) async throws -> Data {
+        guard let endpointURL = URL(string: "https://spclient.wg.spotify.com/presence-view/v1/buddylist") else {
+            throw URLError(.badURL)
+        }
+        var request = URLRequest(url: endpointURL)
+        request.setValue("Bearer \(internalAPIAccessToken)", forHTTPHeaderField: "Authorization")
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        if (requestFailed(response as! HTTPURLResponse)) { throw SpotifyAPIError.unsuccessfulRequest }
+        return data
     }
 }
 
@@ -36,9 +63,9 @@ extension SpotifyAPI {
         return request
     }
     
-    /// Returns `true` if the response status code is in the 200s and `false` otherwise.
-    private func requestSucceeded(_ response: HTTPURLResponse) -> Bool {
-        return (200...299).contains(response.statusCode)
+    /// Returns `true` if the response status code is not in the 200s and `false` otherwise.
+    private func requestFailed(_ response: HTTPURLResponse) -> Bool {
+        return !(200...299).contains(response.statusCode)
     }
     
 }
