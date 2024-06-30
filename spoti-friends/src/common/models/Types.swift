@@ -30,6 +30,12 @@ class SpDcCookie: Object, Codable {
 
 
 /// Object representing the Spotify Web Player Access Token used for calling the internal API.
+///
+/// - Parameters:
+///   - clientId: Unknown usage.
+///   - accessToken: Access tokem to make internal API calls.
+///   - accessTokenExpirationTimestampMs: Timestamp for when the access token expires.
+///   - isAnonymous: Unknown usage.
 class InternalAPIAccessToken: Object, Codable {
     @Persisted var clientId: String
     @Persisted var accessToken: String
