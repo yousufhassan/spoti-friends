@@ -4,6 +4,8 @@ import SwiftUI
 ///
 /// - Returns: The friend activity page view.
 struct FriendActivityView: View {
+    @EnvironmentObject var friendActivityViewModel: FriendActivityViewModel
+    
     var body: some View {
         VStack {
             // Friend Activity Header
@@ -15,23 +17,20 @@ struct FriendActivityView: View {
             
             // List of friend's listening activities
             VStack(alignment: .center) {
-                let profileImageURL = URL(string: "https://i.scdn.co/image/ab6775700000ee8593e8cec90c9689ba0f18c26f")!
-                let album = Album()
-                let username = "yousuf"
-                let track = CurrentOrMostRecentTrack()  // dummy object just to please Preview Simulator
-                
-                ListeningActivityItem(
-                    profileImageURL: profileImageURL,
-                    album: album,
-                    username: username,
-                    track: track)
+                ForEach(friendActivityViewModel.friendActivites) { activity in
+                    ListeningActivityItem(
+                        profileImageURL: activity.profileImageURL,
+                        album: activity.album,
+                        username: activity.username,
+                        track: activity.track)
+                    
+                }
             }
             .padding()
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-            
-            Button ("button") {
+            .onAppear {
                 Task {
-                    try await SpotifyAPI.shared.getListOfUsersFriends(internalAPIAccessToken: "BQAdkJmE6FHh0DtGMzDW8NBs-NB2PNVZg8e-PFUL43-S5dnSCPueI14fGZXKaTDauqQ3sJgD0eZnFlpa0Ub6DHWWTW8CsX1Cj4F9tuZgcdcii1svPQSKl753iyEVmaU-hdXIUB2fNtHXOifp9fEMW-gapWYGD69wxNuE9GSSZj6ZcJalMfIMJ_2R7u8mlsu0D_7kJLySsb_KKZgAsof-JKLRT_tu-qOo9vqvi-x6VewnVe1aIgJQSx9OptQ27AtTNpNPh-O6Bt1jfkvSK1w7aJ5W3XzMvdSiaTOWUW8pWdQyt3e9TorFXAhcdHjC")
+                    try? await friendActivityViewModel.setFriendActivity()
                 }
             }
         }
@@ -42,6 +41,6 @@ struct FriendActivityView: View {
 
 struct FriendActivity_Previews: PreviewProvider {
     static var previews: some View {
-        FriendActivityView()
+        FriendActivityView().environmentObject(FriendActivityViewModel(user: User(), friendActivites: []))
     }
 }

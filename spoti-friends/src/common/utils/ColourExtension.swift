@@ -17,4 +17,13 @@ extension Color {
     struct PresetGradient {
         static var mainDarkGradient: Gradient {return  Gradient(colors: [Color(red: 0.12, green: 0.12, blue: 0.12), Color(red: 0.06, green: 0.06, blue: 0.06)])}
     }
+    
+    func isDarkBackground() -> Bool {
+            var r, g, b, a: CGFloat
+            (r, g, b, a) = (0, 0, 0, 0)
+            UIColor(self).getRed(&r, green: &g, blue: &b, alpha: &a)
+            let luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b
+            return  luminance < 0.30
+
+        }
 }

@@ -14,12 +14,12 @@ struct AlbumCover: View {
     
     var body: some View {
         // TODO: Uncomment and replace when removing hard-coded value
-        // let imageURL = URL(string: album.image)
-        let imageURL = URL(string: "https://i.scdn.co/image/ab67616d0000b273753639aa8d7646a69fdb5879")
+         let imageURL = URL(string: album.image)
+//        let imageURL = URL(string: "https://i.scdn.co/image/ab67616d0000b273753639aa8d7646a69fdb5879")
         
-        // TODO: Uncomment and replace when removing hard-coded value
-        // Link (destination: URL(string: album.spotifyUri)!) {
-        Link (destination: URL(string: "spotify:track:4KULAymBBJcPRpk1yO4dOG")!) {
+//         TODO: Uncomment and replace when removing hard-coded value
+         Link (destination: URL(string: album.spotifyUri)!) {
+//        Link (destination: URL(string: "spotify:track:4KULAymBBJcPRpk1yO4dOG")!) {
             AsyncImage(url: imageURL) { phase in
                 switch phase {
                 case .empty:

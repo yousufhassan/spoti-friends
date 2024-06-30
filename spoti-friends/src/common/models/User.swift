@@ -55,11 +55,20 @@ class User: Object {
     public func setSpotifyWebAccessToken(_ spotifyWebAccessToken: SpotifyWebAccessToken) -> Void {
         self.spotifyWebAccessToken = spotifyWebAccessToken
     }
+    
     /// Sets the user's `internalAPIAccessToken`.
     public func setInternalAPIAccessToken(_ internalAPIAccessToken: InternalAPIAccessToken) -> Void {
         self.internalAPIAccessToken = internalAPIAccessToken
     }
     
+//    /// Gets the user's `internalAPIAccessToken`.
+//    public func getInternalAPIAccessToken() -> InternalAPIAccessToken {
+////        let realm = RealmDatabase.shared.getRealmInstance()
+//        DispatchQueue.main.async {
+//            return self.internalAPIAccessToken!
+//        }
+//    }
+//    
     /// Sets the user's `authorizationStatus` as `status`.
     public func setAuthorizationStatusAs(_ status: AuthorizationStatus) -> Void {
         self.authorizationStatus = status
