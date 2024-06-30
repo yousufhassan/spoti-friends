@@ -1,5 +1,8 @@
 import SwiftUI
 
+/// The view that displays the Friend Activity page which contains the listening activity for the user's friends.
+///
+/// - Returns: The friend activity page view.
 struct FriendActivityView: View {
     var body: some View {
         VStack {
