@@ -13,6 +13,7 @@ class AuthorizationViewModel: ObservableObject {
         
         // If we find a matching user in the database, set that as current user.
         // Otherwise, this is a new user.
+//        storeInUserDefaults(key: "signedInUser", value: "")
         let signedInUser = getStringFromUserDefaultsValueForKey("signedInUser")
         if signedInUser != "" {
             let existingUser: User = realm.objects(User.self).where { $0.spotifyId == signedInUser }.first!
@@ -48,7 +49,7 @@ class AuthorizationViewModel: ObservableObject {
         }
     }
     
-    /// Handler for when the `sp_dc` cookie is fetched. It stores the cookie value in the user object, but does not save to database.
+    /// Handler for when the `sp_dc` cookie is fetched. It stores the cookie value in the user object, but does not save to database yet.
     public func handleFetchedSpDcCookie(_ cookie: HTTPCookie?) -> Void {
         let spDcCookie = convertToSpDcCookie(cookie)
         self.user.spDcCookie = spDcCookie

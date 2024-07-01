@@ -4,6 +4,8 @@ import SwiftUI
 ///
 /// - Returns: The friend activity page view.
 struct FriendActivityView: View {
+    @EnvironmentObject var friendActivityViewModel: FriendActivityViewModel
+    
     var body: some View {
         VStack {
             // Friend Activity Header
@@ -15,19 +17,22 @@ struct FriendActivityView: View {
             
             // List of friend's listening activities
             VStack(alignment: .center) {
-                let profileImageURL = URL(string: "https://i.scdn.co/image/ab6775700000ee8593e8cec90c9689ba0f18c26f")!
-                let album = Album()
-                let username = "yousuf"
-                let track = CurrentOrMostRecentTrack()  // dummy object just to please Preview Simulator
-                
-                ListeningActivityItem(
-                    profileImageURL: profileImageURL,
-                    album: album,
-                    username: username,
-                    track: track)
+                ForEach(friendActivityViewModel.friendActivites) { activity in
+                    ListeningActivityItem(
+                        profileImageURL: activity.profileImageURL,
+                        album: activity.album,
+                        username: activity.username,
+                        track: activity.track)
+                    
+                }
             }
             .padding()
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+            .onAppear {
+                Task {
+                    try? await friendActivityViewModel.setFriendActivity()
+                }
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.PresetColour.darkgrey)
@@ -36,6 +41,6 @@ struct FriendActivityView: View {
 
 struct FriendActivity_Previews: PreviewProvider {
     static var previews: some View {
-        FriendActivityView()
+        FriendActivityView().environmentObject(FriendActivityViewModel(user: User(), friendActivites: []))
     }
 }

@@ -8,6 +8,7 @@ class User: Object {
     @Persisted var friends: List<SpotifyProfile>
     @Persisted var authorizationCode: String?
     @Persisted var spotifyWebAccessToken: SpotifyWebAccessToken?
+    @Persisted var internalAPIAccessToken: InternalAPIAccessToken?
     @Persisted var authorizationStatus: AuthorizationStatus
     @Persisted var spDcCookie: SpDcCookie?
     
@@ -18,6 +19,7 @@ class User: Object {
         self.friends = List()
         self.authorizationCode = nil
         self.spotifyWebAccessToken = nil
+        self.internalAPIAccessToken = nil
         self.authorizationStatus = .unauthenticated
         self.spDcCookie = nil
     }
@@ -37,6 +39,13 @@ class User: Object {
         self.spotifyProfile = spotifyProfile
     }
     
+    /// Sets the user's `friends`.
+    public func setFriends(_ friendsAsSpotifyProfiles: [SpotifyProfile]) -> Void {
+        let friends = List<SpotifyProfile>()
+        friends.append(objectsIn: friendsAsSpotifyProfiles)
+        self.friends = friends
+    }
+    
     /// Sets the user's `authorizationCode`.
     public func setAuthorizationCode(_ code: String) -> Void {
         self.authorizationCode = code
@@ -47,10 +56,40 @@ class User: Object {
         self.spotifyWebAccessToken = spotifyWebAccessToken
     }
     
+    /// Sets the user's `internalAPIAccessToken`.
+    public func setInternalAPIAccessToken(_ internalAPIAccessToken: InternalAPIAccessToken) -> Void {
+        self.internalAPIAccessToken = internalAPIAccessToken
+    }
+    
+    /// Gets the user's `internalAPIAccessToken`.
+    @MainActor public func getInternalAPIAccessToken() async throws -> InternalAPIAccessToken {
+        do {
+            guard let cookie: String = self.spDcCookie?.value else { throw AppError(.valueNotFound) }
+            let token = try await SpotifyAuth.shared.fetchInternalAPIAccessToken(spDcCookieValue: cookie, existingToken: self.internalAPIAccessToken)
+            
+            // Store the new token since the existing one expired
+            if token != self.internalAPIAccessToken {
+                RealmDatabase.shared.updateObjectInRealm {
+                    self.setInternalAPIAccessToken(token)
+                }
+            }
+            
+            return token
+        } catch {
+            printError("\(error)")
+            throw error
+        }
+    }
+    
     /// Sets the user's `authorizationStatus` as `status`.
     public func setAuthorizationStatusAs(_ status: AuthorizationStatus) -> Void {
         self.authorizationStatus = status
     }
+    
+//    public func getSpDcCookie() -> SpDcCookie {
+//        let realm = RealmDatabase.shared.getRealmInstance()
+//        let user = realm.obje
+//    }
     
     /// Sets the spDcCookie.
     public func setSpDcCookie(_ cookie: SpDcCookie) {

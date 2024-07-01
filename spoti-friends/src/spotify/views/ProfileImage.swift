@@ -9,14 +9,16 @@ import SwiftUI
 ///
 /// - Returns: A View for the profile image.
 struct ProfileImage: View {
-    let imageURL: URL
+    let imageURL: URL?
     let width, height: CGFloat
     
     var body: some View {
         AsyncImage(url: imageURL) { phase in
             switch phase {
             case .empty:
-                ProgressView() // Shows a progress indicator while loading
+                Image(systemName: "person.circle.fill")
+                    .resizable()
+//                ProgressView()  Shows a progress indicator while loading
             case .success(let image):
                 image
                     .resizable()

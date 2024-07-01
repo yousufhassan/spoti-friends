@@ -1,6 +1,5 @@
 import Foundation
 
-
 /// This extension adds functionality related to the `getCurrentUsersProfile` endpoint.
 extension SpotifyAPI {
     internal func convertDataToSpotifyProfile(_ data: Data) throws -> SpotifyProfile {

@@ -41,7 +41,7 @@ class SpotifyAuth {
                 if (userGrantedAuthorization(queryItems)) {
                     user.setAuthorizationStatusAs(.granted)
                     storeSignedInUser(user)
-                    RealmDatabase.shared.addToRealm(object: user);
+                    await RealmDatabase.shared.addToRealm(object: user);
                     authorizationStatus = .granted
                 }
                 else {
@@ -60,14 +60,20 @@ class SpotifyAuth {
             let authorizationCode = try getAuthorizationCodeFromQueryItems(queryItems)
             user.setAuthorizationCode(authorizationCode)
             
-            let spotifyWebAccessToken = await requestAccessTokenObject(authorizationCode: authorizationCode)
+            let spotifyWebAccessToken = try await requestAccessTokenObject(authorizationCode: authorizationCode)
             user.setSpotifyWebAccessToken(spotifyWebAccessToken!)
+            
+            let internalAPIAccessToken = try await fetchInternalAPIAccessToken(spDcCookieValue: user.spDcCookie!.value, existingToken: user.internalAPIAccessToken)
+            user.setInternalAPIAccessToken(internalAPIAccessToken)
             
             let spotifyProfile = try await SpotifyAPI.shared.getCurrentUsersProfile(
                 accessToken: user.spotifyWebAccessToken!.access_token)
             user.setSpotifyProfile(spotifyProfile)
-            
             user.setSpotifyId(spotifyProfile.spotifyId)
+            
+            let friends = try await SpotifyAPI.shared.getListOfUsersFriends(internalAPIAccessToken: internalAPIAccessToken.accessToken)
+            user.setFriends(friends)
+            
         } catch {
             printError("\(error)")
         }
@@ -124,16 +130,55 @@ class SpotifyAuth {
     }
     
     /// Requests and returns a Spotify Web Access Ttoken object.
-    private func requestAccessTokenObject(authorizationCode: String) async -> SpotifyWebAccessToken? {
+    private func requestAccessTokenObject(authorizationCode: String) async throws -> SpotifyWebAccessToken? {
         do {
             let request = try constructAccessTokenUrlRequest(authorizationCode: authorizationCode)
             let (data, _) = try await URLSession.shared.data(for: request)
-            let response = try JSONDecoder().decode(SpotifyWebAccessToken.self, from: data)
-            return response
+            let accessToken = try JSONDecoder().decode(SpotifyWebAccessToken.self, from: data)
+            return accessToken
         } catch {
             printError("\(error)")
-            return nil
+            throw error
         }
         
+    }
+    
+    /// Fetches and returns the Spotify Web Player Access Token needed for calling the `/buddylist` internal API endpoint.
+    /// This is different than the Access Token for the Web API.
+    ///
+    /// - Parameters:
+    ///   - spDcCookieValue: The user's `sp_dc` cookie value.
+    ///   - existingToken: An optional token if it already exists.
+    ///
+    /// - Returns: The **internal** Spotify Web Player Access Token .
+    @MainActor public func fetchInternalAPIAccessToken(spDcCookieValue: String, existingToken: InternalAPIAccessToken?) async throws -> InternalAPIAccessToken {
+        // If there as an existing token that is still valid, return that. Otherwise return a new token.
+        if existingToken != nil && !accessTokenIsExpired(existingToken!.accessTokenExpirationTimestampMs) {
+            return existingToken!
+        }
+        
+        guard let endpointURL = URL(string: "https://open.spotify.com/get_access_token?reason=transport&productType=web_player") else {
+            throw URLError(.badURL)
+        }
+        var request = URLRequest(url: endpointURL)
+        request.setValue("sp_dc=\(spDcCookieValue)", forHTTPHeaderField: "Cookie")
+        let (data, _) = try await URLSession.shared.data(for: request)
+        let internalAPIAccessToken = try JSONDecoder().decode(InternalAPIAccessToken.self, from: data)
+        return internalAPIAccessToken
+    }
+    
+    /// Returns `true` if the access token is expired; false otherwise.
+    ///
+    /// - Parameters:
+    ///   - expiry: When the token expires.
+    ///
+    ///   - Returns: If the access token is expired or not.
+    private func accessTokenIsExpired(_ expiry: Double) -> Bool {
+        let expiryInSeconds = expiry / 1000
+        if Date() >= Date(timeIntervalSince1970: expiryInSeconds) {
+            return true
+        }
+        
+        return false
     }
 }

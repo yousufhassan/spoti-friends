@@ -9,6 +9,10 @@ class SpotifyProfile: Object {
     @Persisted var image: String
     @Persisted var currentOrMostRecentTrack: CurrentOrMostRecentTrack?
     
+    public func getSpotifyIdFromUri(spotifyUri: String) -> String {
+        return spotifyUri.components(separatedBy: ":").last ?? ""
+    }
+    
 //    override init() {
 //        super.init()
 //    }
@@ -39,6 +43,7 @@ class SpotifyProfile: Object {
 /// The `SpotifyResource` protocol ensures each abiding object has a well-defined spotifyUri attribute.
 protocol SpotifyResource {
     var spotifyUri: String { get }
+    var name: String { get }
 }
 
 /// This extensions defines the function that returns the `spotifyUri` for all `spotifyResource` objects.
@@ -73,6 +78,7 @@ class Artist: Object, SpotifyResource {
 /// Object representing a Spotify Album.
 class Album: Object, SpotifyResource {
     @Persisted var spotifyUri: String
+    @Persisted var name: String
     @Persisted var image: String
 }
 
