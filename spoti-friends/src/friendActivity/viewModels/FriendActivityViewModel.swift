@@ -9,12 +9,10 @@ class FriendActivityViewModel: ObservableObject {
         self.friendActivites = friendActivites
     }
     
-    public func setFriendActivity() async throws -> Void {
+    @MainActor public func setFriendActivity() async throws -> Void {
         do {
             var accessToken: String = ""
-            DispatchQueue.main.sync {
-                accessToken = self.user.internalAPIAccessToken!.accessToken
-            }
+                accessToken = try await self.user.getInternalAPIAccessToken().accessToken
             let friends = try await SpotifyAPI.shared.getListOfUsersFriends(internalAPIAccessToken: accessToken)
             var friendActivities: [ListeningActivityItem] = []
             for friend in friends {

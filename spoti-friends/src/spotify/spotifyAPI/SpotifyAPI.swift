@@ -2,7 +2,7 @@ import Foundation
 
 /// Singleton class for interacting with the Spotify Web API.
 class SpotifyAPI {
-    static let shared: SpotifyAPI = SpotifyAPI()
+    nonisolated(unsafe) static let shared: SpotifyAPI = SpotifyAPI()
     
     /// API call to the Get Current User's Profile endpoint and returns a `SpotifyProfile` object.
     ///
@@ -44,7 +44,6 @@ class SpotifyAPI {
         var request = URLRequest(url: endpointURL)
         request.setValue("Bearer \(internalAPIAccessToken)", forHTTPHeaderField: "Authorization")
         let (data, response) = try await URLSession.shared.data(for: request)
-        
         if (requestFailed(response as! HTTPURLResponse)) { throw SpotifyAPIError.unsuccessfulRequest }
         return data
     }

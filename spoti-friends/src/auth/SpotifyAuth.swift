@@ -41,7 +41,7 @@ class SpotifyAuth {
                 if (userGrantedAuthorization(queryItems)) {
                     user.setAuthorizationStatusAs(.granted)
                     storeSignedInUser(user)
-                    RealmDatabase.shared.addToRealm(object: user);
+                    await RealmDatabase.shared.addToRealm(object: user);
                     authorizationStatus = .granted
                 }
                 else {
@@ -63,7 +63,7 @@ class SpotifyAuth {
             let spotifyWebAccessToken = try await requestAccessTokenObject(authorizationCode: authorizationCode)
             user.setSpotifyWebAccessToken(spotifyWebAccessToken!)
             
-            let internalAPIAccessToken = try await getInternalAPIAccessToken(spDcCookieValue: user.spDcCookie!.value, existingToken: user.internalAPIAccessToken)
+            let internalAPIAccessToken = try await fetchInternalAPIAccessToken(spDcCookieValue: user.spDcCookie!.value, existingToken: user.internalAPIAccessToken)
             user.setInternalAPIAccessToken(internalAPIAccessToken)
             
             let spotifyProfile = try await SpotifyAPI.shared.getCurrentUsersProfile(
@@ -143,15 +143,15 @@ class SpotifyAuth {
         
     }
     
-    /// Returns the Spotify Web Player Access Token needed for calling the `/buddylist` internal API endpoint.
+    /// Fetches and returns the Spotify Web Player Access Token needed for calling the `/buddylist` internal API endpoint.
     /// This is different than the Access Token for the Web API.
     ///
     /// - Parameters:
     ///   - spDcCookieValue: The user's `sp_dc` cookie value.
-    ///   - existingToken: An optional token if it already exists
+    ///   - existingToken: An optional token if it already exists.
     ///
     /// - Returns: The **internal** Spotify Web Player Access Token .
-    private func getInternalAPIAccessToken(spDcCookieValue: String, existingToken: InternalAPIAccessToken?) async throws -> InternalAPIAccessToken {
+    @MainActor public func fetchInternalAPIAccessToken(spDcCookieValue: String, existingToken: InternalAPIAccessToken?) async throws -> InternalAPIAccessToken {
         // If there as an existing token that is still valid, return that. Otherwise return a new token.
         if existingToken != nil && !accessTokenIsExpired(existingToken!.accessTokenExpirationTimestampMs) {
             return existingToken!
@@ -174,7 +174,8 @@ class SpotifyAuth {
     ///
     ///   - Returns: If the access token is expired or not.
     private func accessTokenIsExpired(_ expiry: Double) -> Bool {
-        if Date() >= Date(timeIntervalSince1970: expiry) {
+        let expiryInSeconds = expiry / 1000
+        if Date() >= Date(timeIntervalSince1970: expiryInSeconds) {
             return true
         }
         
