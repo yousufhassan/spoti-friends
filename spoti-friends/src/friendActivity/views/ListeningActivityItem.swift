@@ -15,7 +15,8 @@ struct ListeningActivityItem: View, Identifiable {
     let album: Album
     let username: String
     let track: CurrentOrMostRecentTrack
-    @State var backgroundColor: UIColor = UIColor.white
+    let backgroundColor: Color;
+//    @State var backgroundColor: Color = Color.gray.opacity(0.2)
     @State var fontColor: Color = Color.black
     
     var body: some View {
@@ -30,7 +31,7 @@ struct ListeningActivityItem: View, Identifiable {
                     .padding(.leading, 4)
                     .onAppear {
                         Task {
-                            backgroundColor = try await getAccentColorForImage(album.image)
+//                            backgroundColor = Color(try await getAccentColorForImage(album.image))
                             fontColor = Color(backgroundColor).isDarkBackground() ? Color.white : Color.black
                         }
                     }
@@ -40,6 +41,7 @@ struct ListeningActivityItem: View, Identifiable {
             .frame(height: 96)
             .background(Color(backgroundColor))
             .cornerRadius(12)
+            .transition(.opacity)
         }
     }
 }
@@ -100,5 +102,7 @@ struct ListeningActivityDetails: View {
     ListeningActivityItem(profileImageURL: profileImageURL,
                           album: album,
                           username: username,
-                          track: track)
+                          track: track,
+                          backgroundColor: Color.gray
+    )
 }

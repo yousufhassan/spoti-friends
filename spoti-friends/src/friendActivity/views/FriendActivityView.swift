@@ -22,7 +22,9 @@ struct FriendActivityView: View {
                         profileImageURL: activity.profileImageURL,
                         album: activity.album,
                         username: activity.username,
-                        track: activity.track)
+                        track: activity.track,
+                        backgroundColor: activity.backgroundColor
+                    )
                     
                 }
             }
