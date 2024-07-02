@@ -49,6 +49,8 @@ struct FriendActivityView: View {
 
 struct FriendActivity_Previews: PreviewProvider {
     static var previews: some View {
-        FriendActivityView().environmentObject(FriendActivityViewModel(user: User(), friendActivites: []))
+        let user = mockUser().object
+        let activites = MockData().object
+        FriendActivityView().environmentObject(FriendActivityViewModel(user: user, friendActivites: [activites]))
     }
 }
