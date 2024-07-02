@@ -26,7 +26,7 @@ class FriendActivityViewModel: ObservableObject {
             let accessToken = try await self.user.getInternalAPIAccessToken().accessToken
             let friends = try await SpotifyAPI.shared.getListOfUsersFriends(internalAPIAccessToken: accessToken)
             var friendActivities: [ListeningActivityItem] = []
-            for friend in friends {
+            for friend in friends.reversed() {
                 await storeProfilePictureLocally(imageName: friend.spotifyId, link: friend.image)
                 
                 let backgroundColor = Color(try await getAccentColorForImage((friend.currentOrMostRecentTrack?.track?.album!.image)!))
@@ -41,6 +41,12 @@ class FriendActivityViewModel: ObservableObject {
         } catch {
             printError("\(error)")
             throw error
+        }
+    }
+    
+    private func refreshFriendActivity() {
+        Task {
+            try? await setFriendActivity()
         }
     }
     
@@ -79,11 +85,5 @@ class FriendActivityViewModel: ObservableObject {
             return UIImage(data: data)
         }
         return nil
-    }
-    
-    private func refreshFriendActivity() {
-        Task {
-            try? await setFriendActivity()
-        }
     }
 }

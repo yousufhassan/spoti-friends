@@ -11,15 +11,24 @@ import SwiftUI
 ///
 /// - Returns: A View for the Listening Activity Item.
 struct ListeningActivityItem: View, Identifiable {
-    let id = UUID()
+    let id: String
     let spotifyId: String
     let album: Album
     let username: String
     let track: CurrentOrMostRecentTrack
     let backgroundColor: Color;
+    @State var fontColor: Color
     @EnvironmentObject var friendActivityViewModel: FriendActivityViewModel
     
-    @State var fontColor: Color = Color.black
+    init(spotifyId: String, album: Album, username: String, track: CurrentOrMostRecentTrack, backgroundColor: Color) {
+        self.id = spotifyId
+        self.spotifyId = spotifyId
+        self.album = album
+        self.username = username
+        self.track = track
+        self.backgroundColor = backgroundColor
+        self.fontColor = Color(backgroundColor).isDarkBackground() ? Color.white : Color.black
+    }
     
     var body: some View {
         VStack {
@@ -32,11 +41,6 @@ struct ListeningActivityItem: View, Identifiable {
                 
                 AlbumCover(album: album, width: 80, height: 80)
                     .padding(.leading, 4)
-                    .onAppear {
-                        Task {
-                            fontColor = Color(backgroundColor).isDarkBackground() ? Color.white : Color.black
-                        }
-                    }
             }
             .padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 8))
             .frame(maxWidth: 600, maxHeight: 96)
