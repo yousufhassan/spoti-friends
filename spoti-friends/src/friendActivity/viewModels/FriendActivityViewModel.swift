@@ -11,8 +11,7 @@ class FriendActivityViewModel: ObservableObject {
         self.user = user
         self.friendActivites = friendActivites
         
-        // Set up the timer to fire every 60 seconds
-        let refreshInterval: TimeInterval = 6
+        let refreshInterval: TimeInterval = 60
         Timer.publish(every: refreshInterval, on: .main, in: .common)
             .autoconnect()
             .sink { [weak self] _ in
