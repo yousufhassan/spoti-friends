@@ -19,12 +19,13 @@ struct FriendActivityView: View {
             VStack(alignment: .center) {
                 ForEach(friendActivityViewModel.friendActivites) { activity in
                     ListeningActivityItem(
-                        profileImageURL: activity.profileImageURL,
+                        spotifyId: activity.spotifyId,
                         album: activity.album,
                         username: activity.username,
                         track: activity.track,
                         backgroundColor: activity.backgroundColor
                     )
+                    .environmentObject(friendActivityViewModel)
                     
                 }
             }
