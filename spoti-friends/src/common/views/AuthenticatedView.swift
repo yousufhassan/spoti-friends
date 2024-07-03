@@ -20,5 +20,9 @@ struct AuthenticatedView: View {
 }
 
 #Preview {
+    let user = UserMock.userJimHalpert
+    let activites = ListeningActivityCardMock.allCards
+    
     AuthenticatedView()
+        .environmentObject(FriendActivityViewModel(user: user, friendActivites: activites))
 }

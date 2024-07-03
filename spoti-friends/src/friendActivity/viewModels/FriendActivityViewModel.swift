@@ -4,10 +4,10 @@ import SwiftUI
 
 class FriendActivityViewModel: ObservableObject {
     @Published var user: User
-    @Published var friendActivites: [ListeningActivityItem]
+    @Published var friendActivites: [ListeningActivityCard]
     private var cancellables = Set<AnyCancellable>()
     
-    init(user: User, friendActivites: [ListeningActivityItem]) {
+    init(user: User, friendActivites: [ListeningActivityCard]) {
         self.user = user
         self.friendActivites = friendActivites
         
@@ -24,14 +24,14 @@ class FriendActivityViewModel: ObservableObject {
         do {
             let accessToken = try await self.user.getInternalAPIAccessToken().accessToken
             let friends = try await SpotifyAPI.shared.getListOfUsersFriends(internalAPIAccessToken: accessToken)
-            var friendActivities: [ListeningActivityItem] = []
+            var friendActivities: [ListeningActivityCard] = []
             for friend in friends.reversed() {
                 await storeProfilePictureLocally(imageName: friend.spotifyId, link: friend.image)
                 
                 let backgroundColor = Color(try await getAccentColorForImage((friend.currentOrMostRecentTrack?.track?.album!.image)!))
-                let activity = ListeningActivityItem(spotifyId: friend.spotifyId,
+                let activity = ListeningActivityCard(spotifyId: friend.spotifyId,
                                                      album: (friend.currentOrMostRecentTrack?.track?.album)!,
-                                                     username: friend.displayName,
+                                                     displayName: friend.displayName,
                                                      track: friend.currentOrMostRecentTrack!,
                                                      backgroundColor: backgroundColor)
                 friendActivities.append(activity)

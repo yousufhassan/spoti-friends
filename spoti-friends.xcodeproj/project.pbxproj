@@ -19,7 +19,7 @@
 		CB3417FF2C1BDBC800BE70A8 /* MyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3417FE2C1BDBC800BE70A8 /* MyProfileView.swift */; };
 		CB3B617F2C1BDFB00088DFA1 /* PageTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3B617E2C1BDFB00088DFA1 /* PageTitle.swift */; };
 		CB3B61812C1F83AE0088DFA1 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3B61802C1F83AE0088DFA1 /* AuthenticatedView.swift */; };
-		CB59BCB52C2FA08D0061C99B /* ListeningActivityItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB59BCB42C2FA08D0061C99B /* ListeningActivityItem.swift */; };
+		CB59BCB52C2FA08D0061C99B /* ListeningActivityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB59BCB42C2FA08D0061C99B /* ListeningActivityCard.swift */; };
 		CB59BCB72C2FAB890061C99B /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB59BCB62C2FAB890061C99B /* ProfileImage.swift */; };
 		CB59BCBF2C2FAFB30061C99B /* AlbumCover.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB59BCBE2C2FAFB30061C99B /* AlbumCover.swift */; };
 		CB59BCC92C30A5370061C99B /* UIImageColors in Frameworks */ = {isa = PBXBuildFile; productRef = CB59BCC82C30A5370061C99B /* UIImageColors */; };
@@ -36,7 +36,13 @@
 		CB7C05B92C128B7E001A0062 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = CB7C05B72C128AC4001A0062 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		CB875CAC2C313494001B364D /* getListOfUsersFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB875CAB2C31348A001B364D /* getListOfUsersFriends.swift */; };
 		CB875CAE2C31507E001B364D /* FriendActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB875CAD2C315073001B364D /* FriendActivityViewModel.swift */; };
-		CB875CB22C33C4D6001B364D /* mockUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB875CB12C33C4D3001B364D /* mockUser.swift */; };
+		CB875CB22C33C4D6001B364D /* UserMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB875CB12C33C4D3001B364D /* UserMock.swift */; };
+		CB875CB52C35195E001B364D /* SpotifyProfileMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB875CB42C351958001B364D /* SpotifyProfileMock.swift */; };
+		CB875CB72C35220C001B364D /* AlbumMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB875CB62C352208001B364D /* AlbumMock.swift */; };
+		CB875CB92C3524B4001B364D /* TrackMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB875CB82C352499001B364D /* TrackMock.swift */; };
+		CB875CBB2C3525C3001B364D /* ArtistMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB875CBA2C3525C0001B364D /* ArtistMock.swift */; };
+		CB875CBD2C352652001B364D /* TrackContextMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB875CBC2C35264F001B364D /* TrackContextMock.swift */; };
+		CB875CC02C352A4E001B364D /* ListeningActivityCardMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB875CBF2C352A48001B364D /* ListeningActivityCardMock.swift */; };
 		CB8D3C2E2C0D28C000C493E8 /* CodeChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8D3C2D2C0D28C000C493E8 /* CodeChallenge.swift */; };
 		CB9A9AAB2C0BB13E0073817C /* spotifriendsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A9AAA2C0BB13E0073817C /* spotifriendsApp.swift */; };
 		CB9A9AAD2C0BB13E0073817C /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A9AAC2C0BB13E0073817C /* RootView.swift */; };
@@ -74,7 +80,7 @@
 		CB3417FE2C1BDBC800BE70A8 /* MyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileView.swift; sourceTree = "<group>"; };
 		CB3B617E2C1BDFB00088DFA1 /* PageTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTitle.swift; sourceTree = "<group>"; };
 		CB3B61802C1F83AE0088DFA1 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
-		CB59BCB42C2FA08D0061C99B /* ListeningActivityItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeningActivityItem.swift; sourceTree = "<group>"; };
+		CB59BCB42C2FA08D0061C99B /* ListeningActivityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeningActivityCard.swift; sourceTree = "<group>"; };
 		CB59BCB62C2FAB890061C99B /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
 		CB59BCBE2C2FAFB30061C99B /* AlbumCover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCover.swift; sourceTree = "<group>"; };
 		CB59BCCD2C30BA420061C99B /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
@@ -88,7 +94,13 @@
 		CB7C05B42C1191EC001A0062 /* UnauthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnauthenticatedView.swift; sourceTree = "<group>"; };
 		CB875CAB2C31348A001B364D /* getListOfUsersFriends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getListOfUsersFriends.swift; sourceTree = "<group>"; };
 		CB875CAD2C315073001B364D /* FriendActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendActivityViewModel.swift; sourceTree = "<group>"; };
-		CB875CB12C33C4D3001B364D /* mockUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mockUser.swift; sourceTree = "<group>"; };
+		CB875CB12C33C4D3001B364D /* UserMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMock.swift; sourceTree = "<group>"; };
+		CB875CB42C351958001B364D /* SpotifyProfileMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyProfileMock.swift; sourceTree = "<group>"; };
+		CB875CB62C352208001B364D /* AlbumMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumMock.swift; sourceTree = "<group>"; };
+		CB875CB82C352499001B364D /* TrackMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackMock.swift; sourceTree = "<group>"; };
+		CB875CBA2C3525C0001B364D /* ArtistMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistMock.swift; sourceTree = "<group>"; };
+		CB875CBC2C35264F001B364D /* TrackContextMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackContextMock.swift; sourceTree = "<group>"; };
+		CB875CBF2C352A48001B364D /* ListeningActivityCardMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeningActivityCardMock.swift; sourceTree = "<group>"; };
 		CB8D3C2C2C0D1E5000C493E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CB8D3C2D2C0D28C000C493E8 /* CodeChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeChallenge.swift; sourceTree = "<group>"; };
 		CB9A9AA72C0BB13E0073817C /* spoti-friends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "spoti-friends.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,7 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				CB9A9ADB2C0BEC080073817C /* FriendActivityView.swift */,
-				CB59BCB42C2FA08D0061C99B /* ListeningActivityItem.swift */,
+				CB59BCB42C2FA08D0061C99B /* ListeningActivityCard.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -226,6 +238,7 @@
 		CB59BCBD2C2FAF7F0061C99B /* models */ = {
 			isa = PBXGroup;
 			children = (
+				CB875CB32C35194A001B364D /* mocked */,
 				CB0854CA2C1574FE0088E87D /* SpotifyProfile.swift */,
 			);
 			path = models;
@@ -252,6 +265,7 @@
 		CB7C05A62C0EB8F0001A0062 /* friendActivity */ = {
 			isa = PBXGroup;
 			children = (
+				CB875CBE2C352A3E001B364D /* mocked */,
 				CB59BCCA2C30B1E20061C99B /* viewModels */,
 				CB59BCB22C2F9EF20061C99B /* views */,
 			);
@@ -291,7 +305,27 @@
 		CB875CB02C33C4C7001B364D /* mocked */ = {
 			isa = PBXGroup;
 			children = (
-				CB875CB12C33C4D3001B364D /* mockUser.swift */,
+				CB875CB12C33C4D3001B364D /* UserMock.swift */,
+			);
+			path = mocked;
+			sourceTree = "<group>";
+		};
+		CB875CB32C35194A001B364D /* mocked */ = {
+			isa = PBXGroup;
+			children = (
+				CB875CBC2C35264F001B364D /* TrackContextMock.swift */,
+				CB875CBA2C3525C0001B364D /* ArtistMock.swift */,
+				CB875CB82C352499001B364D /* TrackMock.swift */,
+				CB875CB62C352208001B364D /* AlbumMock.swift */,
+				CB875CB42C351958001B364D /* SpotifyProfileMock.swift */,
+			);
+			path = mocked;
+			sourceTree = "<group>";
+		};
+		CB875CBE2C352A3E001B364D /* mocked */ = {
+			isa = PBXGroup;
+			children = (
+				CB875CBF2C352A48001B364D /* ListeningActivityCardMock.swift */,
 			);
 			path = mocked;
 			sourceTree = "<group>";
@@ -436,13 +470,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB875CB72C35220C001B364D /* AlbumMock.swift in Sources */,
 				CB3B61812C1F83AE0088DFA1 /* AuthenticatedView.swift in Sources */,
 				CB9A9ADC2C0BEC080073817C /* FriendActivityView.swift in Sources */,
-				CB59BCB52C2FA08D0061C99B /* ListeningActivityItem.swift in Sources */,
+				CB59BCB52C2FA08D0061C99B /* ListeningActivityCard.swift in Sources */,
 				CB3B617F2C1BDFB00088DFA1 /* PageTitle.swift in Sources */,
+				CB875CB52C35195E001B364D /* SpotifyProfileMock.swift in Sources */,
 				CB0854C92C1573D10088E87D /* APIConstants.swift in Sources */,
 				CB0854BE2C14F0580088E87D /* SignInButton.swift in Sources */,
 				CB875CAC2C313494001B364D /* getListOfUsersFriends.swift in Sources */,
+				CB875CBD2C352652001B364D /* TrackContextMock.swift in Sources */,
 				CB59BCBF2C2FAFB30061C99B /* AlbumCover.swift in Sources */,
 				CB3417FB2C180D3D00BE70A8 /* SpotifyAPIError.swift in Sources */,
 				CB875CAE2C31507E001B364D /* FriendActivityViewModel.swift in Sources */,
@@ -451,6 +488,7 @@
 				CB3417FF2C1BDBC800BE70A8 /* MyProfileView.swift in Sources */,
 				CB8D3C2E2C0D28C000C493E8 /* CodeChallenge.swift in Sources */,
 				CB7C05B52C1191EC001A0062 /* UnauthenticatedView.swift in Sources */,
+				CB875CB92C3524B4001B364D /* TrackMock.swift in Sources */,
 				CB7C05B32C1191BA001A0062 /* AuthorizationDeniedView.swift in Sources */,
 				CB3417F92C17FC3100BE70A8 /* getCurrentUserProfile.swift in Sources */,
 				CB59BCB72C2FAB890061C99B /* ProfileImage.swift in Sources */,
@@ -458,13 +496,15 @@
 				CB7C05AD2C0EEEA2001A0062 /* AuthorizationConstants.swift in Sources */,
 				CB0854C32C15583A0088E87D /* RealmDatabase.swift in Sources */,
 				CB0854C72C15723C0088E87D /* SpotifyAPI.swift in Sources */,
+				CB875CC02C352A4E001B364D /* ListeningActivityCardMock.swift in Sources */,
 				CB9A9AAD2C0BB13E0073817C /* RootView.swift in Sources */,
 				CB9A9AAB2C0BB13E0073817C /* spotifriendsApp.swift in Sources */,
-				CB875CB22C33C4D6001B364D /* mockUser.swift in Sources */,
+				CB875CB22C33C4D6001B364D /* UserMock.swift in Sources */,
 				CB7C05A92C0EBB25001A0062 /* User.swift in Sources */,
 				CB59BCCE2C30BA470061C99B /* ImageUtils.swift in Sources */,
 				CB7C05A22C0EAB3B001A0062 /* AuthErrors.swift in Sources */,
 				CB9A9ADA2C0BE2EE0073817C /* ColourExtension.swift in Sources */,
+				CB875CBB2C3525C3001B364D /* ArtistMock.swift in Sources */,
 				CB7C05B02C0EEF7F001A0062 /* Types.swift in Sources */,
 				CB7C05A42C0EB4DB001A0062 /* Utils.swift in Sources */,
 				CB0854CB2C1574FE0088E87D /* SpotifyProfile.swift in Sources */,
