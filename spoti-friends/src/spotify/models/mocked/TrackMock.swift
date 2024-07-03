@@ -13,16 +13,16 @@ struct TrackMock {
     static let luxury = createMockTrack(name: "Luxury", artist: ArtistMock.jonBellion,
                                         album: AlbumMock.theDefinition, context: TrackContextMock.artistJonBellion)
     
-}
+    static func createMockTrack(spotifyUri: String = "", name: String, artist: Artist, album: Album, context: TrackContext) -> Track {
+        let track = Track()
+        track.spotifyUri = spotifyUri
+        track.name = name
+        track.artist = artist
+        track.album = album
+        track.context = context
+        return track
+    }
 
-private func createMockTrack(spotifyUri: String = "", name: String, artist: Artist, album: Album, context: TrackContext) -> Track {
-    let track = Track()
-    track.spotifyUri = spotifyUri
-    track.name = name
-    track.artist = artist
-    track.album = album
-    track.context = context
-    return track
 }
 
 /// Struct containing mock CurrentOrMostRecentTrack objects.
@@ -34,12 +34,12 @@ struct CurrentOrMostRecentTrackMock {
     
     static let luxury = createMockCurrentOrMostRecentTrack(timestamp: Date.timeIntervalSinceReferenceDate,
                                                            track: TrackMock.luxury)
-    
-}
+     
+    static func createMockCurrentOrMostRecentTrack(timestamp: TimeInterval, track: Track) -> CurrentOrMostRecentTrack {
+        let currTrack = CurrentOrMostRecentTrack()
+        currTrack.timestamp = timestamp
+        currTrack.track = track
+        return currTrack
+    }
 
-private func createMockCurrentOrMostRecentTrack(timestamp: TimeInterval, track: Track) -> CurrentOrMostRecentTrack {
-    let currTrack = CurrentOrMostRecentTrack()
-    currTrack.timestamp = timestamp
-    currTrack.track = track
-    return currTrack
 }

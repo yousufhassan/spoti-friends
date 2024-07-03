@@ -10,12 +10,12 @@ struct AlbumMock {
     
     static let theDefinition = createMockAlbum(spotifyUri: "spotify:album:7EOvtHDxbltA0GNC4mvLAC", name: "The Definition",
                                                image: "https://i.scdn.co/image/ab67616d0000b27312388a3d3a11600641476f89")
-}
-
-private func createMockAlbum(spotifyUri: String, name: String, image: String) -> Album {
-    let album = Album()
-    album.spotifyUri = spotifyUri
-    album.name = name
-    album.image = image
-    return album
+    
+    static func createMockAlbum(spotifyUri: String, name: String, image: String) -> Album {
+        let album = Album()
+        album.spotifyUri = spotifyUri
+        album.name = name
+        album.image = image
+        return album
+    }
 }

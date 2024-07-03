@@ -19,17 +19,16 @@ struct ListeningActivityCardMock {
                                                                        displayName: SpotifyProfileMock.stanleyHudson.displayName,
                                                                        track: CurrentOrMostRecentTrackMock.luxury,
                                                                        backgroundColor: Color.yellow)
+    
+    static func createMockListeningActivityCard(spotifyId: String = UUID().uuidString,
+                                                 album: Album,
+                                                 displayName: String,
+                                                 track: CurrentOrMostRecentTrack,
+                                                 backgroundColor: Color) -> ListeningActivityCard {
+        return ListeningActivityCard(spotifyId: spotifyId,
+                                     album: album,
+                                     displayName: displayName,
+                                     track: track,
+                                     backgroundColor: backgroundColor)
+    }
 }
-
-private func createMockListeningActivityCard(spotifyId: String = UUID().uuidString,
-                                             album: Album,
-                                             displayName: String,
-                                             track: CurrentOrMostRecentTrack,
-                                             backgroundColor: Color) -> ListeningActivityCard {
-    return ListeningActivityCard(spotifyId: spotifyId,
-                                 album: album,
-                                 displayName: displayName,
-                                 track: track,
-                                 backgroundColor: backgroundColor)
-}
-
