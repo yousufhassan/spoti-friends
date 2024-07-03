@@ -9,8 +9,8 @@ import SwiftUI
 ///   - track: The current or most recent track to display for the user.
 ///   - backgroundColor: The background color to set for this item.
 ///
-/// - Returns: A View for the Listening Activity Item.
-struct ListeningActivityItem: View, Identifiable {
+/// - Returns: A View for the Listening Activity Card.
+struct ListeningActivityCard: View, Identifiable {
     let id: String
     let spotifyId: String
     let album: Album
@@ -105,7 +105,7 @@ struct ListeningActivityDetails: View {
     let username = "yousuf"
     let track = CurrentOrMostRecentTrack()  // dummy object just to please Preview Simulator
     
-    ListeningActivityItem(spotifyId: "",
+    ListeningActivityCard(spotifyId: "",
                           album: album,
                           username: username,
                           track: track,

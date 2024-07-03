@@ -9,17 +9,13 @@ struct FriendActivityView: View {
     var body: some View {
         VStack {
             // Friend Activity Header
-            HStack {
-                PageTitle(pageTitle: "Friend Activity")
-                RotatingSyncIcon(width: 36, color: Color.PresetColour.white)
-            }
-            .padding(.trailing, 24)
+            PageTitle(pageTitle: "Friend Activity")
             
             // List of friend's listening activities
             ScrollView {
                 VStack(alignment: .center) {
                     ForEach(friendActivityViewModel.friendActivites) { activity in
-                        ListeningActivityItem(
+                        ListeningActivityCard(
                             spotifyId: activity.spotifyId,
                             album: activity.album,
                             username: activity.username,

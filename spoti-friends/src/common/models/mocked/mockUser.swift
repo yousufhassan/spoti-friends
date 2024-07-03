@@ -40,7 +40,7 @@ struct mockUser {
 }
 
 struct MockData {
-    let object = createMockListeningActivityItem()
+    let object = createMockListeningActivityCard()
     
     static func createMockAlbum() -> Album {
         let album = Album()
@@ -67,8 +67,8 @@ struct MockData {
         return track
     }
 
-    static func createMockListeningActivityItem() -> ListeningActivityItem {
-        return ListeningActivityItem(
+    static func createMockListeningActivityCard() -> ListeningActivityCard {
+        return ListeningActivityCard(
             spotifyId: "mockSpotifyId",
             album: createMockAlbum(),
             username: "Mock User",
