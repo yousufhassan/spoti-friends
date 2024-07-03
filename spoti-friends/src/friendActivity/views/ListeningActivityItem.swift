@@ -91,6 +91,7 @@ struct ListeningActivityDetails: View {
                     .padding(.trailing, -6)
                     .fontWeight(.ultraLight)
                 Text(currentTrack.track?.context?.name ?? "Error")
+                    .lineLimit(1)
             }
         }
         .font(.system(size: 14))
