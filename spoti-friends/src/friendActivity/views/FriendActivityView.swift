@@ -18,7 +18,7 @@ struct FriendActivityView: View {
                         ListeningActivityCard(
                             spotifyId: activity.spotifyId,
                             album: activity.album,
-                            username: activity.username,
+                            displayName: activity.displayName,
                             track: activity.track,
                             backgroundColor: activity.backgroundColor
                         )
@@ -43,10 +43,10 @@ struct FriendActivityView: View {
     }
 }
 
-struct FriendActivity_Previews: PreviewProvider {
-    static var previews: some View {
-        let user = mockUser().object
-        let activites = MockData().object
-        FriendActivityView().environmentObject(FriendActivityViewModel(user: user, friendActivites: [activites]))
-    }
+#Preview {
+    let user = UserMock.userJimHalpert
+    let activities = ListeningActivityCardMock.allCards
+    
+    FriendActivityView()
+        .environmentObject(FriendActivityViewModel(user: user, friendActivites: activities))
 }

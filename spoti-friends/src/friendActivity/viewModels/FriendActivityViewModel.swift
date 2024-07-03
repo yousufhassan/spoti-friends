@@ -31,7 +31,7 @@ class FriendActivityViewModel: ObservableObject {
                 let backgroundColor = Color(try await getAccentColorForImage((friend.currentOrMostRecentTrack?.track?.album!.image)!))
                 let activity = ListeningActivityCard(spotifyId: friend.spotifyId,
                                                      album: (friend.currentOrMostRecentTrack?.track?.album)!,
-                                                     username: friend.displayName,
+                                                     displayName: friend.displayName,
                                                      track: friend.currentOrMostRecentTrack!,
                                                      backgroundColor: backgroundColor)
                 friendActivities.append(activity)

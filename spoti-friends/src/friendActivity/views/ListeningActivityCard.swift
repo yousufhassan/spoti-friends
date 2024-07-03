@@ -5,7 +5,7 @@ import SwiftUI
 /// - Parameters:
 ///   - spotifyId: The Spotify ID for the user whose activity this is.
 ///   - album: The album for the current track.
-///   - username: The username for the user whose listenting activity this is.
+///   - displayName: The display name for the user whose listenting activity this is.
 ///   - track: The current or most recent track to display for the user.
 ///   - backgroundColor: The background color to set for this item.
 ///
@@ -14,17 +14,17 @@ struct ListeningActivityCard: View, Identifiable {
     let id: String
     let spotifyId: String
     let album: Album
-    let username: String
+    let displayName: String
     let track: CurrentOrMostRecentTrack
     let backgroundColor: Color;
     @State var fontColor: Color
     @EnvironmentObject var friendActivityViewModel: FriendActivityViewModel
     
-    init(spotifyId: String, album: Album, username: String, track: CurrentOrMostRecentTrack, backgroundColor: Color) {
+    init(spotifyId: String, album: Album, displayName: String, track: CurrentOrMostRecentTrack, backgroundColor: Color) {
         self.id = spotifyId
         self.spotifyId = spotifyId
         self.album = album
-        self.username = username
+        self.displayName = displayName
         self.track = track
         self.backgroundColor = backgroundColor
         self.fontColor = Color(backgroundColor).isDarkBackground() ? Color.white : Color.black
@@ -36,7 +36,7 @@ struct ListeningActivityCard: View, Identifiable {
                 ProfileImage(imageName: spotifyId, width: 56, height: 56)
                     .environmentObject(friendActivityViewModel)
                 
-                ListeningActivityDetails(username: username, currentTrack: track)
+                ListeningActivityDetails(username: displayName, currentTrack: track)
                     .foregroundStyle(fontColor)
                 
                 AlbumCover(album: album, width: 80, height: 80)
@@ -99,16 +99,17 @@ struct ListeningActivityDetails: View {
     }
 }
 
-
 #Preview {
-    let album = Album()
-    let username = "yousuf"
-    let track = CurrentOrMostRecentTrack()  // dummy object just to please Preview Simulator
+    let user = UserMock.userJimHalpert
+    let profile = SpotifyProfileMock.michaelScott
+    let album = AlbumMock.zachBryan
+    let track = CurrentOrMostRecentTrackMock.iRememberEverything
     
-    ListeningActivityCard(spotifyId: "",
+    ListeningActivityCard(spotifyId: profile.spotifyId,
                           album: album,
-                          username: username,
+                          displayName: profile.displayName,
                           track: track,
                           backgroundColor: Color.gray
     )
+    .environmentObject(FriendActivityViewModel(user: user, friendActivites: []))
 }
