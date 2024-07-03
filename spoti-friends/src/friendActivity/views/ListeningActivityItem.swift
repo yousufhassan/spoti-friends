@@ -3,43 +3,51 @@ import SwiftUI
 /// The View that renders a Listening Acvitiy Component.
 ///
 /// - Parameters:
-///   - profileImageURL: The URL for the profile image.
+///   - spotifyId: The Spotify ID for the user whose activity this is.
 ///   - album: The album for the current track.
 ///   - username: The username for the user whose listenting activity this is.
 ///   - track: The current or most recent track to display for the user.
+///   - backgroundColor: The background color to set for this item.
 ///
 /// - Returns: A View for the Listening Activity Item.
 struct ListeningActivityItem: View, Identifiable {
-    let id = UUID()
-    let profileImageURL: URL?
+    let id: String
+    let spotifyId: String
     let album: Album
     let username: String
     let track: CurrentOrMostRecentTrack
-    @State var backgroundColor: UIColor = UIColor.white
-    @State var fontColor: Color = Color.black
+    let backgroundColor: Color;
+    @State var fontColor: Color
+    @EnvironmentObject var friendActivityViewModel: FriendActivityViewModel
+    
+    init(spotifyId: String, album: Album, username: String, track: CurrentOrMostRecentTrack, backgroundColor: Color) {
+        self.id = spotifyId
+        self.spotifyId = spotifyId
+        self.album = album
+        self.username = username
+        self.track = track
+        self.backgroundColor = backgroundColor
+        self.fontColor = Color(backgroundColor).isDarkBackground() ? Color.white : Color.black
+    }
     
     var body: some View {
         VStack {
             HStack {
-                ProfileImage(imageURL: profileImageURL, width: 56, height: 56)
+                ProfileImage(imageName: spotifyId, width: 56, height: 56)
+                    .environmentObject(friendActivityViewModel)
                 
                 ListeningActivityDetails(username: username, currentTrack: track)
                     .foregroundStyle(fontColor)
                 
                 AlbumCover(album: album, width: 80, height: 80)
                     .padding(.leading, 4)
-                    .onAppear {
-                        Task {
-                            backgroundColor = try await getAccentColorForImage(album.image)
-                            fontColor = Color(backgroundColor).isDarkBackground() ? Color.white : Color.black
-                        }
-                    }
             }
             .padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 8))
             .frame(maxWidth: 600, maxHeight: 96)
             .frame(height: 96)
             .background(Color(backgroundColor))
             .cornerRadius(12)
+            .transition(.opacity)
         }
     }
 }
@@ -92,13 +100,14 @@ struct ListeningActivityDetails: View {
 
 
 #Preview {
-    let profileImageURL = URL(string: "https://i.scdn.co/image/ab6775700000ee8593e8cec90c9689ba0f18c26f")!
     let album = Album()
     let username = "yousuf"
     let track = CurrentOrMostRecentTrack()  // dummy object just to please Preview Simulator
     
-    ListeningActivityItem(profileImageURL: profileImageURL,
+    ListeningActivityItem(spotifyId: "",
                           album: album,
                           username: username,
-                          track: track)
+                          track: track,
+                          backgroundColor: Color.gray
+    )
 }

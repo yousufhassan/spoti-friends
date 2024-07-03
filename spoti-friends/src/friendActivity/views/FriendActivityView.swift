@@ -16,22 +16,30 @@ struct FriendActivityView: View {
             .padding(.trailing, 24)
             
             // List of friend's listening activities
-            VStack(alignment: .center) {
-                ForEach(friendActivityViewModel.friendActivites) { activity in
-                    ListeningActivityItem(
-                        profileImageURL: activity.profileImageURL,
-                        album: activity.album,
-                        username: activity.username,
-                        track: activity.track)
-                    
+            ScrollView {
+                VStack(alignment: .center) {
+                    ForEach(friendActivityViewModel.friendActivites) { activity in
+                        ListeningActivityItem(
+                            spotifyId: activity.spotifyId,
+                            album: activity.album,
+                            username: activity.username,
+                            track: activity.track,
+                            backgroundColor: activity.backgroundColor
+                        )
+                        .environmentObject(friendActivityViewModel)
+                        
+                    }
                 }
+                .padding()
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             }
-            .padding()
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-            .onAppear {
-                Task {
-                    try? await friendActivityViewModel.setFriendActivity()
-                }
+        }
+        .refreshable {
+            try? await friendActivityViewModel.setFriendActivity()
+        }
+        .onAppear {
+            Task {
+                try? await friendActivityViewModel.setFriendActivity()
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -41,6 +49,8 @@ struct FriendActivityView: View {
 
 struct FriendActivity_Previews: PreviewProvider {
     static var previews: some View {
-        FriendActivityView().environmentObject(FriendActivityViewModel(user: User(), friendActivites: []))
+        let user = mockUser().object
+        let activites = MockData().object
+        FriendActivityView().environmentObject(FriendActivityViewModel(user: user, friendActivites: [activites]))
     }
 }

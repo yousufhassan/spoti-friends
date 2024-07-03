@@ -20,3 +20,11 @@ func storeInUserDefaults(key: String, value: Any) -> Void {
 func getStringFromUserDefaultsValueForKey(_ key: String) -> String {
     return UserDefaults.standard.string(forKey: key) ?? ""
 }
+
+/// Creates a directory in the File System for the file being stored at `url`, if it doesn't already exist.
+func createDirectoryIfNotExists(at url: URL) throws {
+    let directoryURL = url.deletingLastPathComponent()
+    if !FileManager.default.fileExists(atPath: directoryURL.path) {
+        try FileManager.default.createDirectory(at: directoryURL, withIntermediateDirectories: true, attributes: nil)
+    }
+}

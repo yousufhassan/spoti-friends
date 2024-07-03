@@ -29,7 +29,6 @@ class SpotifyAPI {
     public func getListOfUsersFriends(internalAPIAccessToken: String) async throws -> [SpotifyProfile] {
         let data = try await fetchBuddylistEndpoint(internalAPIAccessToken: internalAPIAccessToken)
         let friends = try convertDataToFriendList(data)
-        print(friends)
         return friends
     }
     
