@@ -123,6 +123,7 @@ private struct BuddylistResponseObject: Codable {
             let context = TrackContext()
             context.spotifyUri = self.uri
             context.name = self.name
+            context.type = context.extractContextTypeFromUri()
             return context
         }
     }

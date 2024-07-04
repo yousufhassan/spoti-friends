@@ -36,7 +36,7 @@ struct ListeningActivityCard: View, Identifiable {
                 ProfileImage(imageName: spotifyId, width: 56, height: 56)
                     .environmentObject(friendActivityViewModel)
                 
-                ListeningActivityDetails(username: displayName, currentTrack: track)
+                ListeningActivityDetails(displayName: displayName, currentTrack: track)
                     .foregroundStyle(fontColor)
                 
                 AlbumCover(album: album, width: 80, height: 80)
@@ -55,19 +55,37 @@ struct ListeningActivityCard: View, Identifiable {
 /// The View that renders the details for a listening activity item.
 ///
 /// - Parameters:
-///   - username: The username for the user whose listenting activity this is.
+///   - displayName: The display name for the user whose listenting activity this is.
 ///   - track: The current or most recent track to display for the user.
 ///
 /// - Returns: A View for the Listening Activity Details.
 struct ListeningActivityDetails: View {
-    let username: String
+    let displayName: String
     let currentTrack: CurrentOrMostRecentTrack
+    @State var contextIcon: Image
+    
+    init(displayName: String, currentTrack: CurrentOrMostRecentTrack) {
+        self.displayName = displayName
+        self.currentTrack = currentTrack
+        self.contextIcon = getImageForContextType()
+        
+        func getImageForContextType() -> Image {
+            let contextType = currentTrack.track?.context?.type
+            
+            switch contextType {
+            case .album: return Image(systemName: "smallcircle.circle")
+            case .artist: return Image(systemName: "person.fill")
+            case .playlist: return Image(systemName: "music.note")
+            default: return Image(systemName: "music.note")
+            }
+        }
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 2) {
             // Username row
             HStack {
-                Text(username)
+                Text(displayName)
                     .fontWeight(.medium)
                 Spacer()
                 Image(.nowPlaying)
@@ -87,9 +105,9 @@ struct ListeningActivityDetails: View {
             
             // Context details row
             HStack {
-                Image(systemName: "music.note.list")
+                contextIcon
                     .padding(.trailing, -6)
-                    .fontWeight(.ultraLight)
+//                    .fontWeight()
                 Text(currentTrack.track?.context?.name ?? "Error")
                     .lineLimit(1)
             }

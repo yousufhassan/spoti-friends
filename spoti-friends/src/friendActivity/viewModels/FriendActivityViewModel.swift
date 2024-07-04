@@ -36,6 +36,7 @@ class FriendActivityViewModel: ObservableObject {
                                                      backgroundColor: backgroundColor)
                 friendActivities.append(activity)
             }
+            print(friendActivities)
             self.friendActivites = friendActivities
         } catch {
             printError("\(error)")

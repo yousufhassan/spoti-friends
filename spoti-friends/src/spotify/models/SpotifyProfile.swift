@@ -86,4 +86,22 @@ class Album: Object, SpotifyResource {
 class TrackContext: Object, SpotifyResource {
     @Persisted var spotifyUri: String
     @Persisted var name: String
+    @Persisted var type: ContextType
+    
+    /// The context which this track is being played in
+    enum ContextType: String, PersistableEnum {
+        case album
+        case artist
+        case playlist
+        case show
+    }
+    
+    func extractContextTypeFromUri() -> ContextType {
+        let uriComponents = self.spotifyUri.split(separator: ":")
+        var extractedType = ""
+        if uriComponents.count >= 2 {
+            extractedType = String(uriComponents[uriComponents.count - 2])
+        }
+        return ContextType(rawValue: extractedType) ?? .playlist
+    }
 }
