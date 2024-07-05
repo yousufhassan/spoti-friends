@@ -33,8 +33,16 @@ struct ListeningActivityCard: View, Identifiable {
     var body: some View {
         VStack {
             HStack {
-                ProfileImage(imageName: spotifyId, width: 56, height: 56)
-                    .environmentObject(friendActivityViewModel)
+                ZStack {
+                    ProfileImage(imageName: spotifyId, width: 56, height: 56)
+                        .environmentObject(friendActivityViewModel)
+                    if track.playedWithinLastFifteenMinutes {   
+                        Circle()
+                            .fill(Color.blue)
+                            .frame(width: 12, height: 12)
+                            .offset(x: 22, y: -18)
+                    }
+                }
                 
                 ListeningActivityDetails(displayName: displayName, currentTrack: track)
                     .foregroundStyle(fontColor)

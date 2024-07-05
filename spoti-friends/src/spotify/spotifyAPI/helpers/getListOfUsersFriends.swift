@@ -58,6 +58,7 @@ extension SpotifyAPI {
         let timestampInSeconds = friendObject.timestamp / 1000 // Spotify returns it in milliseconds, we want it in seconds
         currentOrMostRecentTrack.timestamp = timestampInSeconds
         currentOrMostRecentTrack.track = track
+        currentOrMostRecentTrack.playedWithinLastFifteenMinutes = currentOrMostRecentTrack.isTrackPlayingNow()
         
         return currentOrMostRecentTrack
     }
