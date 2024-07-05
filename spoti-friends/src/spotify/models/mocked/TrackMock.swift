@@ -27,9 +27,9 @@ struct TrackMock {
 
 /// Struct containing mock CurrentOrMostRecentTrack objects.
 struct CurrentOrMostRecentTrackMock {
-    static let iRememberEverything = createMockCurrentOrMostRecentTrack(timestamp: 1720150199,
+    static let iRememberEverything = createMockCurrentOrMostRecentTrack(timestamp: 1720151150,
                                                                         track: TrackMock.iRememberEverything)
-    static let traitor = createMockCurrentOrMostRecentTrack(timestamp: 1720147197,
+    static let traitor = createMockCurrentOrMostRecentTrack(timestamp: 1720151150,
                                                             track: TrackMock.traitor)
     
     static let luxury = createMockCurrentOrMostRecentTrack(timestamp: 1720074752,

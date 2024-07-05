@@ -62,31 +62,7 @@ struct ListeningActivityDetails: View {
     }
 }
 
-/// The View that renders the time elapsed since a track was played or a playing now icon.
-///
-/// - Parameters:
-///   - nowPlaying: True if the track was played within the last 15 minutes; false otherwise.
-///   - timestamp: The `TimeInterval` for when the track was played.
-///
-/// - Returns: A View rendering a playing now icon or a string displaying when the track was played relative to now.
-struct TrackTimestampView: View {
-    let nowPlaying: Bool
-    let timestamp: TimeInterval
-    
-    var body: some View {
-        if nowPlaying {
-            Image(.nowPlaying)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 16, height: 16)
-        } else {
-            let relativeTimeElapsed = getRelativeTime(since: timestamp)
-            Text(relativeTimeElapsed)
-        }
-    }
-}
-
 #Preview {
-    let details = ListeningActivityCardMock.dwightSchruteActivity
+    let details = ListeningActivityCardMock.michaelScottActivity
     ListeningActivityDetails(displayName: details.displayName, currentTrack: details.track)
 }
