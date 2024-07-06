@@ -16,10 +16,5 @@ struct ListeningActivityCardMock {
     
     static func createMockListeningActivityCard(profile: SpotifyProfile, backgroundColor: Color) -> ListeningActivityCard {
         return ListeningActivityCard(profile: profile, backgroundColor: backgroundColor)
-//        return ListeningActivityCard(spotifyId: spotifyId,
-//                                     album: album,
-//                                     displayName: displayName,
-//                                     track: track,
-//                                     backgroundColor: backgroundColor)
     }
 }
