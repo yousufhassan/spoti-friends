@@ -29,6 +29,7 @@ struct ListeningActivityCard: View, Identifiable {
     
     var body: some View {
         VStack {
+            // Profile Image
             HStack {
                 Link(destination: URL(string: profile.spotifyUri)!) {
                     ZStack {
@@ -44,11 +45,15 @@ struct ListeningActivityCard: View, Identifiable {
                 }
                 .buttonStyle(PlainButtonStyle())
                 
-                ListeningActivityDetails(displayName: profile.displayName, currentTrack: track)
+                // Listening Activity Details
+                ListeningActivityDetails(profile: profile, currentTrack: track)
                     .foregroundStyle(fontColor)
                 
-                AlbumCover(album: album, width: 80, height: 80)
-                    .padding(.leading, 4)
+                // Album Cover
+                Link(destination: URL(string: album.spotifyUri)!) {
+                    AlbumCover(album: album, width: 80, height: 80)
+                        .padding(.leading, 4)
+                }
             }
             .padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 8))
             .frame(maxWidth: 600, maxHeight: 96)

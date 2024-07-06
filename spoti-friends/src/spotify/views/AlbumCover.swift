@@ -15,25 +15,23 @@ struct AlbumCover: View {
     var body: some View {
          let imageURL = URL(string: album.image)
         
-         Link (destination: URL(string: album.spotifyUri)!) {
-            AsyncImage(url: imageURL) { phase in
-                switch phase {
-                case .empty:
-                    ProgressView() // Shows a progress indicator while loading
-                case .success(let image):
-                    image
-                        .resizable()
-                case .failure:
-                    Image(systemName: "person.circle.fill")
-                        .resizable()
-                @unknown default:
-                    EmptyView()
-                }
+        AsyncImage(url: imageURL) { phase in
+            switch phase {
+            case .empty:
+                ProgressView() // Shows a progress indicator while loading
+            case .success(let image):
+                image
+                    .resizable()
+            case .failure:
+                Image(systemName: "person.circle.fill")
+                    .resizable()
+            @unknown default:
+                EmptyView()
             }
-            .aspectRatio(contentMode: .fill)
-            .frame(width: width, height: height)
-            .clipShape(RoundedRectangle(cornerRadius: 12))
         }
+        .aspectRatio(contentMode: .fill)
+        .frame(width: width, height: height)
+        .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 }
 
