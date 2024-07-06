@@ -5,7 +5,7 @@ import SwiftUI
 /// - Parameters:
 ///   - profile: The Spotify Profile for the user whose listening activity this is.
 ///   - currentTrack: The current or most recent track to display for the user.
-///   - track: The actual `Track` object for the `currentTrack`.
+///   - trackDetails: The actual `Track` object for the `currentTrack`.
 ///   - artist: The artist of `track`.
 ///
 /// - Returns: A View for the Listening Activity Details.
