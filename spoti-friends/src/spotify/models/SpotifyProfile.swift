@@ -2,6 +2,13 @@ import Foundation
 import RealmSwift
 
 /// Class representing a `SpotifyProfile` object.
+///
+/// - Parameters:
+///   - spotifyId: The Spotify ID associated with this Spotify profile.
+///   - spotifyUri: The Spotify unique resource identifier for this Spotify profile.
+///   - displayName: The display name associated with this Spotify profile.
+///   - image: The profile image for this Spotify profile.
+///   - currentOrMostRecentTrack: The track last played (or currently playing)  by this Spotify profile.
 class SpotifyProfile: Object {
     @Persisted(primaryKey: true) var spotifyId: String
     @Persisted var spotifyUri: String

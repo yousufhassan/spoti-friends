@@ -15,14 +15,8 @@ struct FriendActivityView: View {
             ScrollView {
                 VStack(alignment: .center) {
                     ForEach(friendActivityViewModel.friendActivites) { activity in
-                        ListeningActivityCard(
-                            spotifyId: activity.spotifyId,
-                            album: activity.album,
-                            displayName: activity.displayName,
-                            track: activity.track,
-                            backgroundColor: activity.backgroundColor
-                        )
-                        .environmentObject(friendActivityViewModel)
+                        activity
+                            .environmentObject(friendActivityViewModel)
                         
                     }
                 }

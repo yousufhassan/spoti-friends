@@ -23,17 +23,13 @@ class FriendActivityViewModel: ObservableObject {
     @MainActor public func setFriendActivity() async throws -> Void {
         do {
             let accessToken = try await self.user.getInternalAPIAccessToken().accessToken
-            let friends = try await SpotifyAPI.shared.getListOfUsersFriends(internalAPIAccessToken: accessToken)
+            let friends: [SpotifyProfile] = try await SpotifyAPI.shared.getListOfUsersFriends(internalAPIAccessToken: accessToken)
             var friendActivities: [ListeningActivityCard] = []
             for friend in friends.reversed() {
                 await storeProfilePictureLocally(imageName: friend.spotifyId, link: friend.image)
                 
                 let backgroundColor = Color(try await getAccentColorForImage((friend.currentOrMostRecentTrack?.track?.album!.image)!))
-                let activity = ListeningActivityCard(spotifyId: friend.spotifyId,
-                                                     album: (friend.currentOrMostRecentTrack?.track?.album)!,
-                                                     displayName: friend.displayName,
-                                                     track: friend.currentOrMostRecentTrack!,
-                                                     backgroundColor: backgroundColor)
+                let activity = ListeningActivityCard(profile: friend, backgroundColor: backgroundColor)
                 friendActivities.append(activity)
             }
             self.friendActivites = friendActivities
