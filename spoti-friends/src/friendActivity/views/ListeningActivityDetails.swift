@@ -64,5 +64,5 @@ struct ListeningActivityDetails: View {
 
 #Preview {
     let details = ListeningActivityCardMock.michaelScottActivity
-    ListeningActivityDetails(displayName: details.displayName, currentTrack: details.track)
+    ListeningActivityDetails(displayName: details.profile.displayName, currentTrack: details.track)
 }

@@ -3,29 +3,26 @@ import SwiftUI
 /// The View that renders a Listening Acvitiy Component.
 ///
 /// - Parameters:
-///   - spotifyId: The Spotify ID for the user whose activity this is.
-///   - album: The album for the current track.
-///   - displayName: The display name for the user whose listenting activity this is.
+///   - profile: The Spotify Profile that is associated with this listening activity.
 ///   - track: The current or most recent track to display for the user.
+///   - album: The album for the current track.
 ///   - backgroundColor: The background color to set for this item.
 ///
 /// - Returns: A View for the Listening Activity Card.
 struct ListeningActivityCard: View, Identifiable {
     let id: String
-    let spotifyId: String
-    let album: Album
-    let displayName: String
+    var profile: SpotifyProfile
     let track: CurrentOrMostRecentTrack
+    let album: Album
     let backgroundColor: Color;
     @State var fontColor: Color
     @EnvironmentObject var friendActivityViewModel: FriendActivityViewModel
     
     init(profile: SpotifyProfile, backgroundColor: Color) {
         self.id = profile.spotifyId
-        self.spotifyId = profile.spotifyId
-        self.album = (profile.currentOrMostRecentTrack?.track?.album)!
-        self.displayName = profile.displayName
+        self.profile = profile
         self.track = profile.currentOrMostRecentTrack!
+        self.album = (profile.currentOrMostRecentTrack?.track?.album)!
         self.backgroundColor = backgroundColor
         self.fontColor = Color(backgroundColor).isDarkBackground() ? Color.white : Color.black
     }
@@ -33,18 +30,21 @@ struct ListeningActivityCard: View, Identifiable {
     var body: some View {
         VStack {
             HStack {
-                ZStack {
-                    ProfileImage(imageName: spotifyId, width: 56, height: 56)
-                        .environmentObject(friendActivityViewModel)
-                    if track.playedWithinLastFifteenMinutes {   
-                        Circle()
-                            .fill(Color.blue)
-                            .frame(width: 12, height: 12)
-                            .offset(x: 22, y: -18)
+                Link(destination: URL(string: profile.spotifyUri)!) {
+                    ZStack {
+                        ProfileImage(imageName: profile.spotifyId, width: 56, height: 56)
+                            .environmentObject(friendActivityViewModel)
+                        if track.playedWithinLastFifteenMinutes {
+                            Circle()
+                                .fill(Color.blue)
+                                .frame(width: 12, height: 12)
+                                .offset(x: 22, y: -18)
+                        }
                     }
                 }
+                .buttonStyle(PlainButtonStyle())
                 
-                ListeningActivityDetails(displayName: displayName, currentTrack: track)
+                ListeningActivityDetails(displayName: profile.displayName, currentTrack: track)
                     .foregroundStyle(fontColor)
                 
                 AlbumCover(album: album, width: 80, height: 80)
