@@ -5,30 +5,21 @@ import SwiftUI
 struct ListeningActivityCardMock {
     static let allCards = [michaelScottActivity, dwightSchruteActivity, stanleyHudsonActivity]
     
-    static let michaelScottActivity = createMockListeningActivityCard(album: AlbumMock.zachBryan,
-                                                                      displayName: SpotifyProfileMock.michaelScott.displayName,
-                                                                      track: CurrentOrMostRecentTrackMock.iRememberEverything,
+    static let michaelScottActivity = createMockListeningActivityCard(profile: SpotifyProfileMock.michaelScott,
                                                                       backgroundColor: Color.gray)
     
-    static let dwightSchruteActivity = createMockListeningActivityCard(album: AlbumMock.sour,
-                                                                       displayName: SpotifyProfileMock.dwightSchrute.displayName,
-                                                                       track: CurrentOrMostRecentTrackMock.traitor,
+    static let dwightSchruteActivity = createMockListeningActivityCard(profile: SpotifyProfileMock.dwightSchrute,
                                                                        backgroundColor: Color.pink)
     
-    static let stanleyHudsonActivity = createMockListeningActivityCard(album: AlbumMock.theDefinition,
-                                                                       displayName: SpotifyProfileMock.stanleyHudson.displayName,
-                                                                       track: CurrentOrMostRecentTrackMock.luxury,
+    static let stanleyHudsonActivity = createMockListeningActivityCard(profile: SpotifyProfileMock.stanleyHudson,
                                                                        backgroundColor: Color.yellow)
     
-    static func createMockListeningActivityCard(spotifyId: String = UUID().uuidString,
-                                                 album: Album,
-                                                 displayName: String,
-                                                 track: CurrentOrMostRecentTrack,
-                                                 backgroundColor: Color) -> ListeningActivityCard {
-        return ListeningActivityCard(spotifyId: spotifyId,
-                                     album: album,
-                                     displayName: displayName,
-                                     track: track,
-                                     backgroundColor: backgroundColor)
+    static func createMockListeningActivityCard(profile: SpotifyProfile, backgroundColor: Color) -> ListeningActivityCard {
+        return ListeningActivityCard(profile: profile, backgroundColor: backgroundColor)
+//        return ListeningActivityCard(spotifyId: spotifyId,
+//                                     album: album,
+//                                     displayName: displayName,
+//                                     track: track,
+//                                     backgroundColor: backgroundColor)
     }
 }

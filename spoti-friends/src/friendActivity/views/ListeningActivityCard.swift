@@ -20,12 +20,12 @@ struct ListeningActivityCard: View, Identifiable {
     @State var fontColor: Color
     @EnvironmentObject var friendActivityViewModel: FriendActivityViewModel
     
-    init(spotifyId: String, album: Album, displayName: String, track: CurrentOrMostRecentTrack, backgroundColor: Color) {
-        self.id = spotifyId
-        self.spotifyId = spotifyId
-        self.album = album
-        self.displayName = displayName
-        self.track = track
+    init(profile: SpotifyProfile, backgroundColor: Color) {
+        self.id = profile.spotifyId
+        self.spotifyId = profile.spotifyId
+        self.album = (profile.currentOrMostRecentTrack?.track?.album)!
+        self.displayName = profile.displayName
+        self.track = profile.currentOrMostRecentTrack!
         self.backgroundColor = backgroundColor
         self.fontColor = Color(backgroundColor).isDarkBackground() ? Color.white : Color.black
     }
@@ -63,14 +63,8 @@ struct ListeningActivityCard: View, Identifiable {
 #Preview {
     let user = UserMock.userJimHalpert
     let profile = SpotifyProfileMock.michaelScott
-    let album = AlbumMock.zachBryan
-    let track = CurrentOrMostRecentTrackMock.iRememberEverything
     
-    ListeningActivityCard(spotifyId: profile.spotifyId,
-                          album: album,
-                          displayName: profile.displayName,
-                          track: track,
-                          backgroundColor: Color.gray
+    ListeningActivityCard(profile: profile, backgroundColor: Color.gray
     )
     .environmentObject(FriendActivityViewModel(user: user, friendActivites: []))
 }
