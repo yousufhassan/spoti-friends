@@ -69,7 +69,6 @@ struct ListeningActivityCard: View, Identifiable {
     let user = UserMock.userJimHalpert
     let profile = SpotifyProfileMock.michaelScott
     
-    ListeningActivityCard(profile: profile, backgroundColor: Color.gray
-    )
+    ListeningActivityCard(profile: profile, backgroundColor: Color.gray)
     .environmentObject(FriendActivityViewModel(user: user, friendActivites: []))
 }

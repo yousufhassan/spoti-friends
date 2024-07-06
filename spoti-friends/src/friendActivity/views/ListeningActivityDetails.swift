@@ -7,6 +7,7 @@ import SwiftUI
 ///   - currentTrack: The current or most recent track to display for the user.
 ///   - trackDetails: The actual `Track` object for the `currentTrack`.
 ///   - artist: The artist of `track`.
+///   - context: The context from which `currentTrack` was played.
 ///
 /// - Returns: A View for the Listening Activity Details.
 struct ListeningActivityDetails: View {
@@ -14,6 +15,7 @@ struct ListeningActivityDetails: View {
     let currentTrack: CurrentOrMostRecentTrack
     let trackDetails: Track
     let artist: Artist
+    let context: TrackContext
     @State var contextIcon: Image
     
     init(profile: SpotifyProfile, currentTrack: CurrentOrMostRecentTrack) {
@@ -21,6 +23,7 @@ struct ListeningActivityDetails: View {
         self.currentTrack = currentTrack
         self.trackDetails = currentTrack.track!
         self.artist = (currentTrack.track?.artist)!
+        self.context = (currentTrack.track?.context)!
         self.contextIcon = getImageForContextType()
         
         func getImageForContextType() -> Image {
@@ -62,18 +65,7 @@ struct ListeningActivityDetails: View {
             }
             
             // Context details row
-            // Wrap the row with a link to the context item if it is not nil.
-            if let context = trackDetails.context {
-                Link(destination: URL(string: context.spotifyUri)!) {
-                    HStack {
-                        contextIcon
-                            .padding(.trailing, -6)
-                        Text(trackDetails.context?.name ?? "Error")
-                            .lineLimit(1)
-                    }
-                }
-            }
-            else {
+            Link(destination: URL(string: context.spotifyUri)!) {
                 HStack {
                     contextIcon
                         .padding(.trailing, -6)

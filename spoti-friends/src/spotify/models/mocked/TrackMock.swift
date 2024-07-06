@@ -2,15 +2,18 @@ import Foundation
 
 /// Struct containing mock Track objects.
 struct TrackMock {
-    static let iRememberEverything = createMockTrack(name: "I Remember Everything (feat. Kacey Musgraves)",
+    static let iRememberEverything = createMockTrack(spotifyUri: "spotify:track:4KULAymBBJcPRpk1yO4dOG",
+                                                     name: "I Remember Everything (feat. Kacey Musgraves)",
                                                      artist: ArtistMock.zachBryan,
                                                      album: AlbumMock.zachBryan,
                                                      context: TrackContextMock.playlistAllMySongs)
     
-    static let traitor = createMockTrack(name: "traitor", artist: ArtistMock.oliviaRodrigo,
+    static let traitor = createMockTrack(spotifyUri: "spotify:track:5CZ40GBx1sQ9agT82CLQCT",
+                                         name: "traitor", artist: ArtistMock.oliviaRodrigo,
                                          album: AlbumMock.sour, context: TrackContextMock.albumSour)
     
-    static let luxury = createMockTrack(name: "Luxury", artist: ArtistMock.jonBellion,
+    static let luxury = createMockTrack(spotifyUri: "spotify:track:5CgFGKdTn8R5dXGEPEX6Gm",
+                                        name: "Luxury", artist: ArtistMock.jonBellion,
                                         album: AlbumMock.theDefinition, context: TrackContextMock.artistJonBellion)
     
     static func createMockTrack(spotifyUri: String = "", name: String, artist: Artist, album: Album, context: TrackContext) -> Track {
