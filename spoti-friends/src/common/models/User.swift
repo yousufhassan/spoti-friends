@@ -29,6 +29,15 @@ class User: Object {
         return self.spotifyId == ""
     }
     
+    /// Returns `true` if the `User` exists in the database and `false` otherwise.
+    public func existsInDatabase() -> Bool {
+        let realm = RealmDatabase.shared.getRealmInstance()
+        if realm.object(ofType: User.self, forPrimaryKey: self.spotifyId) == nil {
+            return false
+        }
+        return true
+    }
+    
     /// Sets the user's `spotifyId` to their Spotify Account ID.
     public func setSpotifyId(_ spotifyId: String) -> Void {
         self.spotifyId = spotifyId
@@ -44,6 +53,14 @@ class User: Object {
         let friends = List<SpotifyProfile>()
         friends.append(objectsIn: friendsAsSpotifyProfiles)
         self.friends = friends
+    }
+    
+    /// Adds `friend` as a friend for the user.
+    public func addFriend(_ friend: SpotifyProfile) -> Void {
+        let realm = RealmDatabase.shared.getRealmInstance()
+        try! realm.write {
+            self.friends.append(friend)
+        }
     }
     
     /// Sets the user's `authorizationCode`.

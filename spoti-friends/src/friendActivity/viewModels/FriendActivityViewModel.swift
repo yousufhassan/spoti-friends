@@ -26,6 +26,12 @@ class FriendActivityViewModel: ObservableObject {
             let friends: [SpotifyProfile] = try await SpotifyAPI.shared.getListOfUsersFriends(internalAPIAccessToken: accessToken)
             var friendActivities: [ListeningActivityCard] = []
             for friend in friends.reversed() {
+                // If the friend does not exist in the database already, then
+                // add them as a friend for the user (which automatically saves them to the database)
+                if !friend.existsInDatabase() {
+                    self.user.addFriend(friend)
+                }
+                
                 await storeProfilePictureLocally(imageName: friend.spotifyId, link: friend.image)
                 
                 let backgroundColor = Color(try await getAccentColorForImage((friend.currentOrMostRecentTrack?.track?.album!.image)!))
