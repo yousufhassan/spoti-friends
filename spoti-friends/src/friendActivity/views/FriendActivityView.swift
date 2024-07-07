@@ -12,16 +12,29 @@ struct FriendActivityView: View {
             PageTitle(pageTitle: "Friend Activity")
             
             // List of friend's listening activities
-            ScrollView {
-                VStack(alignment: .center) {
-                    ForEach(friendActivityViewModel.friendActivites) { activity in
-                        activity
-                            .environmentObject(friendActivityViewModel)
-                        
+            if friendActivityViewModel.friendActivites.isEmpty {
+                Spacer()
+                ProgressView()
+                    .progressViewStyle(.circular)
+                    .tint(Color.PresetColour.spotifyGreen)
+                    .scaleEffect(1.6)
+                Text("Spying on your friends' tunes...")
+                    .foregroundStyle(Color.PresetColour.spotifyGreen)
+                    .padding(.top, 20)
+                    .font(.subheadline)
+                Spacer()
+            }
+            else {
+                ScrollView {
+                    VStack(alignment: .center) {
+                        ForEach(friendActivityViewModel.friendActivites) { activity in
+                            activity
+                                .environmentObject(friendActivityViewModel)
+                        }
                     }
+                    .padding()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                 }
-                .padding()
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             }
         }
         .refreshable {
