@@ -20,6 +20,16 @@ class SpotifyProfile: Object {
         return spotifyUri.components(separatedBy: ":").last ?? ""
     }
     
+    
+    /// Returns `true` if the `SpotifyProfile` exists in the database and `false` otherwise.
+    public func existsInDatabase() -> Bool {
+        let realm = RealmDatabase.shared.getRealmInstance()
+        if realm.object(ofType: SpotifyProfile.self, forPrimaryKey: self.spotifyId) == nil {
+            return false
+        }
+        return true
+    }
+    
 //    override init() {
 //        super.init()
 //    }
