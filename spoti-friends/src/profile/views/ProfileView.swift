@@ -1,9 +1,9 @@
 import SwiftUI
 
 /// Renders the View for a user's profile.
-struct MyProfileView: View {
+struct ProfileView: View {
     let profile: SpotifyProfile
-    @EnvironmentObject var friendActivityViewModel: FriendActivityViewModel
+//    @EnvironmentObject var friendActivityViewModel: FriendActivityViewModel
     
     init(profile: SpotifyProfile) {
         self.profile = profile
@@ -13,6 +13,7 @@ struct MyProfileView: View {
 //        ScrollView {
             VStack {
                 ProfileDetails(profile: profile)
+//                    .environmentObject(friendActivityViewModel)
                 
                 Spacer()
                 
@@ -47,6 +48,6 @@ struct LogoutButton: View {
 
 #Preview {
     let user = UserMock.userJimHalpert
-    MyProfileView(profile: user.spotifyProfile!)
+    ProfileView(profile: user.spotifyProfile!)
         .environmentObject(FriendActivityViewModel(user: user, friendActivites: []))
 }

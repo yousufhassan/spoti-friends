@@ -6,14 +6,13 @@ struct AuthenticatedView: View {
     
     init() {
         let appearance = UITabBar.appearance()
-        // Set the background color of the TabView's tab bar
         appearance.backgroundColor = UIColor(Color.PresetColour.darkgrey)
-        }
+    }
     
     var body: some View {
         TabView {
             FriendActivityView().tabItem { Label("Friend Activity", systemImage: "figure.socialdance") }
-            MyProfileView(profile: friendActivityViewModel.user.spotifyProfile!).tabItem { Label("My Profile", systemImage: "person") }
+            ProfileView(profile: friendActivityViewModel.user.spotifyProfile!).tabItem { Label("My Profile", systemImage: "person") }
         }
         .environmentObject(friendActivityViewModel)
     }

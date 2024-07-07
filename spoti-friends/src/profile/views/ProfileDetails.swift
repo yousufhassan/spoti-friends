@@ -8,6 +8,17 @@ import SwiftUI
 ///   - profile: The `SpotifyProfile` to display the details for.
 struct ProfileDetails: View {
     let profile: SpotifyProfile
+    var followerCount: Int
+    var playlistCount: Int
+    @State private var profileViewModel: ProfileViewModel
+    @EnvironmentObject var authorizationViewModel: AuthorizationViewModel
+    
+    init(profile: SpotifyProfile) {
+        self.profile = profile
+        self.profileViewModel = ProfileViewModel(user: User())
+        self.followerCount = 0
+        self.playlistCount = 0
+    }
     
     var body: some View {
         HStack(spacing: 12) {
@@ -22,8 +33,16 @@ struct ProfileDetails: View {
                     Text("21 playlists")
                 }
                 .foregroundStyle(Color.PresetColour.whiteSecondary)
+//                .onAppear {
+//                    Task {
+//                        await profileViewModel.getCurrentUsersProfileDetails()
+//                    }
+//                }
             }
             Spacer()
+        }
+        .onAppear {
+            self.profileViewModel.user = authorizationViewModel.user
         }
     }
 }

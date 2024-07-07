@@ -7,7 +7,7 @@ class SpotifyAPI {
     /// API call to the Get Current User's Profile endpoint and returns a `SpotifyProfile` object.
     ///
     /// https://developer.spotify.com/documentation/web-api/reference/get-current-users-profile
-    public func getCurrentUsersProfile(accessToken: String) async throws -> SpotifyProfile {
+    public func getCurrentUsersProfile(accessToken: String) async -> SpotifyProfile? {
         do {
             let endpoint = "/me"
             let request = try createRequestTo(endpoint: endpoint, accessToken: accessToken, method: RequestMethod.GET)
@@ -18,7 +18,7 @@ class SpotifyAPI {
             return spotifyProfile
         } catch {
             printError("\(error)")
-            throw error
+            return nil
         }
     }
     
