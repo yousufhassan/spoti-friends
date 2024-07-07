@@ -20,24 +20,6 @@ class SpotifyAPI {
         return decodedResponse
     }
     
-//    /// API call to the Get Current User's Profile endpoint and returns a `SpotifyProfile` object.
-//    ///
-//    /// https://developer.spotify.com/documentation/web-api/reference/get-current-users-profile
-//    public func getCurrentUsersProfile(accessToken: String) async throws -> SpotifyProfile {
-//        do {
-//            let endpoint = "/me"
-//            let request = try createRequestTo(endpoint: endpoint, accessToken: accessToken, method: RequestMethod.GET)
-//            let (data, response) = try await URLSession.shared.data(for: request)
-//            
-//            if (requestFailed(response as! HTTPURLResponse)) { throw SpotifyAPIError.unsuccessfulRequest }
-//            let spotifyProfile = try convertDataToSpotifyProfile(data)
-//            return spotifyProfile
-//        } catch {
-//            printError("\(error)")
-//            throw error
-//        }
-//    }
-    
     /// Returns a list of the user's friends as `SpotifyProfile`s.
     ///
     /// - Parameters:

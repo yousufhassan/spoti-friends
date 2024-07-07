@@ -14,7 +14,6 @@
 		CB0854C72C15723C0088E87D /* SpotifyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0854C62C15723C0088E87D /* SpotifyAPI.swift */; };
 		CB0854C92C1573D10088E87D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0854C82C1573D10088E87D /* Constants.swift */; };
 		CB0854CB2C1574FE0088E87D /* SpotifyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0854CA2C1574FE0088E87D /* SpotifyProfile.swift */; };
-		CB3417F92C17FC3100BE70A8 /* GetCurrentUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3417F82C17FC3100BE70A8 /* GetCurrentUserProfile.swift */; };
 		CB3417FB2C180D3D00BE70A8 /* SpotifyAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3417FA2C180D3D00BE70A8 /* SpotifyAPIError.swift */; };
 		CB3417FF2C1BDBC800BE70A8 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3417FE2C1BDBC800BE70A8 /* ProfileView.swift */; };
 		CB3724972C3B27CA004883D1 /* ProfileDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3724962C3B27CA004883D1 /* ProfileDetails.swift */; };
@@ -80,7 +79,6 @@
 		CB0854C62C15723C0088E87D /* SpotifyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAPI.swift; sourceTree = "<group>"; };
 		CB0854C82C1573D10088E87D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CB0854CA2C1574FE0088E87D /* SpotifyProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyProfile.swift; sourceTree = "<group>"; };
-		CB3417F82C17FC3100BE70A8 /* GetCurrentUserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCurrentUserProfile.swift; sourceTree = "<group>"; };
 		CB3417FA2C180D3D00BE70A8 /* SpotifyAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAPIError.swift; sourceTree = "<group>"; };
 		CB3417FE2C1BDBC800BE70A8 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		CB3724962C3B27CA004883D1 /* ProfileDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetails.swift; sourceTree = "<group>"; };
@@ -197,7 +195,6 @@
 			isa = PBXGroup;
 			children = (
 				CB875CAB2C31348A001B364D /* GetListOfUsersFriends.swift */,
-				CB3417F82C17FC3100BE70A8 /* GetCurrentUserProfile.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -524,7 +521,6 @@
 				CB7C05B52C1191EC001A0062 /* UnauthenticatedView.swift in Sources */,
 				CB875CB92C3524B4001B364D /* TrackMock.swift in Sources */,
 				CB7C05B32C1191BA001A0062 /* AuthorizationDeniedView.swift in Sources */,
-				CB3417F92C17FC3100BE70A8 /* GetCurrentUserProfile.swift in Sources */,
 				CB59BCB72C2FAB890061C99B /* ProfileImage.swift in Sources */,
 				CB0854B82C1404710088E87D /* AuthorizationViewModel.swift in Sources */,
 				CB7C05AD2C0EEEA2001A0062 /* AuthorizationConstants.swift in Sources */,
