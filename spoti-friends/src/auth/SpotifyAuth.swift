@@ -74,7 +74,6 @@ class SpotifyAuth {
             
             let friends = try await SpotifyAPI.shared.getListOfUsersFriends(internalAPIAccessToken: internalAPIAccessToken.accessToken)
             user.setFriends(friends)
-            
         } catch {
             printError("\(error)")
         }

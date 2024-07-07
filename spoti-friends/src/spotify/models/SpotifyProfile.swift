@@ -16,10 +16,39 @@ class SpotifyProfile: Object, Decodable {
     @Persisted var image: String
     @Persisted var currentOrMostRecentTrack: CurrentOrMostRecentTrack?
     
+    convenience required init(from decoder: Decoder) throws {
+        self.init()
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.spotifyId = try container.decode(String.self, forKey: .spotifyId)
+        self.spotifyUri = try container.decode(String.self, forKey: .spotifyUri)
+        self.displayName = try container.decode(String.self, forKey: .displayName)
+        
+        // Extract the first image URL from the `images` array
+        if let images = try? container.decode([SpotifyImage].self, forKey: .image) {
+            self.image = images.first?.url ?? ""
+        } else {
+            self.image = ""
+        }
+    }
+    
+    private struct SpotifyImage: Decodable {
+        let url: String
+        let height: Int
+        let width: Int
+    }
+    
+    /// Mapping of the Swift object properties to the Spotify Web API response JSON keys.
+    private enum CodingKeys: String, CodingKey {
+        case spotifyId = "id"
+        case spotifyUri = "uri"
+        case displayName = "display_name"
+        case image = "images"
+    }
+    
     public func getSpotifyIdFromUri(spotifyUri: String) -> String {
         return spotifyUri.components(separatedBy: ":").last ?? ""
     }
-    
     
     /// Returns `true` if the `SpotifyProfile` exists in the database and `false` otherwise.
     public func existsInDatabase() -> Bool {
@@ -29,20 +58,6 @@ class SpotifyProfile: Object, Decodable {
         }
         return true
     }
-    
-//    override init() {
-//        super.init()
-//    }
-    
-//    init(spotifyId: String, spotifyUri: String, displayName: String, image: String,
-//         currentOrMostRecentTrack: CurrentOrMostRecentTrack? = nil) {
-//        super.init()
-//        self.spotifyId = spotifyId
-//        self.spotifyUri = spotifyUri
-//        self.displayName = displayName
-//        self.image = image
-//        self.currentOrMostRecentTrack = currentOrMostRecentTrack
-//    }
     
     // List of methods
     //    getSpotifyId()
