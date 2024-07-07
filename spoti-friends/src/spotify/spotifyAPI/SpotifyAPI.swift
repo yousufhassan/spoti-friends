@@ -2,12 +2,28 @@ import Foundation
 
 /// Singleton class for interacting with the Spotify Web API.
 class SpotifyAPI {
-    nonisolated(unsafe) static let shared: SpotifyAPI = SpotifyAPI()
+    static let shared: SpotifyAPI = SpotifyAPI()
+    
+    /// A function that abstracts the Spotify API calls and returns the response data to the calling function.
+    ///
+    /// - Parameters:
+    ///   - endpoint: The Spotify Web API endpoint to fetch data from.
+    ///   - responseType: The type the response data should conform to.
+    ///   - accessToken: The Spotify Web Access Token string.
+    ///
+    /// - Returns: The response data from the `endpoint` in the form of `responseType`.
+    public func fetch<T: Decodable>(endpoint: APIEndpoint, responseType: T.Type, accessToken: String) async throws -> T {
+        let request = try createRequestTo(endpoint: endpoint.rawValue, accessToken: accessToken, method: RequestMethod.GET)
+        let (data, response) = try await URLSession.shared.data(for: request)
+        if (requestFailed(response as! HTTPURLResponse)) { throw SpotifyAPIError.unsuccessfulRequest }
+        let decodedResponse = try JSONDecoder().decode(T.self, from: data)
+        return decodedResponse
+    }
     
     /// API call to the Get Current User's Profile endpoint and returns a `SpotifyProfile` object.
     ///
     /// https://developer.spotify.com/documentation/web-api/reference/get-current-users-profile
-    public func getCurrentUsersProfile(accessToken: String) async -> SpotifyProfile? {
+    public func getCurrentUsersProfile(accessToken: String) async throws -> SpotifyProfile {
         do {
             let endpoint = "/me"
             let request = try createRequestTo(endpoint: endpoint, accessToken: accessToken, method: RequestMethod.GET)
@@ -18,12 +34,12 @@ class SpotifyAPI {
             return spotifyProfile
         } catch {
             printError("\(error)")
-            return nil
+            throw error
         }
     }
     
     /// Returns a list of the user's friends as `SpotifyProfile`s.
-    /// 
+    ///
     /// - Parameters:
     ///   - internalAPIAccessToken: Access token for the internal Spotify API.
     public func getListOfUsersFriends(internalAPIAccessToken: String) async throws -> [SpotifyProfile] {

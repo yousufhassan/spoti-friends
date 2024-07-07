@@ -66,8 +66,9 @@ class SpotifyAuth {
             let internalAPIAccessToken = try await fetchInternalAPIAccessToken(spDcCookieValue: user.spDcCookie!.value, existingToken: user.internalAPIAccessToken)
             user.setInternalAPIAccessToken(internalAPIAccessToken)
             
-            let spotifyProfile = try await SpotifyAPI.shared.getCurrentUsersProfile(
-                accessToken: user.spotifyWebAccessToken!.access_token)
+            let spotifyProfile: SpotifyProfile = try await SpotifyAPI.shared.fetch(endpoint: .getCurrentUsersProfile,
+                                                                                   responseType: SpotifyProfile.self,
+                                                                                   accessToken: spotifyWebAccessToken?.access_token ?? "")
             user.setSpotifyProfile(spotifyProfile)
             user.setSpotifyId(spotifyProfile.spotifyId)
             

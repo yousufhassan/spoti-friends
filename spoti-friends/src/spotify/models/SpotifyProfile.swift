@@ -9,7 +9,7 @@ import RealmSwift
 ///   - displayName: The display name associated with this Spotify profile.
 ///   - image: The profile image for this Spotify profile.
 ///   - currentOrMostRecentTrack: The track last played (or currently playing)  by this Spotify profile.
-class SpotifyProfile: Object {
+class SpotifyProfile: Object, Decodable {
     @Persisted(primaryKey: true) var spotifyId: String
     @Persisted var spotifyUri: String
     @Persisted var displayName: String
@@ -72,7 +72,7 @@ extension SpotifyResource {
 }
 
 /// Object representing a user's current or most recent track that they played.
-class CurrentOrMostRecentTrack: Object {
+class CurrentOrMostRecentTrack: Object, Decodable {
     @Persisted var timestamp: TimeInterval
     @Persisted var track: Track?
     @Persisted var playedWithinLastFifteenMinutes: Bool
@@ -85,7 +85,7 @@ class CurrentOrMostRecentTrack: Object {
 }
 
 /// Object representing a Spotify Track.
-class Track: Object, SpotifyResource {
+class Track: Object, SpotifyResource, Decodable {
     @Persisted var spotifyUri: String
     @Persisted var name: String
     @Persisted var artist: Artist?
@@ -94,26 +94,26 @@ class Track: Object, SpotifyResource {
 }
 
 /// Object representing a Spotify Artist.
-class Artist: Object, SpotifyResource {
+class Artist: Object, SpotifyResource, Decodable {
     @Persisted var spotifyUri: String
     @Persisted var name: String
 }
 
 /// Object representing a Spotify Album.
-class Album: Object, SpotifyResource {
+class Album: Object, SpotifyResource, Decodable {
     @Persisted var spotifyUri: String
     @Persisted var name: String
     @Persisted var image: String
 }
 
 /// Object representing a Spotify Track Content.
-class TrackContext: Object, SpotifyResource {
+class TrackContext: Object, SpotifyResource, Decodable {
     @Persisted var spotifyUri: String
     @Persisted var name: String
     @Persisted var type: ContextType
     
     /// The context which this track is being played in
-    enum ContextType: String, PersistableEnum {
+    enum ContextType: String, PersistableEnum, Decodable {
         case album
         case artist
         case playlist
