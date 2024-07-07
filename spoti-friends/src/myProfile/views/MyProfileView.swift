@@ -2,18 +2,25 @@ import SwiftUI
 
 /// Renders the View for a user's profile.
 struct MyProfileView: View {
+    let profile: SpotifyProfile
+    @EnvironmentObject var friendActivityViewModel: FriendActivityViewModel
+    
+    init(profile: SpotifyProfile) {
+        self.profile = profile
+    }
+    
     var body: some View {
-        VStack {
-            let pageTitle = "My Profile"
-            PageTitle(pageTitle: pageTitle)
-            
-            // The page content will go below when implemented.
-            
-            Spacer()
-            
-            LogoutButton()
-                .padding(.bottom, 10)
-        }
+//        ScrollView {
+            VStack {
+                ProfileDetails(profile: profile)
+                
+                Spacer()
+                
+                LogoutButton()
+                    .padding(.bottom, 10)
+            }
+//        }
+            .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.PresetColour.darkgrey)
     }
@@ -39,5 +46,7 @@ struct LogoutButton: View {
 }
 
 #Preview {
-    MyProfileView()
+    let user = UserMock.userJimHalpert
+    MyProfileView(profile: user.spotifyProfile!)
+        .environmentObject(FriendActivityViewModel(user: user, friendActivites: []))
 }

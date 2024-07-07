@@ -13,9 +13,9 @@ struct AuthenticatedView: View {
     var body: some View {
         TabView {
             FriendActivityView().tabItem { Label("Friend Activity", systemImage: "figure.socialdance") }
-                .environmentObject(friendActivityViewModel)
-            MyProfileView().tabItem { Label("Profile", systemImage: "person") }
+            MyProfileView(profile: friendActivityViewModel.user.spotifyProfile!).tabItem { Label("My Profile", systemImage: "person") }
         }
+        .environmentObject(friendActivityViewModel)
     }
 }
 
