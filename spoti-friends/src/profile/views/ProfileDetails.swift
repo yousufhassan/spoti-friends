@@ -10,12 +10,10 @@ struct ProfileDetails: View {
     let profile: SpotifyProfile
     @State private var followerCount: Int = 0
     @State private var playlistCount: Int = 0
-    @State private var profileViewModel: ProfileViewModel
-    @EnvironmentObject var authorizationViewModel: AuthorizationViewModel
+    @EnvironmentObject var profileViewModel: ProfileViewModel
     
     init(profile: SpotifyProfile) {
         self.profile = profile
-        self.profileViewModel = ProfileViewModel(user: User())
 //        self.playlistCount = 0
     }
     
@@ -39,9 +37,6 @@ struct ProfileDetails: View {
                 }
             }
             Spacer()
-        }
-        .onAppear {
-            self.profileViewModel.user = authorizationViewModel.user
         }
     }
 }

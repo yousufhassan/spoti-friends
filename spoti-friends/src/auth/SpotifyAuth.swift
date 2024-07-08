@@ -143,6 +143,45 @@ class SpotifyAuth {
         
     }
     
+    /// Constructs and returns the `URLRequest` for refreshing a Spotify Web API Access Token.
+    private func constructRefreshAccessTokenRequest(refreshToken: String) throws -> URLRequest {
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = AuthorizationConstants.host
+        urlComponents.path = AuthorizationConstants.AccessToken.apiTokenPath
+        
+        var params = AuthorizationConstants.refreshTokenRequestParams
+        params["refresh_token"] = refreshToken
+        urlComponents.queryItems = params.map { URLQueryItem(name: $0.key, value: $0.value) }
+        
+        guard let url = urlComponents.url else { throw URLError(.badURL) }
+        
+        // Construct URL Request
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = urlComponents.query?.data(using: .utf8)
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        return request
+    }
+    
+    /// Requests abd returns a refreshed Spotify Web Access Token object.
+    ///
+    /// - Parameters:
+    ///   - refreshToken: The refresh token returned from the authoriztion token request.
+    ///
+    /// - Returns: A new `SpotifyWebAccessToken`.
+    public func refreshAccessToken(refreshToken: String) async throws -> SpotifyWebAccessToken {
+        do {
+            let request = try constructRefreshAccessTokenRequest(refreshToken: refreshToken)
+            let (data, _) = try await URLSession.shared.data(for: request)
+            let accessToken = try JSONDecoder().decode(SpotifyWebAccessToken.self, from: data)
+            return accessToken
+        } catch {
+            printError("\(error)")
+            throw error
+        }
+    }
+    
     /// Fetches and returns the Spotify Web Player Access Token needed for calling the `/buddylist` internal API endpoint.
     /// This is different than the Access Token for the Web API.
     ///
@@ -173,7 +212,7 @@ class SpotifyAuth {
     ///   - expiry: When the token expires.
     ///
     ///   - Returns: If the access token is expired or not.
-    private func accessTokenIsExpired(_ expiry: Double) -> Bool {
+    public func accessTokenIsExpired(_ expiry: Double) -> Bool {
         let expiryInSeconds = expiry / 1000
         if Date() >= Date(timeIntervalSince1970: expiryInSeconds) {
             return true

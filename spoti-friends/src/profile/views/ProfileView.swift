@@ -3,17 +3,19 @@ import SwiftUI
 /// Renders the View for a user's profile.
 struct ProfileView: View {
     let profile: SpotifyProfile
-//    @EnvironmentObject var friendActivityViewModel: FriendActivityViewModel
+    @StateObject private var profileViewModel: ProfileViewModel
+    @EnvironmentObject var authorizationViewModel: AuthorizationViewModel
     
     init(profile: SpotifyProfile) {
         self.profile = profile
+        _profileViewModel = StateObject(wrappedValue: ProfileViewModel(user: AuthorizationViewModel().user))
     }
     
     var body: some View {
 //        ScrollView {
             VStack {
                 ProfileDetails(profile: profile)
-//                    .environmentObject(friendActivityViewModel)
+                    .environmentObject(profileViewModel)
                 
                 Spacer()
                 
@@ -24,6 +26,9 @@ struct ProfileView: View {
             .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.PresetColour.darkgrey)
+        .onAppear {
+            profileViewModel.user = authorizationViewModel.user
+        }
     }
 }
 
