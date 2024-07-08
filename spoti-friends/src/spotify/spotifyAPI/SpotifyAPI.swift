@@ -15,7 +15,7 @@ class SpotifyAPI {
     public func fetch<T: Decodable>(endpoint: APIEndpoint, responseType: T.Type, accessToken: String) async throws -> T {
         let request = try createRequestTo(endpoint: endpoint.rawValue, accessToken: accessToken, method: RequestMethod.GET)
         let (data, response) = try await URLSession.shared.data(for: request)
-        if (requestFailed(response as! HTTPURLResponse)) { throw SpotifyAPIError.unsuccessfulRequest }
+        if (requestFailed(response as! HTTPURLResponse)) { try throwSpotifyAPIError(response as! HTTPURLResponse) }
         let decodedResponse = try JSONDecoder().decode(T.self, from: data)
         return decodedResponse
     }
