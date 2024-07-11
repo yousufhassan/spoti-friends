@@ -9,9 +9,8 @@ class ProfileViewModel: ObservableObject {
     
     /// Fetches and returns the follower count for the logged in user.
     @MainActor func getCurrentUsersFollowerCount() async -> Int {
-        let temp = self.user
-        let accessToken = self.user.spotifyWebAccessToken!.access_token
         do {
+            let accessToken = try await self.user.getSpotifyWebAccessToken().access_token
             let response = try await SpotifyAPI.shared.fetch(endpoint: .getCurrentUsersProfile,
                                                               responseType: GetCurrentUserProfileResponse.self,
                                                               accessToken: accessToken)
@@ -19,7 +18,7 @@ class ProfileViewModel: ObservableObject {
         } catch {
             printError("\(error)")
         }
-        return 0
+        return -1
     }
 }
 

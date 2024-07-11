@@ -8,8 +8,8 @@ import SwiftUI
 ///   - profile: The `SpotifyProfile` to display the details for.
 struct ProfileDetails: View {
     let profile: SpotifyProfile
-    @State private var followerCount: Int = 0
-    @State private var playlistCount: Int = 0
+    @State private var followerCount: Int = -1
+    @State private var playlistCount: Int = -1
     @EnvironmentObject var profileViewModel: ProfileViewModel
     
     init(profile: SpotifyProfile) {
