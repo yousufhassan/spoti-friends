@@ -8,4 +8,5 @@ internal enum APIConstants {
 /// The Spotify Web API endpoints the app uses.
 internal enum APIEndpoint: String {
     case getCurrentUsersProfile = "/me"
+    case getCurrentUsersPlaylists = "/me/playlists"
 }

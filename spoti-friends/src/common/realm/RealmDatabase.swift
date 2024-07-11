@@ -14,7 +14,7 @@ class RealmDatabase {
         self.realm = try! Realm()
         
         // For debugging
-         printRealmOnDeviceLocation()
+        // printRealmOnDeviceLocation()
     }
     
     /// Returns the Realm instance.

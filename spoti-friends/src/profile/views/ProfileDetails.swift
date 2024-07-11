@@ -14,7 +14,6 @@ struct ProfileDetails: View {
     
     init(profile: SpotifyProfile) {
         self.profile = profile
-//        self.playlistCount = 0
     }
     
     var body: some View {
@@ -27,12 +26,13 @@ struct ProfileDetails: View {
                 HStack {
                     Text("\(followerCount) followers")
                     Text("•")
-                    Text("21 playlists")
+                    Text("\(playlistCount) playlists")
                 }
                 .foregroundStyle(Color.PresetColour.whiteSecondary)
                 .onAppear {
                     Task {
                         followerCount = await profileViewModel.getCurrentUsersFollowerCount()
+                        playlistCount = await profileViewModel.getCurrentUsersPlaylistCount()
                     }
                 }
             }
