@@ -11,6 +11,7 @@ struct ProfileDetails: View {
     @State private var followerCount: Int = -1
     @State private var playlistCount: Int = -1
     @EnvironmentObject var profileViewModel: ProfileViewModel
+    @EnvironmentObject var friendActivityViewModel: FriendActivityViewModel
     
     init(profile: SpotifyProfile) {
         self.profile = profile
@@ -19,7 +20,8 @@ struct ProfileDetails: View {
     var body: some View {
         HStack(spacing: 12) {
             ProfileImage(imageName: profile.image, width: 80, height: 80)
-            
+                .environmentObject(friendActivityViewModel)
+
             VStack(alignment: .leading, spacing: 8) {
                 Text(profile.displayName)
                     .foregroundStyle(Color.PresetColour.whitePrimary)
@@ -31,6 +33,7 @@ struct ProfileDetails: View {
                 .foregroundStyle(Color.PresetColour.whiteSecondary)
                 .onAppear {
                     Task {
+                        // NOTE: Comment out these lines to fix SwiftUI Previews
                         followerCount = await profileViewModel.getCurrentUsersFollowerCount()
                         playlistCount = await profileViewModel.getCurrentUsersPlaylistCount()
                     }
@@ -44,5 +47,6 @@ struct ProfileDetails: View {
 #Preview {
     let user = UserMock.userJimHalpert
     ProfileDetails(profile: user.spotifyProfile!)
+        .environmentObject(ProfileViewModel(user: user))
         .environmentObject(FriendActivityViewModel(user: user, friendActivites: []))
 }

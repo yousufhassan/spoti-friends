@@ -26,4 +26,5 @@ struct AuthenticatedView: View {
     
     AuthenticatedView()
         .environmentObject(FriendActivityViewModel(user: user, friendActivites: activites))
+        .environmentObject(AuthorizationViewModel())
 }
